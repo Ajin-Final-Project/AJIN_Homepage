@@ -28,22 +28,112 @@
 	  
 	  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">아진산업</a>
+	    <div class="container-fluid px-4">
+	      <img src="images/AJIN_logo_white_background.png" alt="아진산업 로고" class="img-fluid" style="max-width: 200px; height:auto;" />
 	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> 메뉴
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>홈</span></a></li>
-	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>회사소개</span></a></li>
-	          <li class="nav-item"><a href="#services-section" class="nav-link"><span>사업영역</span></a></li>
-	          <li class="nav-item"><a href="#skills-section" class="nav-link"><span>기술력</span></a></li>
-	          <li class="nav-item"><a href="#projects-section" class="nav-link"><span>주요실적</span></a></li>
-	          <li class="nav-item"><a href="#blog-section" class="nav-link"><span>뉴스</span></a></li>
-	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>연락처</span></a></li>
-	        </ul>
+				<li class="nav-item"><a href="#home-section" class="nav-link"><span>홈</span></a></li>
+
+				<!-- 기업정보 -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#about-section" id="aboutMenu" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					기업정보
+					</a>
+					<div class="dropdown-menu" aria-labelledby="aboutMenu">
+						<a class="dropdown-item" href="#about-section">회사 개요</a>
+						<a class="dropdown-item" href="#about-section">CEO 메세지</a>
+						<a class="dropdown-item" href="#about-section">연혁</a>
+						<a class="dropdown-item" href="#about-section">비전/가치</a>
+						<a class="dropdown-item" href="#contact-section">조직구성</a>
+						<a class="dropdown-item" href="#contact-section">오시는 길</a>
+					</div>
+				</li>
+
+				<!-- 사업분야 -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#services-section" id="servicesMenu" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					사업분야
+					</a>
+					<div class="dropdown-menu" aria-labelledby="servicesMenu">
+					<a class="dropdown-item" href="#services-section">차체</a>
+					<a class="dropdown-item" href="#services-section">전장</a>
+					</div>
+				</li>
+
+				<!-- 기술력(연구개발) -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#skills-section" id="skillsMenu" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					기술력
+					</a>
+					<div class="dropdown-menu" aria-labelledby="skillsMenu">
+						<a class="dropdown-item" href="#skills-section">연구소 현황</a>
+						<a class="dropdown-item" href="#skills-section">연구개발 분야</a>
+						<a class="dropdown-item" href="#skills-section">연구설비</a>
+						<a class="dropdown-item" href="#skills-section">연구실적</a>
+					</div>
+				</li>
+
+				<!-- 인재채용 -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#projects-section" id="projectsMenu" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					주요실적
+					</a>
+					<div class="dropdown-menu" aria-labelledby="projectsMenu">
+						<a class="dropdown-item" href="#projects-section">인재상</a>
+						<a class="dropdown-item" href="#projects-section">인사제도</a>
+						<a class="dropdown-item" href="#projects-section">채용정보</a>
+					</div>
+				</li>
+
+				<!-- ESG경영 -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#blog-section" id="newsMenu" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					ESG경영
+					</a>
+					<div class="dropdown-menu" aria-labelledby="newsMenu">
+						<a class="dropdown-item" href="#blog-section">윤리헌장</a>
+						<a class="dropdown-item" href="#blog-section">인권헌장</a>
+						<a class="dropdown-item" href="#blog-section">환경경영정책</a>
+						<a class="dropdown-item" href="#blog-section">보고서</a>
+					</div>
+				</li>
+
+				<!-- 홍보센터 -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#blog-section" id="newsMenu" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					홍보센터
+					</a>
+					<div class="dropdown-menu" aria-labelledby="newsMenu">
+						<a class="dropdown-item" href="#blog-section">뉴스</a>
+						<a class="dropdown-item" href="#blog-section">인증서 및 수상현황</a>
+						<a class="dropdown-item" href="#blog-section">기업문화</a>
+						<a class="dropdown-item" href="#blog-section">C.I</a>
+						<a class="dropdown-item" href="#blog-section">홍보영상</a>
+					</div>
+				</li>
+
+				<!-- 생산관리시스템 -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#contact-section" id="pmsMenu" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					생산관리시스템
+					</a>
+					<div class="dropdown-menu" aria-labelledby="pmsMenu">
+					<a class="dropdown-item" href="#contact-section">대시보드</a>
+					</div>
+				</li>
+				</ul>
+
 	      </div>
 	    </div>
 	  </nav>
@@ -51,16 +141,17 @@
 		  <div class="home-slider  owl-carousel">
 	      <div class="slider-item ">
 	      	<div class="overlay"></div>
-	        <div class="container">
+	        <div class="container-fluid px-0"> <!-- ✅ 풀가로 -->
 	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_1.png);">
-	          		<div class="overlay"></div>
-	          	</div>
+	          	<div class="img hero-img-wrap"> <!-- ✅ one-third 제거 -->
+					<img src="images/자동차배경4.jpg" alt="아진산업 배경" class="hero-img" />
+					<div class="overlay"></div>
+				</div>
 		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
 		          	<div class="text">
-		          		<span class="subheading">정밀기계부품 전문 제조업체</span>
-			            <h1 class="mb-4 mt-3"><span>아진산업</span>입니다</h1>
-			            <h2 class="mb-4">고품질 정밀기계부품 제조의 선도기업</h2>
+		          		<span class="subheading" style="color: black;">정밀기계부품 전문 제조업체</span>
+			            <h1 class="mb-4 mt-3" style="color: black;"><span>아진산업</span>입니다</h1>
+			            <h2 class="mb-4" style="color: black;"><span style="color: red;">101년</span>을 생각하는 자동차 부품 전문기업</h2>
 			            <p><a href="#contact-section" class="btn btn-primary py-3 px-4">문의하기</a> <a href="#about-section" class="btn btn-white btn-outline-white py-3 px-4">회사소개</a></p>
 		            </div>
 		          </div>
@@ -78,8 +169,8 @@
 		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
 		          	<div class="text">
 		          		<span class="subheading">신뢰와 품질의 파트너</span>
-			            <h1 class="mb-4 mt-3"><span>아진산업</span>과 함께하세요</h1>
-			            <h2 class="mb-4">최첨단 기술력으로 고객의 성공을 지원합니다</h2>
+			            <h1 class="mb-4 mt-3"> <span>아진산업</span>과 함께하세요 </h1>
+						<h2 class="mb-4">최첨단 기술력으로 고객의 성공을 지원합니다</h2>
 			            <p><a href="#services-section" class="btn btn-primary py-3 px-4">사업영역</a> <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">주요실적</a></p>
 		            </div>
 		          </div>
