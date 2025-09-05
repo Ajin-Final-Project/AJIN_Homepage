@@ -67,14 +67,14 @@
       .dropdown {
         display: none;
         position: absolute;
-        top: 100%;               /* 간격 제거 */
+        top: 100%;
         right: 0;
         min-width: 220px;
         background: var(--bg-2);
         border: 1px solid var(--muted);
         border-radius: 12px;
         box-shadow: var(--shadow);
-        padding: 10px 8px 8px;   /* 시각적 여백은 padding으로 */
+        padding: 10px 8px 8px;
         z-index: 10;
       }
       .dropdown a {
@@ -85,7 +85,6 @@
       }
       .dropdown a:hover { background: #0f1720; color: var(--brand); }
 
-      /* hover, focus, open 상태에서 표시 */
       .has-sub:hover .dropdown,
       .has-sub:focus-within .dropdown,
       .has-sub.open .dropdown { display: block; }
@@ -134,8 +133,7 @@
       .thumb-img {
         position: absolute; inset: 0;
         width: 100%; height: 100%;
-        object-fit: cover;
-        display: block;
+        object-fit: cover; display: block;
       }
 
       .content { padding: 18px; display:flex; flex-direction: column; gap: 10px; }
@@ -154,16 +152,46 @@
       }
 
       /* ======= Footer ======= */
-      footer { border-top: 1px solid var(--muted); background: linear-gradient(180deg, var(--bg-1), var(--bg-0)); padding: 40px 0; }
-      footer .cols { display:grid; gap: 16px; grid-template-columns: 1fr 1fr; }
-      footer .small { color: var(--text-1); font-size: 14px; }
+      footer {
+        border-top: 1px solid var(--muted);
+        background: linear-gradient(180deg, var(--bg-1), var(--bg-0));
+        padding: 40px 0;
+      }
+      footer .cols {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: auto 1fr auto; /* logo | center text | family site */
+        align-items: center;
+      }
       footer .brand img { height: 80px; width: auto; }
-      @media (max-width: 720px){ footer .cols { grid-template-columns: 1fr; } }
+      .footer-center { text-align: center; }
+      footer .small { color: var(--text-1); font-size: 14px; }
+
+      .familysite { margin-top: 0; justify-self: end; max-width: 280px; }
+      .familysite select {
+        width: 100%;
+        height: 40px;
+        background: #0e1620;
+        border: 1px solid #1f2a37;
+        border-radius: 10px;
+        color: var(--text-0);
+        padding: 0 12px;
+      }
+      .familysite label {
+        position: absolute; width:1px; height:1px; overflow:hidden;
+        clip: rect(1px,1px,1px,1px); white-space: nowrap;
+      }
+
+      @media (max-width: 720px){
+        footer .cols { grid-template-columns: 1fr; justify-items: center; }
+        .familysite { justify-self: center; width: 100%; max-width: 320px; }
+        .footer-center { text-align: center; }
+      }
     </style>
   </head>
 
   <body>
-    <!-- ======= NAVBAR (드롭다운) ======= -->
+    <!-- ======= NAVBAR ======= -->
     <header class="navbar">
       <div class="container nav-inner">
         <a class="brand" href="index.html" aria-label="홈으로 이동">
@@ -247,14 +275,7 @@
       </div>
 
       <!-- Mobile menu -->
-      <div class="container mobile-menu" id="mobileMenu" aria-hidden="true">
-        <!-- <a href="about.html">About</a>
-        <a href="products.html">Products</a>
-        <a href="jobs.html">Recruiting</a>
-        <a class="active" href="#">News</a>
-        <a href="contact.html">Contact</a>
-        <a href="login.html">Login</a> -->
-      </div>
+      <div class="container mobile-menu" id="mobileMenu" aria-hidden="true"></div>
     </header>
 
     <!-- ======= HERO ======= -->
@@ -386,14 +407,33 @@
     <!-- ======= FOOTER ======= -->
     <footer>
       <div class="container">
-        <div class="cols" style="align-items:center;">
+        <div class="cols">
+          <!-- Left: Logo -->
           <a class="brand" href="index.html">
             <img src="images/AJIN_logo_black_background.png" alt="AJIN" />
           </a>
-          <div class="small">
-            경북경산시 진량읍 신제리 531번지(공단 8로 26길 40) TEL.053-856-9100 · Fax 053-856-9111 
-            <br />
-            Copyright © Joon, LLC dba Ajin. All rights reserved.
+
+          <!-- Center: Address / Phone -->
+          <div class="footer-center">
+            <div class="small">
+              경북경산시 진량읍 신제리 531번지(공단 8로 26길 40) TEL.053-856-9100 · Fax 053-856-9111
+              <br />
+              Copyright © AJIN INDUSTRIAL CO.LTD ALL Rights Reserved.
+            </div>
+          </div>
+
+          <!-- Right: Family Site -->
+          <div class="familysite">
+            <label for="familySite">Family Site</label>
+            <select id="familySite" name="sitelist" aria-label="Family Site">
+              <option value="" disabled selected hidden>Family Site</option>
+              <option value="#" disabled>------------</option>
+              <option value="https://www.wamc.co.kr">Ajin Industrial</option>
+              <option value="https://www.wamc.co.kr/wooshin/index.asp">Wooshin Industrial</option>
+              <option value="http://www.dwecc.com">DAEWOO</option>
+              <option value="https://wooshinusa.com">Wooshin USA</option>
+              <option value="https://ajingeorgia.com">AJIN GEORGIA</option>
+            </select>
           </div>
         </div>
       </div>
@@ -409,15 +449,14 @@
         mobile.setAttribute('aria-hidden', String(!open));
       });
 
-      // Keep dropdown open on click (and navigate on second click)
+      // Keep dropdown open on first click (navigate on second click)
       document.querySelectorAll('.nav-menu .has-sub > a').forEach(link => {
         link.addEventListener('click', (e) => {
           const li = link.parentElement;
           const isOpen = li.classList.contains('open');
 
           if (!isOpen) {
-            // 1st click: open dropdown, don't navigate
-            e.preventDefault();
+            e.preventDefault(); // 1st click: open menu
             li.classList.add('open');
             link.setAttribute('aria-expanded', 'true');
 
@@ -435,7 +474,7 @@
         });
       });
 
-      // Click outside to close any open dropdowns
+      // Click outside to close open dropdowns
       document.addEventListener('click', (e) => {
         if (!e.target.closest('.nav-menu')) {
           document.querySelectorAll('.nav-menu .has-sub.open').forEach(li => {
@@ -471,6 +510,41 @@
         img.addEventListener('error', () => {
           console.warn('[thumb-img] failed:', img.src);
         });
+      });
+
+      // Family Site — open in new tab, keep current page
+      let fsBusy = false;
+      const fs = document.getElementById('familySite');
+
+      function openInNewTab(url) {
+        // Try with a real anchor (best for Safari/iOS)
+        const a = document.createElement('a');
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+
+        // Fallback for strict popup blockers
+        const win = window.open('', '_blank');
+        if (win && win.location === 'about:blank') {
+          win.location = url;
+          try { win.opener = null; } catch (_) {}
+        }
+      }
+
+      fs?.addEventListener('change', (e) => {
+        if (fsBusy) return;
+        const url = (e.target.value || '').trim();
+        if (!url || url === '#') return;
+
+        fsBusy = true;
+        openInNewTab(url);
+
+        // Reset select back to placeholder and release guard shortly after
+        setTimeout(() => { e.target.selectedIndex = 0; fsBusy = false; }, 300);
       });
     </script>
   </body>
