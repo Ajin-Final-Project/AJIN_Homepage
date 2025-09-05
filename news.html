@@ -53,14 +53,49 @@
       .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
       .brand img { height: 80px; width: auto; }
       .nav-menu { display: flex; align-items: center; gap: 22px; }
-      .nav-menu a { color: var(--text-1); font-weight: 500; }
+      .nav-menu > li { list-style: none; position: relative; }
+      .nav-menu a { color: var(--text-1); font-weight: 500; padding: 10px 0; display: inline-block; }
       .nav-menu a.active, .nav-menu a:hover { color: var(--brand); }
+
+      /* Dropdown (desktop) */
+      .has-sub > a::after {
+        content: "▾";
+        font-size: 10px;
+        margin-left: 6px;
+        opacity: .7;
+      }
+      .dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;               /* 간격 제거 */
+        right: 0;
+        min-width: 220px;
+        background: var(--bg-2);
+        border: 1px solid var(--muted);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        padding: 10px 8px 8px;   /* 시각적 여백은 padding으로 */
+        z-index: 10;
+      }
+      .dropdown a {
+        display: block;
+        padding: 10px 12px;
+        border-radius: 8px;
+        color: var(--text-1);
+      }
+      .dropdown a:hover { background: #0f1720; color: var(--brand); }
+
+      /* hover, focus, open 상태에서 표시 */
+      .has-sub:hover .dropdown,
+      .has-sub:focus-within .dropdown,
+      .has-sub.open .dropdown { display: block; }
+
       .burger { display:none; width: 44px; height: 44px; border:1px solid #1f2a37; background: #0e1620; color:#9fb2c7; border-radius: 10px; }
 
       @media (max-width: 960px){
         .nav-menu { display: none; }
         .burger { display: inline-grid; place-items:center; }
-        .mobile-menu { display: none; }
+        .mobile-menu { display: none; padding-bottom: 10px; }
         .mobile-menu.open { display: block; }
         .mobile-menu a { display:block; padding: 12px 0; border-bottom: 1px solid #1c2836; color: var(--text-1); }
         .mobile-menu a.active, .mobile-menu a:hover { color: var(--brand); }
@@ -128,29 +163,97 @@
   </head>
 
   <body>
-    <!-- ======= NAVBAR ======= -->
+    <!-- ======= NAVBAR (드롭다운) ======= -->
     <header class="navbar">
       <div class="container nav-inner">
-        <a class="brand" href="index.html">
+        <a class="brand" href="index.html" aria-label="홈으로 이동">
           <img src="images/AJIN_logo_black_background.png" alt="AJIN" />
         </a>
-        <nav class="nav-menu" aria-label="Primary">
-          <a href="about.html">About</a>
-          <a href="products.html">Products</a>
-          <a href="jobs.html">Recruiting</a>
-          <a class="active" href="#">News</a>
-          <a href="contact.html">Contact</a>
-          <a href="login.html">Login</a>
-        </nav>
+
+        <ul class="nav-menu" aria-label="Primary">
+          <li><a href="index.html">홈</a></li>
+
+          <li class="has-sub">
+            <a href="index.html#about-section" aria-expanded="false">기업정보</a>
+            <div class="dropdown" role="menu" aria-label="기업정보 하위메뉴">
+              <a href="index.html#about-section">회사 개요</a>
+              <a href="index.html#about-section">CEO 메세지</a>
+              <a href="index.html#about-section">연혁</a>
+              <a href="index.html#about-section">비전/가치</a>
+              <a href="index.html#contact-section">조직구성</a>
+              <a href="index.html#contact-section">오시는 길</a>
+            </div>
+          </li>
+
+          <li class="has-sub">
+            <a href="index.html#services-section" aria-expanded="false">사업분야</a>
+            <div class="dropdown" role="menu" aria-label="사업분야 하위메뉴">
+              <a href="index.html#services-section">차체</a>
+              <a href="index.html#services-section">전장</a>
+            </div>
+          </li>
+
+          <li class="has-sub">
+            <a href="index.html#skills-section" aria-expanded="false">기술력</a>
+            <div class="dropdown" role="menu" aria-label="기술력 하위메뉴">
+              <a href="index.html#skills-section">연구소 현황</a>
+              <a href="index.html#skills-section">연구개발 분야</a>
+              <a href="index.html#skills-section">연구설비</a>
+              <a href="index.html#skills-section">연구실적</a>
+            </div>
+          </li>
+
+          <li class="has-sub">
+            <a href="index.html#projects-section" aria-expanded="false">주요실적</a>
+            <div class="dropdown" role="menu" aria-label="주요실적 하위메뉴">
+              <a href="index.html#projects-section">인재상</a>
+              <a href="index.html#projects-section">인사제도</a>
+              <a href="index.html#projects-section">채용정보</a>
+            </div>
+          </li>
+
+          <li class="has-sub">
+            <a href="index.html#blog-section" aria-expanded="false">ESG경영</a>
+            <div class="dropdown" role="menu" aria-label="ESG 하위메뉴">
+              <a href="index.html#blog-section">윤리헌장</a>
+              <a href="index.html#blog-section">인권헌장</a>
+              <a href="index.html#blog-section">환경경영정책</a>
+              <a href="index.html#blog-section">보고서</a>
+            </div>
+          </li>
+
+          <li class="has-sub">
+            <a href="index.html#blog-section" aria-expanded="false">홍보센터</a>
+            <div class="dropdown" role="menu" aria-label="홍보센터 하위메뉴">
+              <a href="news.html" class="active">뉴스</a>
+              <a href="index.html#blog-section">인증서 및 수상현황</a>
+              <a href="index.html#blog-section">기업문화</a>
+              <a href="index.html#blog-section">C.I</a>
+              <a href="index.html#blog-section">홍보영상</a>
+            </div>
+          </li>
+
+          <li class="has-sub">
+            <a href="index.html#contact-section" aria-expanded="false">생산관리시스템</a>
+            <div class="dropdown" role="menu" aria-label="생산관리시스템 하위메뉴">
+              <a href="index.html#contact-section">대시보드</a>
+            </div>
+          </li>
+
+          <li><a class="active" href="news.html">뉴스</a></li>
+        </ul>
+
         <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
       </div>
+
+      <!-- Mobile menu -->
       <div class="container mobile-menu" id="mobileMenu" aria-hidden="true">
-        <a href="about.html">About</a>
+        <!-- <a href="about.html">About</a>
         <a href="products.html">Products</a>
         <a href="jobs.html">Recruiting</a>
         <a class="active" href="#">News</a>
         <a href="contact.html">Contact</a>
-        <a href="login.html">Login</a>
+        <a href="login.html">Login</a> -->
       </div>
     </header>
 
@@ -163,7 +266,7 @@
         <!-- Controls -->
         <div class="controls">
           <div class="row">
-            <input id="q" class="control" placeholder="Search keyword (e.g., donation, veterans, Georgia)" />
+            <input id="q" class="control" placeholder="Search keyword " />
             <select id="year" class="control">
               <option value="">All years</option>
               <option>2025</option>
@@ -180,12 +283,11 @@
     <main class="news-list">
       <div class="container">
         <div class="list" id="newsList">
-          <!-- Item 1 (이미지 그대로, 링크/텍스트만 네이버 테크 기사와 연관되게) -->
+          <!-- Item 1 -->
           <article class="card" data-year="2025" data-tags="korea, naver, tech">
             <a href="https://n.news.naver.com/mnews/article/030/0003290403?sid=105" target="_blank" rel="noopener" aria-label="네이버 테크 뉴스 보기">
               <div class="thumb-wrap">
                 <div class="thumb-ratio"></div>
-                <!-- 이미지 경로는 그대로 유지 -->
                 <img class="thumb-img" src="images/news4.jpg" alt="Naver Tech News" loading="lazy" />
               </div>
             </a>
@@ -289,7 +391,7 @@
             <img src="images/AJIN_logo_black_background.png" alt="AJIN" />
           </a>
           <div class="small">
-            1500 County Rd 177 Cusseta, AL 36852 · dwilkerson@wamc.co.kr · Tel 334-756-8601 · Fax 334-756-2915 (Admin) / 2916 (Production)
+            경북경산시 진량읍 신제리 531번지(공단 8로 26길 40) TEL.053-856-9100 · Fax 053-856-9111 
             <br />
             Copyright © Joon, LLC dba Ajin. All rights reserved.
           </div>
@@ -305,6 +407,42 @@
         const open = mobile.classList.toggle('open');
         burger.setAttribute('aria-expanded', String(open));
         mobile.setAttribute('aria-hidden', String(!open));
+      });
+
+      // Keep dropdown open on click (and navigate on second click)
+      document.querySelectorAll('.nav-menu .has-sub > a').forEach(link => {
+        link.addEventListener('click', (e) => {
+          const li = link.parentElement;
+          const isOpen = li.classList.contains('open');
+
+          if (!isOpen) {
+            // 1st click: open dropdown, don't navigate
+            e.preventDefault();
+            li.classList.add('open');
+            link.setAttribute('aria-expanded', 'true');
+
+            // close siblings
+            li.parentElement.querySelectorAll('.has-sub.open').forEach(sib => {
+              if (sib !== li) {
+                sib.classList.remove('open');
+                sib.querySelector('a')?.setAttribute('aria-expanded', 'false');
+              }
+            });
+          } else {
+            // 2nd click: allow navigation
+            link.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+
+      // Click outside to close any open dropdowns
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-menu')) {
+          document.querySelectorAll('.nav-menu .has-sub.open').forEach(li => {
+            li.classList.remove('open');
+            li.querySelector('a')?.setAttribute('aria-expanded', 'false');
+          });
+        }
       });
 
       // Simple filter (search + year)
@@ -328,7 +466,7 @@
       year?.addEventListener('change', applyFilters);
       reset?.addEventListener('click', () => { q.value=''; year.value=''; applyFilters(); });
 
-      // 로컬 이미지 로드 실패 로깅 (파일명/경로 오류 잡기)
+      // Local image error logging
       document.querySelectorAll('.thumb-img').forEach(img => {
         img.addEventListener('error', () => {
           console.warn('[thumb-img] failed:', img.src);
