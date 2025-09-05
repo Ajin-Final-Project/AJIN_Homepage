@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AJIN — News</title>
+
+    <!-- Icons -->
+    <link rel="icon" href="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-150x150.png" sizes="32x32" />
+    <link rel="icon" href="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-300x300.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-300x300.png" />
+    <meta name="msapplication-TileImage" content="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-300x300.png" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <style>
+      /* ======= Theme Tokens ======= */
+      :root {
+        --bg-0: #0b0f14;
+        --bg-1: #0f1720;
+        --bg-2: #121a23;
+        --bg-3: #0d141c;
+        --text-0: #e6edf3;
+        --text-1: #b6c2cf;
+        --brand: #6aa9ff;
+        --muted: #233041;
+        --radius: 16px;
+        --shadow: 0 12px 30px rgba(0,0,0,.45);
+        --maxw: 1200px;
+      }
+
+      /* ======= Base ======= */
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: Roboto, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+        color: var(--text-0);
+        background: var(--bg-0);
+      }
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; height: auto; display: block; }
+      .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+      /* ======= Header / Nav ======= */
+      .navbar {
+        position: sticky; top: 0; z-index: 50;
+        background: linear-gradient(180deg, var(--bg-3), rgba(13,20,28,.6) 60%, rgba(13,20,28,0) 100%);
+        border-bottom: 1px solid rgba(255,255,255,.04);
+        backdrop-filter: saturate(120%) blur(6px);
+      }
+      .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+      .brand img { height: 80px; width: auto; }
+      .nav-menu { display: flex; align-items: center; gap: 22px; }
+      .nav-menu a { color: var(--text-1); font-weight: 500; }
+      .nav-menu a.active, .nav-menu a:hover { color: var(--brand); }
+      .burger { display:none; width: 44px; height: 44px; border:1px solid #1f2a37; background: #0e1620; color:#9fb2c7; border-radius: 10px; }
+
+      @media (max-width: 960px){
+        .nav-menu { display: none; }
+        .burger { display: inline-grid; place-items:center; }
+        .mobile-menu { display: none; }
+        .mobile-menu.open { display: block; }
+        .mobile-menu a { display:block; padding: 12px 0; border-bottom: 1px solid #1c2836; color: var(--text-1); }
+        .mobile-menu a.active, .mobile-menu a:hover { color: var(--brand); }
+      }
+
+      /* ======= Hero ======= */
+      .hero {
+        padding: 64px 0 24px;
+        background: radial-gradient(1200px 500px at 50% -10%, rgba(107,114,128,.2), transparent 60%),
+                    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
+        text-align: center;
+      }
+      .hero h1 { margin: 0 0 10px; font-size: 90px; letter-spacing: .2px; }
+      .hero p { margin: 0; color: var(--text-1); }
+
+      /* ======= Controls ======= */
+      .controls { padding: 24px 0 0; }
+      .controls .row { display:flex; gap: 12px; flex-wrap: wrap; }
+      .control, .btn { height: 46px; border-radius: 12px; border: 1px solid #1f2a37; background: #0e1620; color: var(--text-0); padding: 0 12px; }
+      .btn { color: var(--brand); cursor: pointer; }
+      .btn:hover { background: var(--brand); color: #0b1320; border-color: var(--brand); }
+      .spacer { height: 8px; }
+
+      /* ======= News List ======= */
+      .news-list { padding: 24px 0 64px; }
+      .card {
+        display: grid; grid-template-columns: 34% 1fr; gap: 18px;
+        background: var(--bg-2); border: 1px solid var(--muted);
+        border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+        transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+      }
+      .card:hover { transform: translateY(-3px); border-color: rgba(106,169,255,.5); box-shadow: 0 16px 40px rgba(0,0,0,.55); }
+
+      .thumb-wrap { position: relative; width: 100%; }
+      .thumb-ratio { width: 100%; aspect-ratio: 16 / 9; background: #0f1720; }
+      .thumb-img {
+        position: absolute; inset: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .content { padding: 18px; display:flex; flex-direction: column; gap: 10px; }
+      .kicker { text-transform: uppercase; letter-spacing: .18em; font-size: 12px; color: #8da2b5; }
+      .title { font-size: 22px; line-height: 1.25; margin: 0; }
+      .title a { color: var(--text-0); }
+      .title a:hover { color: var(--brand); }
+      .excerpt { color: var(--text-1); line-height: 1.55; }
+      .meta { display:flex; align-items:center; gap: 12px; color: var(--text-1); font-size: 14px; }
+      .date-chip { display:inline-block; padding:.25rem .6rem; background:#16212c; border:1px solid #233042; border-radius:999px; }
+
+      .list { display: grid; gap: 16px; }
+
+      @media (max-width: 960px){
+        .card { grid-template-columns: 1fr; }
+      }
+
+      /* ======= Footer ======= */
+      footer { border-top: 1px solid var(--muted); background: linear-gradient(180deg, var(--bg-1), var(--bg-0)); padding: 40px 0; }
+      footer .cols { display:grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+      footer .small { color: var(--text-1); font-size: 14px; }
+      footer .brand img { height: 80px; width: auto; }
+      @media (max-width: 720px){ footer .cols { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+
+  <body>
+    <!-- ======= NAVBAR ======= -->
+    <header class="navbar">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html">
+          <img src="images/AJIN_logo_black_background.png" alt="AJIN" />
+        </a>
+        <nav class="nav-menu" aria-label="Primary">
+          <a href="about.html">About</a>
+          <a href="products.html">Products</a>
+          <a href="jobs.html">Recruiting</a>
+          <a class="active" href="#">News</a>
+          <a href="contact.html">Contact</a>
+          <a href="login.html">Login</a>
+        </nav>
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+      <div class="container mobile-menu" id="mobileMenu" aria-hidden="true">
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="jobs.html">Recruiting</a>
+        <a class="active" href="#">News</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+      </div>
+    </header>
+
+    <!-- ======= HERO ======= -->
+    <section class="hero">
+      <div class="container">
+        <h1>AJIN News</h1>
+        <p>Explore Our Latest News and Press Releases for Company Updates</p>
+
+        <!-- Controls -->
+        <div class="controls">
+          <div class="row">
+            <input id="q" class="control" placeholder="Search keyword (e.g., donation, veterans, Georgia)" />
+            <select id="year" class="control">
+              <option value="">All years</option>
+              <option>2025</option>
+              <option>2024</option>
+              <option>2023</option>
+            </select>
+            <button id="reset" class="btn">Reset</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= NEWS LIST ======= -->
+    <main class="news-list">
+      <div class="container">
+        <div class="list" id="newsList">
+          <!-- Item 1 (이미지 그대로, 링크/텍스트만 네이버 테크 기사와 연관되게) -->
+          <article class="card" data-year="2025" data-tags="korea, naver, tech">
+            <a href="https://n.news.naver.com/mnews/article/030/0003290403?sid=105" target="_blank" rel="noopener" aria-label="네이버 테크 뉴스 보기">
+              <div class="thumb-wrap">
+                <div class="thumb-ratio"></div>
+                <!-- 이미지 경로는 그대로 유지 -->
+                <img class="thumb-img" src="images/news4.jpg" alt="Naver Tech News" loading="lazy" />
+              </div>
+            </a>
+            <div class="content">
+              <div class="kicker">News</div>
+              <h2 class="title">
+                <a href="https://n.news.naver.com/mnews/article/030/0003290403?sid=105" target="_blank" rel="noopener">
+                  경북대, 아진산업과 AI·빅데이터 인재양성 맞손
+                </a>
+              </h2>
+              <p class="excerpt">경북대학교(총장 허영우)가 아진산업(대표 서중호)과 손잡고 인공지능(AI)·빅데이터분야 인재양성에 나선다...</p>
+              <div class="meta">
+                <span class="date-chip">Sep 5, 2025</span>
+                <span>• Source: Naver </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 2 -->
+          <article class="card" data-year="2024" data-tags="donation, luncheon, community">
+            <a href="https://n.news.naver.com/mnews/article/052/0000895325?sid=102" target="_blank" rel="noopener" aria-label="Ajin, Wooshin USA hosts luncheon, donates $160K to community">
+              <div class="thumb-wrap">
+                <div class="thumb-ratio"></div>
+                <img class="thumb-img" src="images/news5.webp" alt="Community donation luncheon" loading="lazy" />
+              </div>
+            </a>
+            <div class="content">
+              <div class="kicker">News</div>
+              <h2 class="title">
+                <a href="https://n.news.naver.com/mnews/article/052/0000895325?sid=102" target="_blank" rel="noopener">
+                  아진산업 서중호 대표, "사람에 대한 투자가 곧 회사 경쟁력"
+                </a>
+              </h2>
+              <p class="excerpt">역동적이고 끊임없이 발전하는 아진산업의 중심에는 서중호 대표가 있다. 서 대표는 'To be the best in the world(세계 최고가 되는 것)!'를 목표로 아진산업의 혁신과 진보를 위해 지난 40여 년간 열정적으로 달려왔다.
+
+"저는 직원들을 고래라고 생각하고 고등어를 던집니다."</p>
+              <div class="meta"><span class="date-chip">Sep 5, 2025</span><span>• Source: Naver</span></div>
+            </div>
+          </article>
+
+          <!-- Item 3 -->
+          <article class="card" data-year="2024" data-tags="veterans, event">
+            <a href="https://n.news.naver.com/mnews/article/003/0013312273?sid=102" target="_blank" rel="noopener" aria-label="2024 Ajin/Wooshin USA Veterans Event">
+              <div class="thumb-wrap">
+                <div class="thumb-ratio"></div>
+                <img class="thumb-img" src="images/news1.jpg" alt="Veterans event" loading="lazy" />
+              </div>
+            </a>
+            <div class="content">
+              <div class="kicker">News</div>
+              <h2 class="title">
+                <a href="https://n.news.naver.com/mnews/article/003/0013312273?sid=102" target="_blank" rel="noopener">
+                  아진산업, 경산시에 '사랑의 쌀' 기탁…저소득층 지원
+                </a>
+              </h2>
+              <p class="excerpt">경북 경산시는 진량읍 소재 아진산업이 저소득 취약계층을 위해 사랑의 쌀 150포(포당 20㎏)를 기탁했다고 19일 밝혔다.
+
+시는 기초생활수급자, 독거노인, 차상위 계층 등에 기탁된 쌀을 전달할 예정이다.
+
+서중호 아진산업 대표이사는 “모두 힘든 시기이지만, 더 어려운 이웃들을 위해 정성을 모았으며, 앞으로도 지역사회와 함께 따뜻한 나눔을 지속하겠다”고 했다.</p>
+              <div class="meta"><span class="date-chip">Sep 5, 2025</span><span>• Source: Naver</span></div>
+            </div>
+          </article>
+
+          <!-- Item 4 -->
+          <article class="card" data-year="2023" data-tags="georgia, community, donation">
+            <a href="https://www.etoday.co.kr/news/view/2499452" target="_blank" rel="noopener" aria-label="Ajin gives $40K to community, school and public safety agencies">
+              <div class="thumb-wrap">
+                <div class="thumb-ratio"></div>
+                <img class="thumb-img" src="images/news3.png" alt="Community support" loading="lazy" />
+              </div>
+            </a>
+            <div class="content">
+              <div class="kicker">News</div>
+              <h2 class="title">
+                <a href="https://www.etoday.co.kr/news/view/2499452" target="_blank" rel="noopener">
+                  상반기 영업익 급증한 코스닥 상장사 주목…주가 향방은?
+                </a>
+              </h2>
+              <p class="excerpt">이달 점진적인 상승 흐름을 보이던 아진산업은 깜짝 실적을 발표하면서 주가가 급등했다. 올해 상반기 매출액은 4985억 원, 영업이익은 546억 원을 기록했다. 김귀연 대신증권 연구원은 “2분기 차별화된 외형 성장과 수익성이 돋보였다”며 “아진산업 실적은 미국이 견인 중인 것으로 추정된다”고 분석했다.</p>
+              <div class="meta"><span class="date-chip">Aug 24, 2025</span><span>• 이투데이</span></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Pagination -->
+        <div class="spacer"></div>
+        <div id="pager" class="container" style="text-align:center;">
+          <button class="btn" id="prev">Prev</button>
+          <span class="date-chip" id="pageIndicator" style="margin:0 8px;">Page 1</span>
+          <button class="btn" id="next">Next</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- ======= FOOTER ======= -->
+    <footer>
+      <div class="container">
+        <div class="cols" style="align-items:center;">
+          <a class="brand" href="index.html">
+            <img src="images/AJIN_logo_black_background.png" alt="AJIN" />
+          </a>
+          <div class="small">
+            1500 County Rd 177 Cusseta, AL 36852 · dwilkerson@wamc.co.kr · Tel 334-756-8601 · Fax 334-756-2915 (Admin) / 2916 (Production)
+            <br />
+            Copyright © Joon, LLC dba Ajin. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const burger = document.getElementById('burger');
+      const mobile = document.getElementById('mobileMenu');
+      burger?.addEventListener('click', () => {
+        const open = mobile.classList.toggle('open');
+        burger.setAttribute('aria-expanded', String(open));
+        mobile.setAttribute('aria-hidden', String(!open));
+      });
+
+      // Simple filter (search + year)
+      const q = document.getElementById('q');
+      const year = document.getElementById('year');
+      const reset = document.getElementById('reset');
+      const list = document.getElementById('newsList');
+
+      function applyFilters() {
+        const kw = (q.value || '').toLowerCase().trim();
+        const yr = year.value;
+        list.querySelectorAll('article.card').forEach(card => {
+          const text = card.innerText.toLowerCase();
+          const cy = card.getAttribute('data-year');
+          const okKw = !kw || text.includes(kw);
+          const okYr = !yr || cy === yr;
+          card.style.display = okKw && okYr ? '' : 'none';
+        });
+      }
+      q?.addEventListener('input', applyFilters);
+      year?.addEventListener('change', applyFilters);
+      reset?.addEventListener('click', () => { q.value=''; year.value=''; applyFilters(); });
+
+      // 로컬 이미지 로드 실패 로깅 (파일명/경로 오류 잡기)
+      document.querySelectorAll('.thumb-img').forEach(img => {
+        img.addEventListener('error', () => {
+          console.warn('[thumb-img] failed:', img.src);
+        });
+      });
+    </script>
+  </body>
+</html>
