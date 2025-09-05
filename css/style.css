@@ -8525,7 +8525,8 @@ h1, h2, h3, h4, h5,
           position: relative;
           z-index: 1; }
         .owl-carousel.home-slider .slider-item .slider-text h1 {
-          font-size: 60px;
+          /* font-size: 60px; */
+          font-size: 42px;
           color: #fff;
           line-height: 1.2;
           font-weight: 800; }
@@ -8540,7 +8541,8 @@ h1, h2, h3, h4, h5,
             .owl-carousel.home-slider .slider-item .slider-text h1 {
               font-size: 40px; } }
         .owl-carousel.home-slider .slider-item .slider-text h2 {
-          font-size: 30px;
+          /* font-size: 30px; */
+          font-size: 18px;
           font-weight: 400; }
           @media (max-width: 991.98px) {
             .owl-carousel.home-slider .slider-item .slider-text h2 {
@@ -9650,6 +9652,45 @@ textarea.form-control {
   -webkit-animation: loader-dash 1.5s ease-in-out infinite;
   animation: loader-dash 1.5s ease-in-out infinite;
   stroke-linecap: round; }
+
+  /* 홈 히어로 이미지: 배경 전체 보이게 */
+#home-section .slider-item .img {
+  background-size: contain !important;   /* 이미지 전체 보이게 */
+  background-position: center right !important;  /* 오른쪽 정렬 (원하면 center) */
+  background-repeat: no-repeat !important;
+  min-height: 100vh;                      /* 화면 꽉 차게 높이 */
+}
+
+/* 이미지 영역을 좀 더 넓히고 싶으면(옵션) */
+#home-section .slider-item .one-third.img {
+  flex: 0 0 60% !important;   /* 33% → 50% */
+  max-width: 60% !important;
+}
+
+
+/* #home-section .slider-item .img {
+  background-size: cover !important;   /* 꽉 차게 */
+  background-position: center right !important; 
+  background-repeat: no-repeat !important;
+  min-height: 100vh;
+} */
+
+
+/* 홈 히어로 섹션 전체 배경을 이미지로
+#home-section .slider-item {
+  background-image: url('images/—Pngtree—3d illustration of an extended_8832866.jpg');   /* 넣고 싶은 이미지 */
+  /* background-size: cover;       /* 화면 꽉 차게 */
+  background-position: center;  /* 중앙 정렬 */
+  background-repeat: no-repeat;
+  height: 100vh;                /* 화면 높이 전체 */
+} */
+
+/* 기존 .img 부분은 숨겨도 됨 */
+/* #home-section .slider-item .img {
+  display: none;
+}  */
+
+
 
 @-webkit-keyframes loader-rotate {
   100% {
