@@ -9724,4 +9724,155 @@ textarea.form-control {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
 
+
+
+/* 작은 보조 타이틀
+.eyebrow{
+  letter-spacing:.08em;
+  font-weight:700;
+  color:#8a8a8a;
+  text-transform:uppercase;
+}
+
+/* 오른쪽 사진 (원본 그대로 사각형) */
+/* .about-photo{
+  width: 100%;
+  max-width: 520px;   /* 필요시 크기 조정 */
+  height: auto;       /* 비율 유지 */
+  object-fit: cover;  /* 비율 유지하며 잘리지 않게 */
+  border-radius: 0;   /* 원형 제거 → 사각형 */
+  background: none;
+  padding: 0;
+} */
+
+/* 배경이 검정이면 글씨 밝게 */
+/* #about-section{
+  color: #e9ecef;
+}
+#about-section .lead{ color:#f8f9fa; }
+#about-section .text-primary-emphasis{ color:#ffd166 !important; } */ */
     
+
+
+/* 상단 블록을 살짝 위로 올려서 강조
+.about-hero { margin-top: -10px; }
+@media (max-width: 991.98px){ .about-hero{ margin-top: 0; } } */
+
+/* 작은 보조 타이틀 */
+.eyebrow{
+  letter-spacing:.08em;
+  font-weight:700;
+  color:#888;
+  text-transform:uppercase;
+}
+
+/* 강조 문단 색상 */
+.text-muted-emph{ color:#9aa0a6; }
+
+/* 회사 정보 리스트 */
+.about-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:.4rem;
+}
+.about-list li{
+  display:flex;
+  gap:12px;
+}
+.about-list li span{
+  min-width:120px;
+  color:#9aa0a6;
+  font-weight:600;
+  display:inline-block;
+}
+
+/* 사진 원본 사각형 */
+.about-photo{
+  width:100%;
+  max-width:520px; /* 필요시 조정 */
+  height:auto;
+  display:block;
+}
+
+/* 하단 두 단 영역 */
+.about-detail h5{ color:#ffcd56; } /* 포인트 색상, 원하면 변경 가능 */
+
+
+
+
+/* <style> */
+/* --- About (회사소개) --- */
+/* .about-hero{
+  position: relative;
+  margin-top: 48px;
+}
+.about-hero .heading-wrap{
+  position: relative;
+  z-index: 2;
+}
+.about-hero .watermark{
+  position:absolute; left:-10px; top:-10px;
+  font-weight:800; font-size:11rem; line-height:1; 
+  color:#fff; opacity:.06; user-select:none; pointer-events:none;
+}
+@media (max-width: 992px){
+  .about-hero .watermark{ font-size:6rem; left:0; top:-6px; }
+}
+.about-title{
+  font-weight:800; font-size:3rem; color:#fff; margin-bottom:14px;
+}
+.about-lead{
+  font-size:1.05rem; color:#cfcfcf; margin-bottom:28px;
+}
+.about-photo{ max-width:100%; height:auto; border-radius:10px; }
+.about-detail p{ color:#bdbdbd; line-height:1.85; }
+.about-detail{ margin-top:26px; } */
+/* </style> */
+
+
+/* <!-- style.css 아래쪽에 추가 --> */
+<style>
+  /* ===== About(회사소개) Hero 타이포 ===== */
+  #about-section .heading-section .big{
+    /* 워터마크 글자 더 작고 연하게 */
+    font-size: 9rem;          /* 필요하면 8~10rem 사이로 조절 */
+    opacity: .05;             /* 훨씬 연하게 */
+    line-height: 1;
+  }
+  #about-section .heading-section h2.mb-4{
+    /* 메인 제목: 크기↓ 굵기↓ 색상 연하게 */
+    font-size: 2.25rem;       /* ≈ 36px */
+    font-weight: 700;         /* 기존 800~900 느낌에서 한 단계 가볍게 */
+    color: rgba(255,255,255,.92);
+    margin-bottom: .75rem;
+  }
+  #about-section .lead{
+    /* 상단 개요문 더 연하게 */
+    color: rgba(255,255,255,.72);
+    font-weight: 500;
+    line-height: 1.9;
+    margin-bottom: 1.25rem;
+  }
+  #about-section .about-detail p{
+    /* 하단 두단 본문도 살짝 연하게 */
+    color: rgba(255,255,255,.78);
+    line-height: 1.9;
+  }
+
+  /* ===== 사진: 정사각 테두리/그림자 X ===== */
+  #about-section .about-photo{
+    border-radius: 0 !important;   /* 모서리 둥글기 제거 */
+    box-shadow: none !important;   /* 그림자 제거(bootstrap shadow-sm 무시) */
+    width: 100%;
+    height: auto;                  /* 원본 비율 유지 */
+    object-fit: cover;             /* 컨테이너 넘칠 때 자르기(필요 시) */
+  }
+
+  /* 간격 미세 조정(선택) */
+  #about-section .about-hero{
+    row-gap: 1.5rem;
+    margin-top: 1rem;
+  }
+</style>
