@@ -86,7 +86,9 @@
 
       /* Controls */
       .controls { padding: 24px 0 0; }
-      .controls .row { display:flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+      .controls .row {
+        display:flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; /* ▶ 오른쪽 정렬 */
+      }
       .control, .btn { height: 46px; border-radius: 12px; border: 1px solid #1f2a37; background: #0e1620; color: var(--text-0); padding: 0 12px; }
       .btn { color: var(--brand); cursor: pointer; }
       .btn:hover { background: var(--brand); color: #0b1320; border-color: var(--brand); }
@@ -254,21 +256,7 @@
     <main class="news-list">
       <div class="container">
         <div class="list" id="newsList">
-          <!-- 초기 정적 샘플 -->
-          <article class="card" data-year="2025" data-tags="korea, naver, tech">
-            <a href="https://n.news.naver.com/mnews/article/030/0003290403?sid=105" target="_blank" rel="noopener">
-              <div class="thumb-wrap"><div class="thumb-ratio"></div>
-                <img class="thumb-img" src="images/news4.jpg" alt="Naver Tech News" loading="lazy" />
-              </div>
-            </a>
-            <div class="content">
-              <div class="kicker">News</div>
-              <h2 class="title"><a href="https://n.news.naver.com/mnews/article/030/0003290403?sid=105" target="_blank" rel="noopener">경북대, 아진산업과 AI·빅데이터 인재양성 맞손</a></h2>
-              <p class="excerpt">경북대학교(총장 허영우)가 아진산업(대표 서중호)과 손잡고 인공지능(AI)·빅데이터분야 인재양성에 나선다...</p>
-              <div class="meta"><span class="date-chip">Sep 5, 2025</span><span>• Source: Naver</span></div>
-            </div>
-          </article>
-
+          <!-- [바뀐 1번] (원래 2번) -->
           <article class="card" data-year="2024" data-tags="donation, luncheon, community">
             <a href="https://n.news.naver.com/mnews/article/052/0000895325?sid=102" target="_blank" rel="noopener">
               <div class="thumb-wrap"><div class="thumb-ratio"></div>
@@ -283,6 +271,22 @@
             </div>
           </article>
 
+          <!-- [바뀐 2번] (원래 1번) -->
+          <article class="card" data-year="2025" data-tags="korea, naver, tech">
+            <a href="https://n.news.naver.com/mnews/article/030/0003290403?sid=105" target="_blank" rel="noopener">
+              <div class="thumb-wrap"><div class="thumb-ratio"></div>
+                <img class="thumb-img" src="images/news4.jpg" alt="Naver Tech News" loading="lazy" />
+              </div>
+            </a>
+            <div class="content">
+              <div class="kicker">News</div>
+              <h2 class="title"><a href="https://n.news.naver.com/mnews/article/030/0003290403?sid=105" target="_blank" rel="noopener">경북대, 아진산업과 AI·빅데이터 인재양성 맞손</a></h2>
+              <p class="excerpt">경북대학교(총장 허영우)가 아진산업(대표 서중호)과 손잡고 인공지능(AI)·빅데이터분야 인재양성에 나선다...</p>
+              <div class="meta"><span class="date-chip">Sep 5, 2025</span><span>• Source: Naver</span></div>
+            </div>
+          </article>
+
+          <!-- 3번 -->
           <article class="card" data-year="2024" data-tags="veterans, event">
             <a href="https://n.news.naver.com/mnews/article/003/0013312273?sid=102" target="_blank" rel="noopener">
               <div class="thumb-wrap"><div class="thumb-ratio"></div>
@@ -297,6 +301,7 @@
             </div>
           </article>
 
+          <!-- 4번 -->
           <article class="card" data-year="2025" data-tags="market, earnings">
             <a href="https://www.etoday.co.kr/news/view/2499452" target="_blank" rel="noopener">
               <div class="thumb-wrap"><div class="thumb-ratio"></div>
@@ -471,7 +476,7 @@
         if (sortBy === 'date_asc') {
           filteredItems.sort((a, b) => new Date(a.pubDate) - new Date(b.pubDate));
         } else {
-          filteredItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+          filteredItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate)); // 최신순
         }
       }
 
