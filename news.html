@@ -52,17 +52,21 @@
       .brand img { height: 80px; width: auto; }
       .nav-menu { display: flex; align-items: center; gap: 22px; }
       .nav-menu > li { list-style: none; position: relative; }
-      .nav-menu a { color: var(--text-1); font-weight: 500; padding: 10px 0; display: inline-block; }
+      .nav-menu a { color: #fff; font-weight: 500; padding: 10px 0; display: inline-block; } /* 1뎁스 흰색 */
       .nav-menu a.active, .nav-menu a:hover { color: var(--brand); }
-      .has-sub > a::after { content: "▾"; font-size: 10px; margin-left: 6px; opacity: .7; }
+      .has-sub > a::after { content: "▾"; font-size: 10px; margin-left: 6px; opacity: .9; color:#fff; }
       .dropdown {
         display: none; position: absolute; top: 100%; right: 0; min-width: 220px;
         background: var(--bg-2); border: 1px solid var(--muted); border-radius: 12px;
         box-shadow: var(--shadow); padding: 10px 8px 8px; z-index: 10;
       }
-      .dropdown a { display: block; padding: 10px 12px; border-radius: 8px; color: var(--text-1); }
-      .dropdown a:hover { background: #0f1720; color: var(--brand); }
+      .dropdown a { display: block; padding: 10px 12px; border-radius: 8px; color: #dbe4ff; transition: background-color .15s ease, color .15s ease, padding-left .15s ease; }
+      .dropdown a:hover, .dropdown a:focus, .dropdown a:focus-visible { background: #F96D00 !important; color: #fff !important; padding-left: 1.25rem; outline: none; }
+      .dropdown a:active { background:#e85f00 !important; color:#fff !important; }
       .has-sub:hover .dropdown, .has-sub:focus-within .dropdown, .has-sub.open .dropdown { display: block; }
+      .has-sub.open > a, .has-sub:hover > a, .has-sub:focus-within > a { color: #F96D00 !important; }
+      .has-sub.open > a::after, .has-sub:hover > a::after { color: #F96D00; }
+
       .burger { display:none; width: 44px; height: 44px; border:1px solid #1f2a37; background: #0e1620; color:#9fb2c7; border-radius: 10px; }
 
       @media (max-width: 960px){
@@ -86,9 +90,7 @@
 
       /* Controls */
       .controls { padding: 24px 0 0; }
-      .controls .row {
-        display:flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; /* ▶ 오른쪽 정렬 */
-      }
+      .controls .row { display:flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
       .control, .btn { height: 46px; border-radius: 12px; border: 1px solid #1f2a37; background: #0e1620; color: var(--text-0); padding: 0 12px; }
       .btn { color: var(--brand); cursor: pointer; }
       .btn:hover { background: var(--brand); color: #0b1320; border-color: var(--brand); }
@@ -129,11 +131,18 @@
         width: 100%; height: 40px; background: #0e1620; border: 1px solid #1f2a37; border-radius: 10px; color: var(--text-0); padding: 0 12px;
       }
       .familysite label { position: absolute; width:1px; height:1px; overflow:hidden; clip: rect(1px,1px,1px,1px); white-space: nowrap; }
+
       @media (max-width: 720px){
         footer .cols { grid-template-columns: 1fr; justify-items: center; }
         .familysite { justify-self: center; width: 100%; max-width: 320px; }
         .footer-center { text-align: center; }
       }
+
+      /* 메인 헤더와 동일 좌우 여백/로고 사이즈 */
+      header.navbar .container { max-width: 100%; padding-left: 24px; padding-right: 24px; }
+      header.navbar .brand img { max-width: 200px; height: auto; }
+      header.navbar .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+      @media (max-width: 960px){ header.navbar .container { padding-left:24px; padding-right:24px; } }
     </style>
   </head>
 
@@ -141,7 +150,7 @@
     <!-- NAVBAR -->
     <header class="navbar">
       <div class="container nav-inner">
-        <a class="brand" href="index.html" aria-label="홈으로 이동">
+        <a class="brand" href="index3.html" aria-label="홈으로 이동">
           <img src="images/AJIN_logo_black_background.png" alt="AJIN" />
         </a>
 
@@ -188,6 +197,7 @@
           </li>
 
           <li class="has-sub">
+            <!-- FIXED: href 속성 표기 -->
             <a href="index.html#blog-section" aria-expanded="false">ESG경영</a>
             <div class="dropdown" role="menu" aria-label="ESG 하위메뉴">
               <a href="index.html#blog-section">윤리헌장</a>
@@ -211,11 +221,10 @@
           <li class="has-sub">
             <a href="index.html#contact-section" aria-expanded="false">생산관리시스템</a>
             <div class="dropdown" role="menu" aria-label="생산관리시스템 하위메뉴">
-              <a href="index.html#contact-section">대시보드</a>
+              <a href="https://www.ajin-industry.kr/#/login" target="_blank" rel="noopener noreferrer">대시보드</a>
             </div>
           </li>
 
-          <li><a class="active" href="news.html">뉴스</a></li>
         </ul>
 
         <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
@@ -240,7 +249,6 @@
               <option>2023</option>
             </select>
 
-            <!-- ▼ 정렬 드롭다운: 최신순 / 오래된 순 -->
             <select id="sort" class="control" title="Sort by">
               <option value="date_desc">최신순</option>
               <option value="date_asc">오래된 순</option>
@@ -256,7 +264,6 @@
     <main class="news-list">
       <div class="container">
         <div class="list" id="newsList">
-          <!-- [바뀐 1번] (원래 2번) -->
           <article class="card" data-year="2024" data-tags="donation, luncheon, community">
             <a href="https://n.news.naver.com/mnews/article/052/0000895325?sid=102" target="_blank" rel="noopener">
               <div class="thumb-wrap"><div class="thumb-ratio"></div>
@@ -271,7 +278,6 @@
             </div>
           </article>
 
-          <!-- [바뀐 2번] (원래 1번) -->
           <article class="card" data-year="2025" data-tags="korea, naver, tech">
             <a href="https://n.news.naver.com/mnews/article/030/0003290403?sid=105" target="_blank" rel="noopener">
               <div class="thumb-wrap"><div class="thumb-ratio"></div>
@@ -286,7 +292,6 @@
             </div>
           </article>
 
-          <!-- 3번 -->
           <article class="card" data-year="2024" data-tags="veterans, event">
             <a href="https://n.news.naver.com/mnews/article/003/0013312273?sid=102" target="_blank" rel="noopener">
               <div class="thumb-wrap"><div class="thumb-ratio"></div>
@@ -301,7 +306,6 @@
             </div>
           </article>
 
-          <!-- 4번 -->
           <article class="card" data-year="2025" data-tags="market, earnings">
             <a href="https://www.etoday.co.kr/news/view/2499452" target="_blank" rel="noopener">
               <div class="thumb-wrap"><div class="thumb-ratio"></div>
@@ -330,7 +334,7 @@
     <footer>
       <div class="container">
         <div class="cols">
-          <a class="brand" href="index.html"><img src="images/AJIN_logo_black_background.png" alt="AJIN" /></a>
+          <a class="brand" href="index3.html"><img src="images/AJIN_logo_black_background.png" alt="AJIN" /></a>
           <div class="footer-center">
             <div class="small">
               경북경산시 진량읍 신제리 531번지(공단 8로 26길 40) TEL.053-856-9100 · Fax 053-856-9111
@@ -393,7 +397,7 @@
       const reset = document.getElementById('reset');
       const list = document.getElementById('newsList');
 
-      const DEFAULT_RT_QUERY = '아진산업 OR AJIN INDUSTRIAL OR 아진지오 OR 아진지아';
+      const DEFAULT_RT_QUERY = '아진산업 OR AJIN INDUSTRIAL OR 아진지오 OR 아진지아'; /* keep single declaration */
       const PAGE_SIZE = 8;
 
       let allItems = [];
@@ -464,7 +468,7 @@
       function applyFiltersAndSort() {
         const kw = (q.value || '').toLowerCase().trim();
         const yr = year.value;
-        const sortBy = sortSel.value; // 'date_desc' | 'date_asc'
+        const sortBy = sortSel.value;
 
         filteredItems = allItems.filter(it => {
           const okYr = !yr || String(new Date(it.pubDate).getFullYear()) === yr;
@@ -476,7 +480,7 @@
         if (sortBy === 'date_asc') {
           filteredItems.sort((a, b) => new Date(a.pubDate) - new Date(b.pubDate));
         } else {
-          filteredItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate)); // 최신순
+          filteredItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
         }
       }
 
@@ -491,7 +495,9 @@
       let fsBusy = false;
       const fs = document.getElementById('familySite');
       function openInNewTab(url) {
-        const a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.style.display = 'none'; document.body.appendChild(a); a.click(); a.remove();
+        const a = document.createElement('a');
+        a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.style.display = 'none';
+        document.body.appendChild(a); a.click(); a.remove();
         const win = window.open('', '_blank');
         if (win && win.location === 'about:blank') { win.location = url; try { win.opener = null; } catch (_) {} }
       }
@@ -516,21 +522,20 @@
         const doc = new DOMParser().parseFromString(xml, 'application/xml');
         const items = Array.from(doc.querySelectorAll('item')).map((el) => {
           const title = el.querySelector('title')?.textContent || '';
-          const link = el.querySelector('link')?.textContent || '#';
+          const theLink = el.querySelector('link')?.textContent || '#'; /* FIXED: 선언 추가 */
           const desc = el.querySelector('description')?.textContent || '';
           const pubDate = el.querySelector('pubDate')?.textContent || new Date().toUTCString();
           const source = el.querySelector('source')?.textContent || 'Google News';
           return {
             title: stripTags(title),
             description: stripTags(desc),
-            link,
+            link: theLink,
             pubDate: new Date(pubDate).toISOString(),
             image: null,
             source,
           };
         });
 
-        // 초기값 최신순
         items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
         return items;
       }
