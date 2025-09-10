@@ -750,7 +750,7 @@
           </div>
         </div>
 
-        <div class="row no-gutters block-9">
+        <!-- <div class="row no-gutters block-9">
           <div class="col-md-6 order-md-last d-flex">
             <form action="#" class="bg-light p-4 p-md-5 contact-form w-100">
               <div class="form-group"><input type="text" class="form-control" placeholder="성함"></div>
@@ -764,7 +764,56 @@
           <div class="col-md-6 d-flex">
             <div class="img" style="background-image: url(images/project-3.jpg);"></div>
           </div>
+        </div> -->
+        <!-- ✅ [교체 후 시작] : 지도(왼쪽) + 폼(오른쪽) 2열 블록 -->
+        <!-- 여백이 필요하면 no-gutters 제거 권장 -->
+        <div class="row block-9 align-items-stretch">
+          <!-- (왼쪽) 지도 썸네일 카드 -->
+          <div class="col-md-6">
+            <div class="map-card w-100">
+              <img
+                src="images/아진본사지도.png"
+                alt="아진산업 위치 지도"
+                class="map-img"
+              />
+              <!-- 지도 전체 클릭 → 네이버 지도 이동 -->
+              <a
+                class="map-open"
+                href="https://map.naver.com/p/entry/place/12785646?c=13.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202509081414&locale=ko&svcName=map_pcv5"
+                target="_blank" rel="noopener"
+                aria-label="네이버 지도로 크게 보기"
+              >네이버 지도로 크게 보기</a>
+            </div>
+
+            <!-- 지도 아래 버튼 -->
+            <p class="text-center mt-2">
+              <a
+                href="https://map.naver.com/p/entry/place/12785646?c=13.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202509081414&locale=ko&svcName=map_pcv5"
+                target="_blank" rel="noopener"
+                class="btn btn-sm btn-outline-primary"
+              >지도 크게 보기</a>
+            </p>
+                <!-- <p class="text-center mt-2">
+              <a
+                href="https://map.naver.com/..."
+                target="_blank" rel="noopener"
+                class="link-map"
+              >지도 크게 보기</a> 
+            </p> -->
+          </div>
+
+          <!-- (오른쪽) 폼 -->
+          <div class="col-md-6 d-flex">
+            <form action="#" class="bg-light p-4 p-md-5 contact-form w-100">
+              <div class="form-group"><input type="text" class="form-control" placeholder="성함"></div>
+              <div class="form-group"><input type="text" class="form-control" placeholder="이메일"></div>
+              <div class="form-group"><input type="text" class="form-control" placeholder="제목"></div>
+              <div class="form-group"><textarea cols="30" rows="7" class="form-control" placeholder="문의내용"></textarea></div>
+              <div class="form-group"><input type="submit" value="문의하기" class="btn btn-primary py-3 px-5"></div>
+            </form>
+          </div>
         </div>
+        <!-- ✅ [교체 후 끝] -->
       </div>
     </section>
 
