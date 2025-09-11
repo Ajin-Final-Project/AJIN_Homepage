@@ -11,6 +11,13 @@
     <link rel="apple-touch-icon" href="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-300x300.png" />
     <meta name="msapplication-TileImage" content="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-300x300.png" />
 
+    <!-- Ionicons 최신 버전 -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
 
@@ -308,7 +315,8 @@
           <div class="col-md-6 text-left">
             <div class="heading-section ftco-animate">
               <h1 class="big">
-                <span>아진</span><span class="break">산업</span>
+                <!-- <span>아진</span><span class="break">산업</span> -->
+                <span>아진산업</span>
               </h1>
               <h2 class="mb-4">CEO 메세지</h2>
               <p class="lead text-muted">
@@ -371,7 +379,9 @@
     <!-- 회사소개 2 -->
     <section class="ftco-section" id="about-section">
       <div class="container">
-        <div class="row align-items-start g-5">
+        <!-- <div class="row align-items-start g-5"> -->
+        <!-- ▼▼▼ 여기도 동일하게 equal-columns(모드 A) -->
+        <div class="row align-items-start g-5 equal-columns">
           <div class="col-md-6 text-left">
             <div class="heading-section ftco-animate">
               <h1 class="big">회사소개</h1>
@@ -384,8 +394,10 @@
             </div>
           </div>
 
-          <div class="col-md-6 mb-4">
-            <img src="images/아진본사1.avif" alt="아진산업 본사" class="img-fluid shadow-sm" style="border-radius:0;">
+          <!-- <div class="col-md-6 mb-4"> -->
+          <!-- ▼▼▼ img-col 추가 -->
+          <div class="col-md-6 mb-4 img-col">
+            <img src="images/아진본사2.jpg" alt="아진산업 본사" class="img-fluid shadow-sm" style="border-radius:0;">
           </div>
         </div>
 
@@ -436,7 +448,10 @@
         <div class="row justify-content-center">
           <div class="col-md-4 text-center d-flex ftco-animate mb-4">
             <div class="services-1 w-100">
-              <span class="icon"><i class="flaticon-ideas"></i></span>
+              <!-- <span class="icon"><i class="flaticon-ideas"></i></span> -->
+              <!-- <span class="icon"><i class="ion-ios-car"></i></span> -->
+              <!-- <span class="icon"><ion-icon name="car-outline" style="font-size: 70px; color: #FFBD39;"></ion-icon></span>        -->
+              <span class="icon"><i class="fas fa-car-side" style="font-size: 55px;"></i></span>       
               <div class="desc">
                 <h3 class="mb-3">차체</h3>
                 <p>RAIL ASSY, PNL ASSY 등 자동차 핵심 차체 구조물을 생산하여 글로벌 완성차에 공급합니다</p>
@@ -445,7 +460,22 @@
           </div>
           <div class="col-md-4 text-center d-flex ftco-animate mb-4">
             <div class="services-1 w-100">
-              <span class="icon"><i class="flaticon-analysis"></i></span>
+              <!-- <span class="icon"><i class="flaticon-analysis"></i></span> -->
+              <!-- <span class="icon"><i class="icon-bolt"></i></span>   ⚡ 번개 -->
+              <!-- <span class="icon"><i class="icon-gear"></i></span>    -->
+              <!-- <span class="icon"><ion-icon name="flash-outline" style="font-size: 70px; color: #FFBD39;"></ion-icon></span>     전장 -->
+              <!-- <span class="icon">
+                <ion-icon name="cog-outline" style="font-size: 70px; color: #FFBD39;"></ion-icon>
+              </span> -->
+              <span class="icon">
+              <i class="fas fa-microchip" style="font-size: 55px; color: #FFBD39;"></i>
+              </span>
+
+              <!-- <span class="icon">
+              <i class="fas fa-cogs" style="font-size: 70px; color: #FFBD39;"></i>
+              </span>  -->
+              <!-- <span class="icon"><i class="fas fa-microchip"></i></span>  -->
+              
               <div class="desc">
                 <h3 class="mb-3">전장</h3>
                 <p>전기차·수소차 부품, 자동변속기, 공조장치, 전압제어기 등 미래차 전장 제품을 개발·양산합니다</p>

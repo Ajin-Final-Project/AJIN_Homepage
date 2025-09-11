@@ -405,8 +405,9 @@
 <section class="ftco-section" id="about-section">
   <div class="container">
     <!-- 상단: 제목 + 개요 + 사진 -->
-    <div class="row align-items-start g-5">
-      
+    <!-- <div class="row align-items-start g-5"> -->
+    <!-- ▼▼▼ 여기 row에 equal-columns 추가: 글 단 = 이미지 단 높이 딱 맞춤 -->
+    <div class="row align-items-start g-5 equal-columns">
       <!-- 왼쪽 텍스트 -->
       <div class="col-md-6 text-left">
         <div class="heading-section ftco-animate">
@@ -421,8 +422,10 @@
       </div>
 
       <!-- 오른쪽 사진 -->
-      <div class="col-md-6 mb-4">
-        <img src="images/아진본사1.avif" alt="아진산업 본사" 
+      <!-- <div class="col-md-6 mb-4"> -->
+      <!-- ▼▼▼ 여기 col에 img-col 추가 -->
+      <div class="col-md-6 mb-4 img-col">
+        <img src="images/아진본사3.jpg" alt="아진산업 본사" 
              class="img-fluid shadow-sm" style="border-radius:0;">
       </div>
     </div>
