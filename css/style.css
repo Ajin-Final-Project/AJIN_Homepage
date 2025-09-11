@@ -9912,7 +9912,7 @@ textarea.form-control {
   /* 추가 */
   /* height: 100%;        ✅ 폼과 높이 맞춰 늘어남  */
   
-  border-radius: 8px;
+  border-radius: 0 !important;  /* ✅ 네모난 모서리 */
   overflow: hidden;
   background: #111; /* contain일 때 여백색 */
   box-shadow: 0 8px 24px rgba(0,0,0,.25);
