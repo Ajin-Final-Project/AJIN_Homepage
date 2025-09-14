@@ -121,6 +121,58 @@
         footer.simple-footer .cols{ grid-template-columns:1fr; justify-items:center; text-align:center; }
         footer.simple-footer .familysite{ justify-self:center; max-width:320px; }
       }
+
+
+/* Hero 섹션 텍스트 4배 크게 (버튼 제외) */
+.hero .text {
+  font-size: 4rem;   /* 기본 텍스트 크게 */
+  line-height: 1.2;  /* 너무 벌어지지 않게 줄 간격 조정 */
+  text-align: left;  
+  margin-left: -80px; /* 왼쪽 이동 */
+  margin-top: -60px;  /* 위로 올림 */
+  max-width: 900px;   /* 너무 넓게 퍼지지 않게 */
+}
+
+/* 큰 제목 */
+.hero .text h1 {
+  font-size: clamp(8rem, 12vw, 12rem); /* 엄청 크게 */
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+/* 부제목 */
+.hero .text h2 {
+  font-size: clamp(6rem, 9vw, 9rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* 작은 서브헤딩 */
+.hero .text .subheading {
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* 버튼 글자 (그대로 둠) */
+.hero .text a.btn {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Hero 섹션 텍스트 왼쪽 정렬 + 위치 조정 */
+.hero .text {
+  text-align: left;         /* 왼쪽 정렬 */
+  margin-left: -80px;       /* 왼쪽 이동 */
+  margin-top: -60px;        /* 위로 올림 (값을 조절해보세요) */
+  max-width: 700px;         /* 폭 제한 */
+}
+
+/* h1 문구 줄바꿈 방지 */
+.hero .text h1 {
+  white-space: nowrap;
+}
+
     </style>
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">

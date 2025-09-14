@@ -1,587 +1,679 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>아진산업 - 뉴스</title>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="site.title">아진산업 - 뉴스</title>
+  <link rel="icon" href="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-150x150.png" sizes="32x32" />
+  <link rel="icon" href="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-300x300.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-300x300.png" />
+  <meta name="msapplication-TileImage" content="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-300x300.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg-0:#0b0f14; --bg-1:#0f1720; --bg-2:#121a23; --bg-3:#0d141c;
+      --text-0:#e6edf3; --text-1:#b6c2cf; --brand:#6aa9ff; --muted:#233041;
+      --radius:16px; --shadow:0 12px 30px rgba(0,0,0,.45); --maxw:1200px;
+    }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;font-family:Roboto,system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:var(--text-0);background:var(--bg-0)}
+    a{color:inherit;text-decoration:none} img{max-width:100%;height:auto;display:block}
+    .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
 
-    <!-- Icons -->
-    <link rel="icon" href="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-150x150.png" sizes="32x32" />
-    <link rel="icon" href="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-300x300.png" sizes="192x192" />
-    <link rel="apple-touch-icon" href="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-300x300.png" />
-    <meta name="msapplication-TileImage" content="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-300x300.png" />
+    /* Header / Nav */
+    .navbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--bg-3),rgba(13,20,28,.6) 60%,rgba(13,20,28,0) 100%);border-bottom:1px solid rgba(255,255,255,.04);backdrop-filter:saturate(120%) blur(6px)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand img{height:80px;width:auto}
+    .nav-menu{display:flex;align-items:center;gap:22px}
+    .nav-menu>li{list-style:none;position:relative}
+    .nav-menu a{color:#fff;font-weight:500;padding:10px 0;display:inline-block}
+    .nav-menu a.active,.nav-menu a:hover{color:var(--brand)}
+    .has-sub>a::after{content:"▾";font-size:10px;margin-left:6px;opacity:.9;color:#fff}
+    .dropdown{display:none;position:absolute;top:100%;right:0;min-width:220px;background:var(--bg-2);border:1px solid var(--muted);border-radius:12px;box-shadow:var(--shadow);padding:10px 8px 8px;z-index:10}
+    .dropdown a{display:block;padding:10px 12px;border-radius:8px;color:#dbe4ff;transition:background-color .15s ease,color .15s ease,padding-left .15s ease}
+    .dropdown a:hover{background:#F96D00!important;color:#fff!important;padding-left:1.25rem}
+    .has-sub:hover .dropdown,.has-sub:focus-within .dropdown,.has-sub.open .dropdown{display:block}
+    .has-sub.open>a,.has-sub:hover>a,.has-sub:focus-within>a{color:#F96D00!important}
+    .has-sub.open>a::after,.has-sub:hover>a::after{color:#F96D00}
+    .burger{display:none;width:44px;height:44px;border:1px solid #1f2a37;background:#0e1620;color:#9fb2c7;border-radius:10px}
+    @media (max-width:960px){
+      .nav-menu{display:none}.burger{display:inline-grid;place-items:center}
+      .mobile-menu{display:none;padding-bottom:10px}
+      .mobile-menu.open{display:block}
+      .mobile-menu a{display:block;padding:12px 0;border-bottom:1px solid #1c2836;color:var(--text-1)}
+      .mobile-menu a.active,.mobile-menu a:hover{color:var(--brand)}
+    }
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    /* Hero */
+    .hero{padding:64px 0 24px;background:radial-gradient(1200px 500px at 50% -10%,rgba(107,114,128,.2),transparent 60%),linear-gradient(180deg,var(--bg-1) 0%,var(--bg-0) 100%);text-align:center}
+    .hero h1{margin:0 0 10px;font-size:90px;letter-spacing:.2px}
+    .hero p{margin:0;color:var(--text-1)}
 
-    <style>
-      :root {
-        --bg-0: #0b0f14;
-        --bg-1: #0f1720;
-        --bg-2: #121a23;
-        --bg-3: #0d141c;
-        --text-0: #e6edf3;
-        --text-1: #b6c2cf;
-        --brand: #6aa9ff;
-        --muted: #233041;
-        --radius: 16px;
-        --shadow: 0 12px 30px rgba(0,0,0,.45);
-        --maxw: 1200px;
-      }
+    /* Controls */
+    .controls{padding:24px 0 0}
+    .controls .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+    .control,.btn{height:46px;border-radius:12px;border:1px solid #1f2a37;background:#0e1620;color:var(--text-0);padding:0 12px}
+    .btn{color:var(--brand);cursor:pointer}
+    .btn:hover{background:var(--brand);color:#0b1320;border-color:var(--brand)}
+    .spacer{height:8px}
 
-      * { box-sizing: border-box; }
-      html, body { height: 100%; }
-      body {
-        margin: 0;
-        font-family: Roboto, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
-        color: var(--text-0);
-        background: var(--bg-0);
-      }
-      a { color: inherit; text-decoration: none; }
-      img { max-width: 100%; height: auto; display: block; }
-      .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+    /* News list */
+    .news-list{padding:24px 0 64px}
+    .card{display:grid;grid-template-columns:34% 1fr;gap:18px;background:var(--bg-2);border:1px solid var(--muted);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+    .card:hover{transform:translateY(-3px);border-color:rgba(106,169,255,.5);box-shadow:0 16px 40px rgba(0,0,0,.55)}
+    .thumb-wrap{position:relative;width:100%}
+    .thumb-ratio{width:100%;aspect-ratio:16/9;background:#0f1720}
+    .thumb-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+    .content{padding:18px;display:flex;flex-direction:column;gap:10px}
+    .kicker{text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:#8da2b5}
+    .title{font-size:22px;line-height:1.25;margin:0}
+    .title a{color:var(--text-0)}
+    .title a:hover{color:var(--brand)}
+    .excerpt{color:var(--text-1);line-height:1.55}
+    .meta{display:flex;align-items:center;gap:12px;color:var(--text-1);font-size:14px}
+    .date-chip{display:inline-block;padding:.25rem .6rem;background:#16212c;border:1px solid #233042;border-radius:999px}
+    .list{display:grid;gap:16px}
+    @media (max-width:960px){.card{grid-template-columns:1fr}}
 
-      /* Header / Nav */
-      .navbar {
-        position: sticky; top: 0; z-index: 50;
-        background: linear-gradient(180deg, var(--bg-3), rgba(13,20,28,.6) 60%, rgba(13,20,28,0) 100%);
-        border-bottom: 1px solid rgba(255,255,255,.04);
-        backdrop-filter: saturate(120%) blur(6px);
-      }
-      .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
-      .brand img { height: 80px; width: auto; }
-      .nav-menu { display: flex; align-items: center; gap: 22px; }
-      .nav-menu > li { list-style: none; position: relative; }
-      .nav-menu a { color: #fff; font-weight: 500; padding: 10px 0; display: inline-block; } /* 1뎁스 흰색 */
-      .nav-menu a.active, .nav-menu a:hover { color: var(--brand); }
-      .has-sub > a::after { content: "▾"; font-size: 10px; margin-left: 6px; opacity: .9; color:#fff; }
-      .dropdown {
-        display: none; position: absolute; top: 100%; right: 0; min-width: 220px;
-        background: var(--bg-2); border: 1px solid var(--muted); border-radius: 12px;
-        box-shadow: var(--shadow); padding: 10px 8px 8px; z-index: 10;
-      }
-      .dropdown a { display: block; padding: 10px 12px; border-radius: 8px; color: #dbe4ff; transition: background-color .15s ease, color .15s ease, padding-left .15s ease; }
-      .dropdown a:hover, .dropdown a:focus, .dropdown a:focus-visible { background: #F96D00 !important; color: #fff !important; padding-left: 1.25rem; outline: none; }
-      .dropdown a:active { background:#e85f00 !important; color:#fff !important; }
-      .has-sub:hover .dropdown, .has-sub:focus-within .dropdown, .has-sub.open .dropdown { display: block; }
-      .has-sub.open > a, .has-sub:hover > a, .has-sub:focus-within > a { color: #F96D00 !important; }
-      .has-sub.open > a::after, .has-sub:hover > a::after { color: #F96D00; }
+    /* Footer */
+    footer{border-top:1px solid var(--muted);background:linear-gradient(180deg,var(--bg-1),var(--bg-0));padding:40px 0}
+    footer .cols{display:grid;gap:16px;grid-template-columns:auto 1fr auto;align-items:center}
+    footer .brand img{height:80px;width:auto}
+    .footer-center{text-align:center}
+    footer .small{color:var(--text-1);font-size:14px}
+    .familysite{margin-top:0;justify-self:end;max-width:280px}
+    .familysite select{width:100%;height:40px;background:#0e1620;border:1px solid #1f2a37;border-radius:10px;color:var(--text-0);padding:0 12px}
+    .familysite label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+    @media (max-width:720px){
+      footer .cols{grid-template-columns:1fr;justify-items:center}
+      .familysite{justify-self:center;width:100%;max-width:320px}
+    }
 
-      .burger { display:none; width: 44px; height: 44px; border:1px solid #1f2a37; background: #0e1620; color:#9fb2c7; border-radius: 10px; }
+    header.navbar .container{max-width:100%;padding-left:24px;padding-right:24px}
+    header.navbar .brand img{max-width:200px;height:auto}
+    header.navbar .nav-inner{display:flex;align-items:center;justify-content:space-between}
+    @media (max-width:960px){header.navbar .container{padding-left:24px;padding-right:24px}}
 
-      @media (max-width: 960px){
-        .nav-menu { display: none; }
-        .burger { display: inline-grid; place-items:center; }
-        .mobile-menu { display: none; padding-bottom: 10px; }
-        .mobile-menu.open { display: block; }
-        .mobile-menu a { display:block; padding: 12px 0; border-bottom: 1px solid #1c2836; color: var(--text-1); }
-        .mobile-menu a.active, .mobile-menu a:hover { color: var(--brand); }
-      }
+    .nav-lang{list-style:none}
+    #langBtn{height:40px;padding:0 14px;border-radius:999px}
+  </style>
+</head>
 
-      /* Hero */
-      .hero {
-        padding: 64px 0 24px;
-        background: radial-gradient(1200px 500px at 50% -10%, rgba(107,114,128,.2), transparent 60%),
-                    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
-        text-align: center;
-      }
-      .hero h1 { margin: 0 0 10px; font-size: 90px; letter-spacing: .2px; }
-      .hero p { margin: 0; color: var(--text-1); }
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index3.html" aria-label="홈으로 이동">
+        <img src="images/AJIN_logo_black_background.png" alt="AJIN" />
+      </a>
 
-      /* Controls */
-      .controls { padding: 24px 0 0; }
-      .controls .row { display:flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
-      .control, .btn { height: 46px; border-radius: 12px; border: 1px solid #1f2a37; background: #0e1620; color: var(--text-0); padding: 0 12px; }
-      .btn { color: var(--brand); cursor: pointer; }
-      .btn:hover { background: var(--brand); color: #0b1320; border-color: var(--brand); }
-      .spacer { height: 8px; }
+      <ul class="nav-menu" aria-label="Primary">
+        <li><a href="index3.html" data-i18n="nav.home">홈</a></li>
 
-      /* News list */
-      .news-list { padding: 24px 0 64px; }
-      .card {
-        display: grid; grid-template-columns: 34% 1fr; gap: 18px;
-        background: var(--bg-2); border: 1px solid var(--muted);
-        border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
-        transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-      }
-      .card:hover { transform: translateY(-3px); border-color: rgba(106,169,255,.5); box-shadow: 0 16px 40px rgba(0,0,0,.55); }
-      .thumb-wrap { position: relative; width: 100%; }
-      .thumb-ratio { width: 100%; aspect-ratio: 16 / 9; background: #0f1720; }
-      .thumb-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-      .content { padding: 18px; display:flex; flex-direction: column; gap: 10px; }
-      .kicker { text-transform: uppercase; letter-spacing: .18em; font-size: 12px; color: #8da2b5; }
-      .title { font-size: 22px; line-height: 1.25; margin: 0; }
-      .title a { color: var(--text-0); }
-      .title a:hover { color: var(--brand); }
-      .excerpt { color: var(--text-1); line-height: 1.55; }
-      .meta { display:flex; align-items:center; gap: 12px; color: var(--text-1); font-size: 14px; }
-      .date-chip { display:inline-block; padding:.25rem .6rem; background:#16212c; border:1px solid #233042; border-radius:999px; }
-
-      .list { display: grid; gap: 16px; }
-      @media (max-width: 960px){ .card { grid-template-columns: 1fr; } }
-
-      /* Footer */
-      footer { border-top: 1px solid var(--muted); background: linear-gradient(180deg, var(--bg-1), var(--bg-0)); padding: 40px 0; }
-      footer .cols { display: grid; gap: 16px; grid-template-columns: auto 1fr auto; align-items: center; }
-      footer .brand img { height: 80px; width: auto; }
-      .footer-center { text-align: center; }
-      footer .small { color: var(--text-1); font-size: 14px; }
-      .familysite { margin-top: 0; justify-self: end; max-width: 280px; }
-      .familysite select {
-        width: 100%; height: 40px; background: #0e1620; border: 1px solid #1f2a37; border-radius: 10px; color: var(--text-0); padding: 0 12px;
-      }
-      .familysite label { position: absolute; width:1px; height:1px; overflow:hidden; clip: rect(1px,1px,1px,1px); white-space: nowrap; }
-
-      @media (max-width: 720px){
-        footer .cols { grid-template-columns: 1fr; justify-items: center; }
-        .familysite { justify-self: center; width: 100%; max-width: 320px; }
-        .footer-center { text-align: center; }
-      }
-
-      /* 메인 헤더와 동일 좌우 여백/로고 사이즈 */
-      header.navbar .container { max-width: 100%; padding-left: 24px; padding-right: 24px; }
-      header.navbar .brand img { max-width: 200px; height: auto; }
-      header.navbar .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-      @media (max-width: 960px){ header.navbar .container { padding-left:24px; padding-right:24px; } }
-    </style>
-  </head>
-
-  <body>
-    <!-- NAVBAR -->
-    <header class="navbar">
-      <div class="container nav-inner">
-        <a class="brand" href="index3.html" aria-label="홈으로 이동">
-          <img src="images/AJIN_logo_black_background.png" alt="AJIN" />
-        </a>
-
-        <ul class="nav-menu" aria-label="Primary">
-          <li><a href="index3.html">홈</a></li>
-
-          <li class="has-sub">
-            <a href="index.html#about-section" aria-expanded="false">기업정보</a>
-            <div class="dropdown" role="menu" aria-label="기업정보 하위메뉴">
-              <a href="index.html#about-section">회사 개요</a>
-              <a href="index.html#about-section">CEO 메세지</a>
-              <a href="index.html#about-section">연혁</a>
-              <a href="index.html#about-section">비전/가치</a>
-              <a href="index.html#contact-section">조직구성</a>
-              <a href="index.html#contact-section">오시는 길</a>
-            </div>
-          </li>
-
-          <li class="has-sub">
-            <a href="index.html#services-section" aria-expanded="false">사업분야</a>
-            <div class="dropdown" role="menu" aria-label="사업분야 하위메뉴">
-              <a href="index.html#services-section">차체</a>
-              <a href="index.html#services-section">전장</a>
-            </div>
-          </li>
-
-          <li class="has-sub">
-            <a href="index.html#skills-section" aria-expanded="false">기술력</a>
-            <div class="dropdown" role="menu" aria-label="기술력 하위메뉴">
-              <a href="index.html#skills-section">연구소 현황</a>
-              <a href="index.html#skills-section">연구개발 분야</a>
-              <a href="index.html#skills-section">연구설비</a>
-              <a href="index.html#skills-section">연구실적</a>
-            </div>
-          </li>
-
-          <li class="has-sub">
-            <a href="index.html#projects-section" aria-expanded="false">주요실적</a>
-            <div class="dropdown" role="menu" aria-label="주요실적 하위메뉴">
-              <a href="index.html#projects-section">인재상</a>
-              <a href="index.html#projects-section">인사제도</a>
-              <a href="index.html#projects-section">채용정보</a>
-            </div>
-          </li>
-
-          <li class="has-sub">
-            <!-- FIXED: href 속성 표기 -->
-            <a href="index.html#blog-section" aria-expanded="false">ESG경영</a>
-            <div class="dropdown" role="menu" aria-label="ESG 하위메뉴">
-              <a href="index.html#blog-section">윤리헌장</a>
-              <a href="index.html#blog-section">인권헌장</a>
-              <a href="index.html#blog-section">환경경영정책</a>
-              <a href="index.html#blog-section">보고서</a>
-            </div>
-          </li>
-
-          <li class="has-sub">
-            <a href="index.html#blog-section" aria-expanded="false">홍보센터</a>
-            <div class="dropdown" role="menu" aria-label="홍보센터 하위메뉴">
-              <a href="news.html" class="active">뉴스</a>
-              <a href="index.html#blog-section">인증서 및 수상현황</a>
-              <a href="index.html#blog-section">기업문화</a>
-              <a href="index.html#blog-section">C.I</a>
-              <a href="index.html#blog-section">홍보영상</a>
-            </div>
-          </li>
-
-          <li class="has-sub">
-            <a href="index.html#contact-section" aria-expanded="false">생산관리시스템</a>
-            <div class="dropdown" role="menu" aria-label="생산관리시스템 하위메뉴">
-              <a href="https://www.ajin-industry.kr/#/login" target="_blank" rel="noopener noreferrer">대시보드</a>
-            </div>
-          </li>
-
-        </ul>
-
-        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
-      </div>
-
-      <div class="container mobile-menu" id="mobileMenu" aria-hidden="true"></div>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container">
-        <h1>AJIN News</h1>
-        <p>Explore Our Latest News and Press Releases for Company Updates</p>
-
-        <div class="controls">
-          <div class="row">
-            <input id="q" class="control" placeholder="Search keyword " />
-            <select id="year" class="control" title="Filter by year">
-              <option value="">All years</option>
-              <option>2025</option>
-              <option>2024</option>
-              <option>2023</option>
-            </select>
-
-            <select id="sort" class="control" title="Sort by">
-              <option value="date_desc">최신순</option>
-              <option value="date_asc">오래된 순</option>
-            </select>
-
-            <button id="reset" class="btn">Reset</button>
+        <li class="has-sub">
+          <a href="index.html#about-section" aria-expanded="false" data-i18n="nav.company">기업정보</a>
+          <div class="dropdown" role="menu" aria-label="기업정보 하위메뉴">
+            <a href="index.html#about-section" data-i18n="nav.company.overview">회사 개요</a>
+            <a href="index.html#about-section" data-i18n="nav.company.ceo">CEO 메세지</a>
+            <a href="index.html#about-section" data-i18n="nav.company.history">연혁</a>
+            <a href="index.html#about-section" data-i18n="nav.company.vision">비전/가치</a>
+            <a href="index.html#contact-section" data-i18n="nav.company.org">조직구성</a>
+            <a href="index.html#contact-section" data-i18n="nav.company.location">오시는 길</a>
           </div>
-        </div>
-      </div>
-    </section>
+        </li>
 
-    <!-- NEWS LIST -->
-    <main class="news-list">
-      <div class="container">
-        <div class="list" id="newsList">
-          <article class="card" data-year="2024" data-tags="donation, luncheon, community">
-            <a href="https://n.news.naver.com/mnews/article/052/0000895325?sid=102" target="_blank" rel="noopener">
-              <div class="thumb-wrap"><div class="thumb-ratio"></div>
-                <img class="thumb-img" src="images/news5.webp" alt="Community donation luncheon" loading="lazy" />
-              </div>
-            </a>
-            <div class="content">
-              <div class="kicker">News</div>
-              <h2 class="title"><a href="https://n.news.naver.com/mnews/article/052/0000895325?sid=102" target="_blank" rel="noopener">아진산업 서중호 대표, "사람에 대한 투자가 곧 회사 경쟁력"</a></h2>
-              <p class="excerpt">역동적이고 끊임없이 발전하는 아진산업의 중심에는 서중호 대표가 있다...</p>
-              <div class="meta"><span class="date-chip">Sep 5, 2025</span><span>•  Naver</span></div>
-            </div>
-          </article>
-
-          <article class="card" data-year="2025" data-tags="korea, naver, tech">
-            <a href="https://n.news.naver.com/mnews/article/030/0003290403?sid=105" target="_blank" rel="noopener">
-              <div class="thumb-wrap"><div class="thumb-ratio"></div>
-                <img class="thumb-img" src="images/news4.jpg" alt="Naver Tech News" loading="lazy" />
-              </div>
-            </a>
-            <div class="content">
-              <div class="kicker">News</div>
-              <h2 class="title"><a href="https://n.news.naver.com/mnews/article/030/0003290403?sid=105" target="_blank" rel="noopener">경북대, 아진산업과 AI·빅데이터 인재양성 맞손</a></h2>
-              <p class="excerpt">경북대학교(총장 허영우)가 아진산업(대표 서중호)과 손잡고 인공지능(AI)·빅데이터분야 인재양성에 나선다...</p>
-              <div class="meta"><span class="date-chip">Sep 5, 2025</span><span>•  Naver</span></div>
-            </div>
-          </article>
-
-          <article class="card" data-year="2024" data-tags="veterans, event">
-            <a href="https://n.news.naver.com/mnews/article/003/0013312273?sid=102" target="_blank" rel="noopener">
-              <div class="thumb-wrap"><div class="thumb-ratio"></div>
-                <img class="thumb-img" src="images/news1.jpg" alt="Veterans event" loading="lazy" />
-              </div>
-            </a>
-            <div class="content">
-              <div class="kicker">News</div>
-              <h2 class="title"><a href="https://n.news.naver.com/mnews/article/003/0013312273?sid=102" target="_blank" rel="noopener">아진산업, 경산시에 '사랑의 쌀' 기탁…저소득층 지원</a></h2>
-              <p class="excerpt">경북 경산시는 진량읍 소재 아진산업이 저소득 취약계층을 위해 사랑의 쌀 150포(포당 20㎏)를 기탁했다고 19일 밝혔다...</p>
-              <div class="meta"><span class="date-chip">Sep 5, 2025</span><span>• Naver</span></div>
-            </div>
-          </article>
-
-          <article class="card" data-year="2025" data-tags="market, earnings">
-            <a href="https://www.etoday.co.kr/news/view/2499452" target="_blank" rel="noopener">
-              <div class="thumb-wrap"><div class="thumb-ratio"></div>
-                <img class="thumb-img" src="images/news3.png" alt="Community support" loading="lazy" />
-              </div>
-            </a>
-            <div class="content">
-              <div class="kicker">News</div>
-              <h2 class="title"><a href="https://www.etoday.co.kr/news/view/2499452" target="_blank" rel="noopener">상반기 영업익 급증한 코스닥 상장사 주목…주가 향방은?</a></h2>
-              <p class="excerpt">이달 점진적인 상승 흐름을 보이던 아진산업은 깜짝 실적을 발표하면서 주가가 급등했다...</p>
-              <div class="meta"><span class="date-chip">Aug 24, 2025</span><span>• 이투데이</span></div>
-            </div>
-          </article>
-        </div>
-
-        <div class="spacer"></div>
-        <div id="pager" class="container" style="text-align:center;">
-          <button class="btn" id="prev">Prev</button>
-          <span class="date-chip" id="pageIndicator" style="margin:0 8px;">Page 1</span>
-          <button class="btn" id="next">Next</button>
-        </div>
-      </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="container">
-        <div class="cols">
-          <a class="brand" href="index3.html"><img src="images/AJIN_logo_black_background.png" alt="AJIN" /></a>
-          <div class="footer-center">
-            <div class="small">
-              경북경산시 진량읍 신제리 531번지(공단 8로 26길 40) TEL.053-856-9100 · Fax 053-856-9111
-              <br />Copyright © AJIN INDUSTRIAL CO.LTD ALL Rights Reserved.
-            </div>
+        <li class="has-sub">
+          <a href="index.html#services-section" aria-expanded="false" data-i18n="nav.business">사업분야</a>
+          <div class="dropdown" role="menu" aria-label="사업분야 하위메뉴">
+            <a href="index.html#services-section" data-i18n="nav.business.body">차체</a>
+            <a href="index.html#services-section" data-i18n="nav.business.electronics">전장</a>
           </div>
-          <div class="familysite">
-            <label for="familySite">Family Site</label>
-            <select id="familySite" name="sitelist" aria-label="Family Site">
-              <option value="" disabled selected hidden>Family Site</option>
-              <option value="#" disabled>------------</option>
-              <option value="https://www.wamc.co.kr">Ajin Industrial</option>
-              <option value="https://www.wamc.co.kr/wooshin/index.asp">Wooshin Industrial</option>
-              <option value="http://www.dwecc.com">DAEWOO</option>
-              <option value="https://wooshinusa.com">Wooshin USA</option>
-              <option value="https://ajingeorgia.com">AJIN GEORGIA</option>
-            </select>
+        </li>
+
+        <li class="has-sub">
+          <a href="index.html#skills-section" aria-expanded="false" data-i18n="nav.tech">기술력</a>
+          <div class="dropdown" role="menu" aria-label="기술력 하위메뉴">
+            <a href="index.html#skills-section" data-i18n="nav.tech.lab">연구소 현황</a>
+            <a href="index.html#skills-section" data-i18n="nav.tech.rnd">연구개발 분야</a>
+            <a href="index.html#skills-section" data-i18n="nav.tech.facilities">연구설비</a>
+            <a href="index.html#skills-section" data-i18n="nav.tech.records">연구실적</a>
           </div>
+        </li>
+
+        <li class="has-sub">
+          <a href="index.html#projects-section" aria-expanded="false" data-i18n="nav.results">주요실적</a>
+          <div class="dropdown" role="menu" aria-label="주요실적 하위메뉴">
+            <a href="index.html#projects-section" data-i18n="nav.results.talent">인재상</a>
+            <a href="index.html#projects-section" data-i18n="nav.results.hr">인사제도</a>
+            <a href="index.html#projects-section" data-i18n="nav.results.career">채용정보</a>
+          </div>
+        </li>
+
+        <li class="has-sub">
+          <a href="index.html#blog-section" aria-expanded="false" data-i18n="nav.esg">ESG경영</a>
+          <div class="dropdown" role="menu" aria-label="ESG 하위메뉴">
+            <a href="index.html#blog-section" data-i18n="nav.esg.ethics">윤리헌장</a>
+            <a href="index.html#blog-section" data-i18n="nav.esg.human">인권헌장</a>
+            <a href="index.html#blog-section" data-i18n="nav.esg.env">환경경영정책</a>
+            <a href="index.html#blog-section" data-i18n="nav.esg.report">보고서</a>
+          </div>
+        </li>
+
+        <li class="has-sub">
+          <a href="index.html#blog-section" aria-expanded="false" data-i18n="nav.pr">홍보센터</a>
+          <div class="dropdown" role="menu" aria-label="홍보센터 하위메뉴">
+            <a href="news.html" class="active" data-i18n="nav.pr.news">뉴스</a>
+            <a href="index.html#blog-section" data-i18n="nav.pr.cert">인증서 및 수상현황</a>
+            <a href="index.html#blog-section" data-i18n="nav.pr.culture">기업문화</a>
+            <a href="index.html#blog-section" data-i18n="nav.pr.ci">C.I</a>
+            <a href="index.html#blog-section" data-i18n="nav.pr.video">홍보영상</a>
+          </div>
+        </li>
+
+        <li class="has-sub">
+          <a href="index.html#contact-section" aria-expanded="false" data-i18n="nav.pms">생산관리시스템</a>
+          <div class="dropdown" role="menu" aria-label="생산관리시스템 하위메뉴">
+            <a href="https://www.ajin-industry.kr/#/login" target="_blank" rel="noopener" data-i18n="nav.pms.dashboard">대시보드</a>
+          </div>
+        </li>
+
+        <!-- 언어 토글: 버튼 하나로 전체 KO/EN -->
+        <li class="nav-lang">
+          <button id="langBtn" class="btn" aria-label="언어 전환">KO / EN</button>
+        </li>
+      </ul>
+
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+
+    <div class="container mobile-menu" id="mobileMenu" aria-hidden="true"></div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1 id="heroTitle">AJIN News</h1>
+      <p id="heroSubtitle">Explore Our Latest News and Press Releases for Company Updates</p>
+
+      <div class="controls">
+        <div class="row">
+          <input id="q" class="control" placeholder="Search keyword" />
+          <select id="year" class="control" title="Filter by year">
+            <option value="" data-i18n="controls.year.all">전체 연도</option>
+            <option>2025</option>
+            <option>2024</option>
+            <option>2023</option>
+          </select>
+
+          <select id="sort" class="control" title="Sort by">
+            <option value="date_desc" data-i18n="controls.sort.newest">최신순</option>
+            <option value="date_asc" data-i18n="controls.sort.oldest">오래된 순</option>
+          </select>
+
+          <button id="reset" class="btn" data-i18n="controls.reset">초기화</button>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <script>
-      /* Nav */
-      const burger = document.getElementById('burger');
-      const mobile = document.getElementById('mobileMenu');
-      burger?.addEventListener('click', () => {
-        const open = mobile.classList.toggle('open');
-        burger.setAttribute('aria-expanded', String(open));
-        mobile.setAttribute('aria-hidden', String(!open));
-      });
-      document.querySelectorAll('.nav-menu .has-sub > a').forEach(link => {
-        link.addEventListener('click', (e) => {
-          const li = link.parentElement;
-          const isOpen = li.classList.contains('open');
-          if (!isOpen) {
-            e.preventDefault();
-            li.classList.add('open');
-            link.setAttribute('aria-expanded', 'true');
-            li.parentElement.querySelectorAll('.has-sub.open').forEach(sib => {
-              if (sib !== li) { sib.classList.remove('open'); sib.querySelector('a')?.setAttribute('aria-expanded', 'false'); }
-            });
-          } else {
-            link.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.nav-menu')) {
-          document.querySelectorAll('.nav-menu .has-sub.open').forEach(li => {
-            li.classList.remove('open'); li.querySelector('a')?.setAttribute('aria-expanded', 'false');
-          });
-        }
-      });
-
-      /* Controls */
-      const q = document.getElementById('q');
-      const year = document.getElementById('year');
-      const sortSel = document.getElementById('sort');
-      const reset = document.getElementById('reset');
-      const list = document.getElementById('newsList');
-
-      const DEFAULT_RT_QUERY = '아진산업 OR AJIN INDUSTRIAL OR 아진지오 OR 아진지아'; /* keep single declaration */
-      const PAGE_SIZE = 8;
-
-      let allItems = [];
-      let filteredItems = [];
-      let currentPage = 1;
-
-      const pageIndicator = document.getElementById('pageIndicator');
-      const prevBtn = document.getElementById('prev');
-      const nextBtn = document.getElementById('next');
-
-      /* Utils */
-      function formatDateChip(dt) {
-        const d = new Date(dt);
-        if (isNaN(d.getTime())) return '';
-        const opts = { month: 'short', day: 'numeric', year: 'numeric' };
-        return d.toLocaleDateString('en-US', opts);
-      }
-      function stripTags(html) {
-        const tmp = document.createElement('div');
-        tmp.innerHTML = (html || '').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
-        return tmp.textContent || tmp.innerText || '';
-      }
-
-      /* Card rendering */
-      function createNewsCard({ title, description, link, pubDate, image, source }) {
-        const art = document.createElement('article');
-        art.className = 'card';
-        art.setAttribute('data-year', new Date(pubDate).getFullYear());
-        art.setAttribute('data-tags', 'google, dynamic');
-
-        art.innerHTML = `
-          <a href="${link}" target="_blank" rel="noopener" aria-label="${title}">
-            <div class="thumb-wrap">
-              <div class="thumb-ratio"></div>
-              <img class="thumb-img" src="${image || 'images/news-fallback.jpg'}" alt="${title}" loading="lazy" />
+  <!-- NEWS LIST -->
+  <main class="news-list">
+    <div class="container">
+      <div class="list" id="newsList">
+        <!-- 예시 정적 카드 4개 -->
+        <article class="card" data-year="2024" data-tags="donation, luncheon, community">
+          <a href="https://n.news.naver.com/mnews/article/052/0000895325?sid=102" target="_blank" rel="noopener">
+            <div class="thumb-wrap"><div class="thumb-ratio"></div>
+              <img class="thumb-img" src="images/news5.webp" alt="Community donation luncheon" loading="lazy" />
             </div>
           </a>
-          <div class="content">
-            <div class="kicker">News</div>
-            <h2 class="title"><a href="${link}" target="_blank" rel="noopener">${title}</a></h2>
-            <p class="excerpt">${description || ''}</p>
-            <div class="meta">
-              <span class="date-chip">${formatDateChip(pubDate)}</span>
-              <span>• Source: ${source || 'Google News'}</span>
-            </div>
+          <div class="content"
+               data-en-title="Ajin CEO Suh Joong-ho: 'Investing in people is our competitive edge'"
+               data-en-excerpt="At the heart of dynamic, ever-evolving Ajin Industrial stands CEO Suh Joong-ho..."
+               data-en-source="Naver">
+            <div class="kicker" data-i18n="news.kicker">뉴스</div>
+            <h2 class="title"><a href="https://n.news.naver.com/mnews/article/052/0000895325?sid=102" target="_blank" rel="noopener">아진산업 서중호 대표, "사람에 대한 투자가 곧 회사 경쟁력"</a></h2>
+            <p class="excerpt">역동적이고 끊임없이 발전하는 아진산업의 중심에는 서중호 대표가 있다...</p>
+            <div class="meta"><span class="date-chip">Sep 5, 2025</span><span>• <span class="source-text">Naver</span></span></div>
           </div>
-        `;
-        return art;
-      }
+        </article>
 
-      function renderPage(page=1) {
-        const total = filteredItems.length;
-        const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
-        currentPage = Math.min(Math.max(1, page), pages);
+        <article class="card" data-year="2025" data-tags="korea, naver, tech">
+          <a href="https://n.news.naver.com/mnews/article/030/0003290403?sid=105" target="_blank" rel="noopener">
+            <div class="thumb-wrap"><div class="thumb-ratio"></div>
+              <img class="thumb-img" src="images/news4.jpg" alt="Naver Tech News" loading="lazy" />
+            </div>
+          </a>
+          <div class="content"
+               data-en-title="KNU partners with Ajin Industrial to nurture AI & Big Data talent"
+               data-en-excerpt="Kyungpook National University (President Heo Young-woo) is joining hands with Ajin Industrial (CEO Suh Joong-ho) to foster talent in AI and Big Data..."
+               data-en-source="Naver">
+            <div class="kicker" data-i18n="news.kicker">뉴스</div>
+            <h2 class="title"><a href="https://n.news.naver.com/mnews/article/030/0003290403?sid=105" target="_blank" rel="noopener">경북대, 아진산업과 AI·빅데이터 인재양성 맞손</a></h2>
+            <p class="excerpt">경북대학교(총장 허영우)가 아진산업(대표 서중호)과 손잡고 인공지능(AI)·빅데이터분야 인재양성에 나선다...</p>
+            <div class="meta"><span class="date-chip">Sep 5, 2025</span><span>• <span class="source-text">Naver</span></span></div>
+          </div>
+        </article>
 
-        const start = (currentPage - 1) * PAGE_SIZE;
-        const slice = filteredItems.slice(start, start + PAGE_SIZE);
+        <article class="card" data-year="2025" data-tags="market, earnings">
+          <a href="https://www.etoday.co.kr/news/view/2499452" target="_blank" rel="noopener">
+            <div class="thumb-wrap"><div class="thumb-ratio"></div>
+              <img class="thumb-img" src="images/news3.png" alt="Market / Earnings" loading="lazy" />
+            </div>
+          </a>
+          <div class="content"
+               data-en-title="KOSDAQ firms with surging H1 operating profit draw attention—where will shares go?"
+               data-en-excerpt="Ajin Industrial’s share price has jumped on a surprise earnings beat amid a gradual uptrend this month..."
+               data-en-source="Etoday">
+            <div class="kicker" data-i18n="news.kicker">뉴스</div>
+            <h2 class="title"><a href="https://www.etoday.co.kr/news/view/2499452" target="_blank" rel="noopener">상반기 영업익 급증한 코스닥 상장사 주목…주가 향방은?</a></h2>
+            <p class="excerpt">이달 점진적인 상승 흐름을 보이던 아진산업은 깜짝 실적을 발표하면서 주가가 급등했다...</p>
+            <div class="meta"><span class="date-chip">Aug 24, 2025</span><span>• <span class="source-text">이투데이</span></span></div>
+          </div>
+        </article>
 
-        list.innerHTML = '';
-        slice.forEach(it => list.appendChild(createNewsCard(it)));
+        <article class="card" data-year="2024" data-tags="veterans, event">
+          <a href="https://n.news.naver.com/mnews/article/003/0013312273?sid=102" target="_blank" rel="noopener">
+            <div class="thumb-wrap"><div class="thumb-ratio"></div>
+              <img class="thumb-img" src="images/news1.jpg" alt="Veterans event" loading="lazy" />
+            </div>
+          </a>
+          <div class="content"
+               data-en-title="Ajin Industrial donates 'Love Rice' to Gyeongsan to support low-income residents"
+               data-en-excerpt="Gyeongsan City announced that Ajin Industrial donated 150 sacks of ‘Love Rice’ (20kg each) for vulnerable, low-income households..."
+               data-en-source="Naver">
+            <div class="kicker" data-i18n="news.kicker">뉴스</div>
+            <h2 class="title"><a href="https://n.news.naver.com/mnews/article/003/0013312273?sid=102" target="_blank" rel="noopener">아진산업, 경산시에 '사랑의 쌀' 기탁…저소득층 지원</a></h2>
+            <p class="excerpt">경북 경산시는 진량읍 소재 아진산업이 저소득 취약계층을 위해 사랑의 쌀 150포(포당 20㎏)를 기탁했다고 19일 밝혔다...</p>
+            <div class="meta"><span class="date-chip">Sep 5, 2025</span><span>• <span class="source-text">Naver</span></span></div>
+          </div>
+        </article>
+      </div>
 
-        pageIndicator.textContent = `Page ${currentPage} / ${pages}`;
-        prevBtn.disabled = currentPage <= 1;
-        nextBtn.disabled = currentPage >= pages;
-      }
+      <div class="spacer"></div>
+      <div id="pager" class="container" style="text-align:center;">
+        <button class="btn" id="prev">Prev</button>
+        <span class="date-chip" id="pageIndicator" style="margin:0 8px;">Page 1</span>
+        <button class="btn" id="next">Next</button>
+      </div>
+    </div>
+  </main>
 
-      /* Filter & Sort */
-      function applyFiltersAndSort() {
-        const kw = (q.value || '').toLowerCase().trim();
-        const yr = year.value;
-        const sortBy = sortSel.value;
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="cols">
+        <a class="brand" href="index3.html"><img src="images/AJIN_logo_black_background.png" alt="AJIN" /></a>
+        <div class="footer-center">
+          <div class="small" data-i18n="footer.addr">
+            경북경산시 진량읍 신제리 531번지(공단 8로 26길 40) TEL.053-856-9100 · Fax 053-856-9111
+            <br />Copyright © AJIN INDUSTRIAL CO.LTD ALL Rights Reserved.
+          </div>
+        </div>
+        <div class="familysite">
+          <label for="familySite">Family Site</label>
+          <select id="familySite" name="sitelist" aria-label="Family Site">
+            <option value="" disabled selected hidden>Family Site</option>
+            <option value="#" disabled>------------</option>
+            <option value="https://www.wamc.co.kr">Ajin Industrial</option>
+            <option value="https://www.wamc.co.kr/wooshin/index.asp">Wooshin Industrial</option>
+            <option value="http://www.dwecc.com">DAEWOO</option>
+            <option value="https://wooshinusa.com">Wooshin USA</option>
+            <option value="https://ajingeorgia.com">AJIN GEORGIA</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-        filteredItems = allItems.filter(it => {
-          const okYr = !yr || String(new Date(it.pubDate).getFullYear()) === yr;
-          const text = (it.title + ' ' + (it.description || '') + ' ' + (it.source || '')).toLowerCase();
-          const okKw = !kw || text.includes(kw);
-          return okYr && okKw;
-        });
-
-        if (sortBy === 'date_asc') {
-          filteredItems.sort((a, b) => new Date(a.pubDate) - new Date(b.pubDate));
+  <script>
+    /* ====== Simple mobile nav ====== */
+    const burger = document.getElementById('burger');
+    const mobile = document.getElementById('mobileMenu');
+    burger?.addEventListener('click', () => {
+      const open = mobile.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+      mobile.setAttribute('aria-hidden', String(!open));
+    });
+    document.querySelectorAll('.nav-menu .has-sub > a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const li = link.parentElement;
+        const isOpen = li.classList.contains('open');
+        if (!isOpen) {
+          e.preventDefault();
+          li.classList.add('open');
+          link.setAttribute('aria-expanded', 'true');
+          li.parentElement.querySelectorAll('.has-sub.open').forEach(sib => {
+            if (sib !== li) { sib.classList.remove('open'); sib.querySelector('a')?.setAttribute('aria-expanded', 'false'); }
+          });
         } else {
-          filteredItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+          link.setAttribute('aria-expanded', 'false');
         }
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-menu')) {
+        document.querySelectorAll('.nav-menu .has-sub.open').forEach(li => {
+          li.classList.remove('open');
+          li.querySelector('a')?.setAttribute('aria-expanded', 'false');
+        });
       }
+    });
 
-      q?.addEventListener('input', () => { applyFiltersAndSort(); renderPage(1); });
-      year?.addEventListener('change', () => { applyFiltersAndSort(); renderPage(1); });
-      sortSel?.addEventListener('change', () => { applyFiltersAndSort(); renderPage(1); });
-      reset?.addEventListener('click', () => { q.value=''; year.value=''; sortSel.value='date_desc'; applyFiltersAndSort(); renderPage(1); });
+    /* ====== Controls & state ====== */
+    const q = document.getElementById('q');
+    const year = document.getElementById('year');
+    const sortSel = document.getElementById('sort');
+    const reset = document.getElementById('reset');
+    const list = document.getElementById('newsList');
 
-      document.querySelectorAll('.thumb-img').forEach(img => img.addEventListener('error', () => console.warn('[thumb-img] failed:', img.src)));
+    const PAGE_SIZE = 8;
+    let allItems = [];      // [{ title_ko, title_en, desc_ko, desc_en, source_ko, source_en, link, pubDate, image, tags }]
+    let filteredItems = [];
+    let currentPage = 1;
 
-      /* Family Site */
-      let fsBusy = false;
-      const fs = document.getElementById('familySite');
-      function openInNewTab(url) {
-        const a = document.createElement('a');
-        a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.style.display = 'none';
-        document.body.appendChild(a); a.click(); a.remove();
-        const win = window.open('', '_blank');
-        if (win && win.location === 'about:blank') { win.location = url; try { win.opener = null; } catch (_) {} }
+    const pageIndicator = document.getElementById('pageIndicator');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+
+    /* ====== i18n dict ====== */
+    const I18N = {
+      ko: {
+        'site.title':'아진산업 - 뉴스',
+        'nav.home':'홈',
+        'nav.company':'기업정보',
+        'nav.company.overview':'회사 개요',
+        'nav.company.ceo':'CEO 메세지',
+        'nav.company.history':'연혁',
+        'nav.company.vision':'비전/가치',
+        'nav.company.org':'조직구성',
+        'nav.company.location':'오시는 길',
+        'nav.business':'사업분야',
+        'nav.business.body':'차체',
+        'nav.business.electronics':'전장',
+        'nav.tech':'기술력',
+        'nav.tech.lab':'연구소 현황',
+        'nav.tech.rnd':'연구개발 분야',
+        'nav.tech.facilities':'연구설비',
+        'nav.tech.records':'연구실적',
+        'nav.results':'주요실적',
+        'nav.results.talent':'인재상',
+        'nav.results.hr':'인사제도',
+        'nav.results.career':'채용정보',
+        'nav.esg':'ESG경영',
+        'nav.esg.ethics':'윤리헌장',
+        'nav.esg.human':'인권헌장',
+        'nav.esg.env':'환경경영정책',
+        'nav.esg.report':'보고서',
+        'nav.pr':'홍보센터',
+        'nav.pr.news':'뉴스',
+        'nav.pr.cert':'인증서 및 수상현황',
+        'nav.pr.culture':'기업문화',
+        'nav.pr.ci':'C.I',
+        'nav.pr.video':'홍보영상',
+        'nav.pms':'생산관리시스템',
+        'nav.pms.dashboard':'대시보드',
+        'controls.search.placeholder':'키워드 검색',
+        'controls.year.all':'전체 연도',
+        'controls.sort.newest':'최신순',
+        'controls.sort.oldest':'오래된 순',
+        'controls.reset':'초기화',
+        'footer.addr':'경북경산시 진량읍 신제리 531번지(공단 8로 26길 40) TEL.053-856-9100 · Fax 053-856-9111<br />Copyright © AJIN INDUSTRIAL CO.LTD ALL Rights Reserved.',
+        'hero.title':'AJIN 뉴스',
+        'hero.subtitle':'회사 소식을 위한 최신 뉴스와 보도자료를 확인하세요',
+        'news.kicker':'뉴스',
+        'pager.prev':'이전',
+        'pager.next':'다음',
+        'pager.page':'페이지',
+      },
+      en: {
+        'site.title':'AJIN INDUSTRIAL - News',
+        'nav.home':'Home',
+        'nav.company':'Company',
+        'nav.company.overview':'Overview',
+        'nav.company.ceo':'CEO Message',
+        'nav.company.history':'History',
+        'nav.company.vision':'Vision & Values',
+        'nav.company.org':'Organization',
+        'nav.company.location':'Location',
+        'nav.business':'Business',
+        'nav.business.body':'Body',
+        'nav.business.electronics':'Electronics',
+        'nav.tech':'Technology',
+        'nav.tech.lab':'R&D Center',
+        'nav.tech.rnd':'R&D Areas',
+        'nav.tech.facilities':'Facilities',
+        'nav.tech.records':'Achievements',
+        'nav.results':'Careers',
+        'nav.results.talent':'Talent',
+        'nav.results.hr':'HR System',
+        'nav.results.career':'Recruitment',
+        'nav.esg':'ESG',
+        'nav.esg.ethics':'Code of Ethics',
+        'nav.esg.human':'Human Rights Charter',
+        'nav.esg.env':'Environmental Policy',
+        'nav.esg.report':'Reports',
+        'nav.pr':'PR Center',
+        'nav.pr.news':'News',
+        'nav.pr.cert':'Certificates & Awards',
+        'nav.pr.culture':'Culture',
+        'nav.pr.ci':'C.I',
+        'nav.pr.video':'Videos',
+        'nav.pms':'Production Management',
+        'nav.pms.dashboard':'Dashboard',
+        'controls.search.placeholder':'Search keyword',
+        'controls.year.all':'All years',
+        'controls.sort.newest':'Newest',
+        'controls.sort.oldest':'Oldest',
+        'controls.reset':'Reset',
+        'footer.addr':'26-gil 40, Gongdan 8-ro, Jinryang-eup, Gyeongsan-si, Gyeongbuk, Korea  (TEL. +82-53-856-9100 · Fax +82-53-856-9111)<br />Copyright © AJIN INDUSTRIAL CO., LTD. All Rights Reserved.',
+        'hero.title':'AJIN News',
+        'hero.subtitle':'Explore Our Latest News and Press Releases for Company Updates',
+        'news.kicker':'NEWS',
+        'pager.prev':'Prev',
+        'pager.next':'Next',
+        'pager.page':'Page',
       }
-      fs?.addEventListener('change', (e) => {
-        if (fsBusy) return;
-        const url = (e.target.value || '').trim();
-        if (!url || url === '#') return;
-        fsBusy = true; openInNewTab(url);
-        setTimeout(() => { e.target.selectedIndex = 0; fsBusy = false; }, 300);
+    };
+
+    const LANG_KEY = 'ajin.news.lang';
+    function getLang(){ return localStorage.getItem(LANG_KEY) || 'ko'; }
+    function setLang(lang){
+      localStorage.setItem(LANG_KEY, lang);
+      document.documentElement.setAttribute('lang', lang === 'en' ? 'en-US' : 'ko-KR');
+      const t = document.querySelector('title[data-i18n="site.title"]');
+      if (t) t.textContent = I18N[lang]['site.title'];
+    }
+
+    /* Utils */
+    function formatDateChip(dt){
+      const d = new Date(dt); if (isNaN(d.getTime())) return '';
+      const opts = { month:'short', day:'numeric', year:'numeric' };
+      return d.toLocaleDateString(getLang()==='en'?'en-US':'ko-KR', opts);
+    }
+    function escAttr(s){ return String(s||'').replace(/"/g,'&quot;'); }
+
+    /* 하나만 있어도 반대 언어 필드 채우기 */
+    function fillMissingLang(rec){
+      if (!rec.title_ko && rec.title_en) rec.title_ko = rec.title_en;
+      if (!rec.title_en && rec.title_ko) rec.title_en = rec.title_ko;
+      if (!rec.desc_ko && rec.desc_en) rec.desc_ko = rec.desc_en;
+      if (!rec.desc_en && rec.desc_ko) rec.desc_en = rec.desc_ko;
+      if (!rec.source_ko && rec.source_en) rec.source_ko = rec.source_en;
+      if (!rec.source_en && rec.source_ko) rec.source_en = rec.source_ko;
+      return rec;
+    }
+
+    /* 정적 DOM → 데이터 모델 */
+    function collectStaticNewsAsItems(){
+      return Array.from(document.querySelectorAll('#newsList article.card')).map(card=>{
+        const box = card.querySelector('.content');
+        const titleA = card.querySelector('.title a');
+        const ex = card.querySelector('.excerpt');
+        const srcTextEl = card.querySelector('.source-text');
+
+        const koTitle   = (box?.getAttribute('data-ko-title')   || titleA?.textContent || '').trim();
+        const koExcerpt = (box?.getAttribute('data-ko-excerpt') || ex?.textContent    || '').trim();
+        const koSource  = (box?.getAttribute('data-ko-source')  || srcTextEl?.textContent || '').trim();
+
+        const enTitle   = (box?.getAttribute('data-en-title')   || '').trim();
+        const enExcerpt = (box?.getAttribute('data-en-excerpt') || '').trim();
+        const enSource  = (box?.getAttribute('data-en-source')  || '').trim();
+
+        const dateText = card.querySelector('.date-chip')?.innerText || '';
+        const pubDate = dateText ? new Date(dateText).toISOString() : new Date().toISOString();
+        const link = titleA?.href || '';
+        const img = card.querySelector('.thumb-img')?.src || 'images/news-fallback.jpg';
+
+        return fillMissingLang({
+          title_ko: koTitle, title_en: enTitle,
+          desc_ko: koExcerpt, desc_en: enExcerpt,
+          source_ko: koSource, source_en: enSource,
+          link, pubDate, image: img, tags: card.getAttribute('data-tags') || 'static'
+        });
+      });
+    }
+
+    /* 카드 렌더 */
+    function createNewsCard(item){
+      const lang = getLang();
+      const title = lang==='en' ? (item.title_en || item.title_ko) : (item.title_ko || item.title_en);
+      const desc  = lang==='en' ? (item.desc_en  || item.desc_ko ) : (item.desc_ko  || item.desc_en );
+      const source= lang==='en' ? (item.source_en|| item.source_ko) : (item.source_ko|| item.source_en);
+
+      const art = document.createElement('article');
+      art.className = 'card';
+      art.setAttribute('data-year', new Date(item.pubDate).getFullYear());
+      art.setAttribute('data-tags', item.tags || 'news');
+      art.innerHTML = `
+        <a href="${item.link}" target="_blank" rel="noopener" aria-label="${title}">
+          <div class="thumb-wrap">
+            <div class="thumb-ratio"></div>
+            <img class="thumb-img" src="${item.image || 'images/news-fallback.jpg'}" alt="${title}" loading="lazy" />
+          </div>
+        </a>
+        <div class="content"
+          data-ko-title="${escAttr(item.title_ko)}"
+          data-en-title="${escAttr(item.title_en)}"
+          data-ko-excerpt="${escAttr(item.desc_ko)}"
+          data-en-excerpt="${escAttr(item.desc_en)}"
+          data-ko-source="${escAttr(item.source_ko)}"
+          data-en-source="${escAttr(item.source_en)}"
+        >
+          <div class="kicker" data-i18n="news.kicker">${I18N[lang]['news.kicker']}</div>
+          <h2 class="title"><a href="${item.link}" target="_blank" rel="noopener">${title}</a></h2>
+          <p class="excerpt">${desc || ''}</p>
+          <div class="meta">
+            <span class="date-chip">${formatDateChip(item.pubDate)}</span>
+            <span>• <span class="source-text">${source || 'Google News'}</span></span>
+          </div>
+        </div>
+      `;
+      return art;
+    }
+
+    /* 필터/정렬/페이징 */
+    function applyFiltersAndSort(){
+      const kw = (q.value || '').toLowerCase().trim();
+      const yr = year.value;
+      const sortBy = sortSel.value;
+
+      filteredItems = allItems.filter(it=>{
+        const okYr = !yr || String(new Date(it.pubDate).getFullYear()) === yr;
+        const text = [it.title_ko,it.title_en,it.desc_ko,it.desc_en,it.source_ko,it.source_en].filter(Boolean).join(' ').toLowerCase();
+        const okKw = !kw || text.includes(kw);
+        return okYr && okKw;
       });
 
-      /* Google News RSS */
-      async function fetchFromGoogleNewsRSS(query) {
-        const qInput = document.getElementById('q');
-        const mergedQuery = [query, qInput?.value].filter(Boolean).join(' ').trim() || DEFAULT_RT_QUERY;
-        const rssURL = `https://news.google.com/rss/search?q=${encodeURIComponent(mergedQuery)}&hl=ko&gl=KR&ceid=KR:ko`;
-
-        const res = await fetch(rssURL);
-        if (!res.ok) throw new Error(`GOOGLE_RSS_ERROR ${res.status}`);
-        const xml = await res.text();
-
-        const doc = new DOMParser().parseFromString(xml, 'application/xml');
-        const items = Array.from(doc.querySelectorAll('item')).map((el) => {
-          const title = el.querySelector('title')?.textContent || '';
-          const theLink = el.querySelector('link')?.textContent || '#'; /* FIXED: 선언 추가 */
-          const desc = el.querySelector('description')?.textContent || '';
-          const pubDate = el.querySelector('pubDate')?.textContent || new Date().toUTCString();
-          const source = el.querySelector('source')?.textContent || 'Google News';
-          return {
-            title: stripTags(title),
-            description: stripTags(desc),
-            link: theLink,
-            pubDate: new Date(pubDate).toISOString(),
-            image: null,
-            source,
-          };
-        });
-
-        items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-        return items;
+      if (sortBy==='date_asc'){
+        filteredItems.sort((a,b)=>new Date(a.pubDate)-new Date(b.pubDate));
+      } else {
+        filteredItems.sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate)); // 기본 최신순
       }
+    }
 
-      /* Static → items 모델화 */
-      function collectStaticNewsAsItems() {
-        return Array.from(document.querySelectorAll('#newsList article.card')).map(card => {
-          const title = card.querySelector('.title')?.innerText?.trim() || '';
-          const link = card.querySelector('.title a')?.href || '';
-          const description = card.querySelector('.excerpt')?.innerText?.trim() || '';
-          const dateText = card.querySelector('.date-chip')?.innerText || '';
-          const pubDate = dateText ? new Date(dateText).toISOString() : new Date().toISOString();
-          const sourceText = (card.querySelector('.meta')?.innerText || '').split('•').pop()?.trim();
-          const img = card.querySelector('.thumb-img')?.src || 'images/news-fallback.jpg';
-          return { title, description, link, pubDate, source: sourceText || 'Static', image: img };
-        });
-      }
+    function renderPage(page=1){
+      const lang = getLang();
+      const total = filteredItems.length;
+      const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+      currentPage = Math.min(Math.max(1,page), pages);
 
-      /* Init: static + RSS merge */
-      async function init() {
-        try {
-          const staticItems = collectStaticNewsAsItems();
-          const rssItems = await fetchFromGoogleNewsRSS(DEFAULT_RT_QUERY);
+      const start = (currentPage-1)*PAGE_SIZE;
+      const slice = filteredItems.slice(start,start+PAGE_SIZE);
 
-          const map = new Map();
-          [...rssItems, ...staticItems].forEach(it => {
-            if (!map.has(it.link)) map.set(it.link, it);
-          });
+      list.innerHTML = '';
+      slice.forEach(it => list.appendChild(createNewsCard(it)));
 
-          allItems = Array.from(map.values());
-          applyFiltersAndSort();
-          renderPage(1);
-        } catch (e) {
-          console.error(e);
-          allItems = collectStaticNewsAsItems();
-          applyFiltersAndSort();
-          renderPage(1);
-        }
-      }
+      pageIndicator.textContent = `${I18N[lang]['pager.page']} ${currentPage} / ${pages}`;
+      prevBtn.textContent = I18N[lang]['pager.prev'];
+      nextBtn.textContent = I18N[lang]['pager.next'];
+      prevBtn.disabled = currentPage<=1;
+      nextBtn.disabled = currentPage>=pages;
+    }
 
-      /* Pager */
-      prevBtn?.addEventListener('click', () => { renderPage(currentPage - 1); });
-      nextBtn?.addEventListener('click', () => { renderPage(currentPage + 1); });
+    q?.addEventListener('input', ()=>{ applyFiltersAndSort(); renderPage(1); });
+    year?.addEventListener('change', ()=>{ applyFiltersAndSort(); renderPage(1); });
+    sortSel?.addEventListener('change', ()=>{ applyFiltersAndSort(); renderPage(1); });
+    reset?.addEventListener('click', ()=>{
+      q.value=''; year.value=''; sortSel.value='date_desc';
+      applyFiltersAndSort(); renderPage(1);
+    });
 
-      /* go */
-      init();
-    </script>
-  </body>
+    /* Family site */
+    let fsBusy=false;
+    const fs=document.getElementById('familySite');
+    function openInNewTab(url){
+      const a=document.createElement('a'); a.href=url; a.target='_blank'; a.rel='noopener'; a.style.display='none';
+      document.body.appendChild(a); a.click(); a.remove();
+    }
+    fs?.addEventListener('change',(e)=>{
+      if(fsBusy) return;
+      const url=(e.target.value||'').trim();
+      if(!url || url==='#') return;
+      fsBusy=true; openInNewTab(url);
+      setTimeout(()=>{ e.target.selectedIndex=0; fsBusy=false; },300);
+    });
+
+    /* i18n UI 적용 */
+    function applyI18N(){
+      const lang = getLang();
+      const dict = I18N[lang];
+
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] != null) el.innerHTML = dict[key];
+      });
+
+      const ht=document.getElementById('heroTitle');
+      const hs=document.getElementById('heroSubtitle');
+      if (ht) ht.textContent = dict['hero.title'] || ht.textContent;
+      if (hs) hs.textContent = dict['hero.subtitle'] || hs.textContent;
+
+      const langBtn=document.getElementById('langBtn');
+      if (langBtn) langBtn.textContent = (lang==='en') ? 'EN / KO' : 'KO / EN';
+
+      if (q) q.placeholder = dict['controls.search.placeholder'] || q.placeholder;
+      if (year) year.title = (lang==='en' ? 'Filter by year' : '연도 필터');
+      if (sortSel) sortSel.title = (lang==='en' ? 'Sort by' : '정렬 기준');
+    }
+
+    /* 버튼 하나로 전체 전환 */
+    document.getElementById('langBtn')?.addEventListener('click', ()=>{
+      const next = (getLang()==='en') ? 'ko' : 'en';
+      setLang(next);
+      applyI18N();
+      renderPage(currentPage);
+    });
+
+    /* 초기 구동 */
+    (function start(){
+      // ✅ 항상 한글부터 보이도록 강제
+      setLang('ko');
+      allItems = collectStaticNewsAsItems();
+      applyFiltersAndSort();
+      applyI18N();
+      renderPage(1);
+    })();
+  </script>
+</body>
 </html>
