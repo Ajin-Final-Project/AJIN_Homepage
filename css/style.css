@@ -10025,4 +10025,9 @@ textarea.form-control {
   font-weight: 700;  /* 글씨 두껍게 */
 }
 
+.hero .hero-img-wrap {
+  background-size: cover;       /* 배경을 꽉 채움 */
+  background-position: center;  /* 중앙 기준 */
+  background-repeat: no-repeat; /* 반복 제거 */
+}
 
