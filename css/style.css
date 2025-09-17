@@ -10031,3 +10031,105 @@ textarea.form-control {
   background-repeat: no-repeat; /* 반복 제거 */
 }
 
+
+
+
+/* ================================================
+   AJIN 커스터마이징 (index10용)
+   ================================================ */
+
+/* 1) NAVBAR: 스크롤 시 상단 고정 */
+#ftco-navbar {
+  background: #000;           /* 배경 유지 */
+  z-index: 3000;
+  position: sticky;           /* 스크롤 고정 */
+  top: 0;
+  box-shadow: 0 2px 14px rgba(0,0,0,.35);
+}
+
+/* 2) HERO 이미지: 왼쪽→오른쪽 그라데이션 */
+.hero .hero-img-wrap {
+  position: relative;
+  width: 100%;
+  height: clamp(420px, 78vh, 900px);
+  overflow: hidden;
+}
+.hero .hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+/* ✅ 글자에는 안 덮이도록 z-index 낮춤 */
+.hero .hero-img-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+  to right,
+  rgba(0,0,0,0.70) 0%,   /* 시작 → 진하게 */
+  rgba(0,0,0,0.35) 40%,  /* 중간 → 아직 어두움 */
+  rgba(0,0,0,0) 80%,   /* 끝쪽 → 거의 사라짐 */
+  rgba(0,0,0,0) 100%     /* 끝 → 완전 투명 */
+);
+  /* z-index: 1; */
+  z-index: 0; /* 이미지 위, 글자 아래 */
+  pointer-events: none;
+}
+
+/* 3) HERO 텍스트: 글자 크기 조정 */
+/* .hero .text { */
+  /* position: relative; */
+  /* z-index: 2;            */
+  /* max-width: 720px;
+  margin-left: clamp(12px, 4vw, 40px);
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,.35);
+}
+
+.hero .text .subheading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #F6A623;
+}
+.hero .text h1 {
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+.hero .text h2 {
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 500;
+  opacity: .95;
+} */
+
+/* 3) HERO 텍스트: 글자 크기 + 위치 */
+.hero .text {
+  position: relative;
+  z-index: 2;                 /* ✅ 항상 그라데이션 위 */
+  max-width: 800px;           /* 조금 넓힘 */
+  margin-left: none;            /* index10_기존 위치처럼 좌측 5 */  /* 왼쪽으로 더 이동 3*/
+  margin-bottom: 8%;          /* index10_기존처럼 아래쪽 정렬 */
+   /* margin-top: -2%; */
+  color: #fff;
+  text-shadow: none;   /* 0 2px 10px rgba(0,0,0,.4) ✅ 그림자 제거 → 글자 선명 none */
+}
+.hero .text .subheading {
+  font-size: 1.4rem;           /* 조금 더 큼 */
+  font-weight: 600;
+  color: #F6A623;
+}
+.hero .text h1 {
+  font-size: clamp(4rem, 6vw, 5rem); /* 살짝 확대 */
+  font-weight: 800;
+  line-height: 1.2;
+}
+.hero .text h2 {
+  font-size: clamp(2rem, 3vw, 2.4rem);
+  font-weight: 500;
+  opacity: .95;
+}
+
