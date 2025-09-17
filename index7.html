@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>아진산업</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Template assets (프로젝트 기본 자산 사용 시 유지) -->
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Font Awesome (반도체 아이콘) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+  <style>
+    :root{
+      --ajin-black:#000;
+      --ajin-dark:#111;
+      --ajin-gold:#F6A623;
+      --text-main:#f2f2f2;
+      --text-dim:#bfbfbf;
+    }
+
+    html, body { background:#000; }
+    body{
+      font-family:'Noto Sans KR',sans-serif; color:var(--text-main); line-height:1.65;
+      /* sticky 헤더가 앵커를 가리지 않도록 */
+      scroll-padding-top:84px;
+    }
+    h1,h2,h3,h4{ font-family:'Poppins','Noto Sans KR',sans-serif; color:#fff; }
+
+    /* ===== NAVBAR (Sticky) ===== */
+    #ftco-navbar{
+      background:#000; z-index:3000;
+      position: sticky; top:0;
+      box-shadow:0 2px 14px rgba(0,0,0,.35);
+    }
+    .navbar .nav-link{ font-weight:600; color:#fff !important; }
+    .navbar .nav-link:hover{ color:var(--ajin-gold) !important; }
+    .navbar .dropdown-menu{ background:#0f0f0f; border:1px solid #1a1a1a; }
+    .navbar .dropdown-item{ color:#e9e9e9; }
+    .navbar .dropdown-item:hover{ background:var(--ajin-gold); color:#000; }
+
+    /* ===== HERO ===== */
+    .overlay{ background:transparent !important; }
+    .hero .hero-img-wrap{ position:relative; width:100%; height:clamp(460px,78vh,900px); overflow:hidden; }
+    .hero .hero-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+    .hero .hero-gradient{
+      position:absolute; inset:0; z-index:1; pointer-events:none;
+      background:linear-gradient(to right, rgba(0,0,0,.72) 0%, rgba(0,0,0,.1) 45%, rgba(0,0,0,0) 100%);
+    }
+    .hero .text{
+      position:relative; z-index:2; max-width:720px; padding:0 24px; margin-left:clamp(12px,4vw,40px);
+      color:#fff; text-shadow:0 2px 10px rgba(0,0,0,.35);
+    }
+    .hero .text .subheading{ font-size:1.15rem; font-weight:600; color:var(--ajin-gold); }
+    .hero .text h1{ font-size:clamp(2.2rem,4.8vw,3.6rem); font-weight:800; margin:.35rem 0 .25rem; }
+    .hero .text h2{ font-size:clamp(1.05rem,2.1vw,1.4rem); font-weight:500; opacity:.95; }
+    .btn-primary{ background:var(--ajin-gold); border:none; color:#000; font-weight:700; }
+    .btn-primary:hover{ background:#e39b18; }
+    .btn-outline-white{ border:2px solid #fff; color:#fff; }
+    .btn-outline-white:hover{ background:#fff; color:#000; }
+
+    /* ===== SECTIONS ===== */
+    .ftco-section{ background:#000; color:var(--text-main); padding:4.5rem 0; }
+    .section-muted{ background:var(--ajin-dark); }
+    .heading-section{ text-align:center; margin-bottom:36px; }
+    .heading-section .big{ font-size:2.6rem; font-weight:900; letter-spacing:.04em; opacity:.12; color:#fff; margin-bottom:.35rem; }
+    .heading-section h2{ font-weight:800; color:#fff; }
+    .heading-section p{ color:var(--text-dim); }
+
+    /* ===== SERVICE CARDS ===== */
+    .services-1{
+      background:var(--ajin-dark); border-radius:16px; padding:28px 22px;
+      box-shadow:0 8px 28px rgba(0,0,0,.55);
+      width:100%; transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .services-1:hover{ transform:translateY(-4px); box-shadow:0 14px 36px rgba(0,0,0,.65); }
+    .services-1 .icon{
+      display:block; margin:6px auto 12px; font-size:56px; line-height:1;
+      color:var(--ajin-gold); filter:drop-shadow(0 2px 0 rgba(0,0,0,.35));
+    }
+    .services-1 h3{ font-weight:800; color:#fff; margin-bottom:8px; }
+    .services-1 p{ color:var(--text-dim); margin:0; }
+
+    /* ===== PROGRESS ===== */
+    .progress{ background:#2a2a2a; height:6px; border-radius:99px; }
+    .progress-bar{ background:var(--ajin-gold); }
+
+    /* ===== 카드 그리드 ===== */
+    .card-dark{
+      background:var(--ajin-dark); border-radius:16px; padding:22px;
+      box-shadow:0 8px 24px rgba(0,0,0,.5);
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-icon{ font-size:28px; color:var(--ajin-gold); }
+
+    /* ===== FOOTER ===== */
+    footer.simple-footer{ background:#000; color:#cfcfcf; padding:42px 0; border-top:1px solid #111; }
+    footer .brand img{ height:64px; }
+    footer .sns a{ color:#aaa; margin:0 10px; font-size:1.2rem; }
+    footer .sns a:hover{ color:var(--ajin-gold); }
+    footer .small{ color:#7f7f7f; font-size:.95rem; margin-top:8px; }
+  </style>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+  <!-- NAVBAR (Sticky) -->
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar site-navbar-target" id="ftco-navbar">
+    <div class="container-fluid px-4">
+      <a class="brand d-flex align-items-center" href="#home-section" aria-label="홈으로 이동">
+        <img src="images/AJIN_logo_black_background.png" alt="아진산업 로고" style="max-height:58px;">
+      </a>
+      <button class="navbar-toggler js-fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="메뉴 열기">
+        <span class="oi oi-menu"></span> 메뉴
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="#home-section" class="nav-link">홈</a></li>
+          <li class="nav-item"><a href="#about-section" class="nav-link">기업정보</a></li>
+          <li class="nav-item"><a href="#services-section" class="nav-link">사업분야</a></li>
+          <li class="nav-item"><a href="#skills-section" class="nav-link">기술력</a></li>
+          <li class="nav-item"><a href="#projects-section" class="nav-link">프로젝트</a></li>
+          <li class="nav-item"><a href="#news-section" class="nav-link">뉴스</a></li>
+          <li class="nav-item"><a href="#contact-section" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home-section" class="hero">
+    <div class="home-slider owl-carousel">
+      <!-- Slide 1 -->
+      <div class="slider-item">
+        <div class="container-fluid px-0">
+          <div class="row no-gutters slider-text align-items-center">
+            <div class="img hero-img-wrap">
+              <img src="images/자동차배경4.jpg" alt="배경" class="hero-img">
+              <div class="hero-gradient"></div>
+            </div>
+            <div class="one-forth d-flex align-items-center">
+              <div class="text">
+                <span class="subheading">자동차 부품 전문 제조기업</span>
+                <h1>아진산업</h1>
+                <h2>101년을 준비하는 글로벌 파트너</h2>
+                <p class="mt-3">
+                  <a href="#about-section" class="btn btn-primary py-3 px-4">회사소개</a>
+                  <a href="#contact-section" class="btn btn-outline-white py-3 px-4 ml-2">문의하기</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="slider-item">
+        <div class="container-fluid px-0">
+          <div class="row no-gutters slider-text align-items-center">
+            <div class="img hero-img-wrap">
+              <img src="images/factory9.png" alt="공장" class="hero-img">
+              <div class="hero-gradient"></div>
+            </div>
+            <div class="one-forth d-flex align-items-center">
+              <div class="text">
+                <span class="subheading">차체·전장 글로벌 생산</span>
+                <h1>품질과 신뢰, 그 이상의 가치</h1>
+                <h2>정밀 제조 역량으로 고객 성공을 지원합니다</h2>
+                <p class="mt-3">
+                  <a href="#services-section" class="btn btn-primary py-3 px-4">사업분야</a>
+                  <a href="#skills-section" class="btn btn-outline-white py-3 px-4 ml-2">기술력</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="slider-item">
+        <div class="container-fluid px-0">
+          <div class="row no-gutters slider-text align-items-center">
+            <div class="img hero-img-wrap">
+              <img src="images/아진본사4.png" alt="본사" class="hero-img">
+              <div class="hero-gradient"></div>
+            </div>
+            <div class="one-forth d-flex align-items-center">
+              <div class="text">
+                <span class="subheading">최신 소식</span>
+                <h1>AJIN 뉴스 & 홍보</h1>
+                <h2>지속가능 경영과 글로벌 확장을 이어갑니다</h2>
+                <p class="mt-3">
+                  <a href="#news-section" class="btn btn-primary py-3 px-4">뉴스 보기</a>
+                  <a href="#esg-section" class="btn btn-outline-white py-3 px-4 ml-2">ESG 경영</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT (요약) -->
+  <section class="ftco-section" id="about-section">
+    <div class="container">
+      <div class="heading-section">
+        <div class="big">회사소개</div>
+        <h2>아진산업</h2>
+        <p>근면성실, 창의개발, 기술배양을 바탕으로 글로벌 자동차 부품 산업을 선도합니다.</p>
+      </div>
+
+      <div class="row align-items-start">
+        <div class="col-md-6 mb-4">
+          <h3 style="font-weight:800;">CEO 메시지</h3>
+          <p style="color:var(--text-dim);">
+            To be the best in the world! 고객 가치 창조와 혁신으로 세계 자동차 산업을 선도하겠습니다.
+          </p>
+          <p style="color:var(--text-dim);">
+            우수 인력과 세계 최고 수준의 기술력으로 고품질 자동차 부품을 생산하며 글로벌 신뢰를 쌓아왔습니다.
+            지속 가능한 성장과 사회적 책임을 실천하는 글로벌 기업으로 거듭나겠습니다.
+          </p>
+        </div>
+        <div class="col-md-6 mb-4">
+          <img src="images/CEO3.jpg" alt="CEO" class="img-fluid" style="border-radius:8px; box-shadow:0 10px 28px rgba(0,0,0,.45);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="ftco-section section-muted" id="services-section">
+    <div class="container">
+      <div class="heading-section">
+        <div class="big">사업분야</div>
+        <h2>주요 제품 및 계열사</h2>
+        <p>차체·전장 부품을 중심으로 국내외 생산 거점을 통해 글로벌 공급망을 운영합니다.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <!-- 차체 -->
+        <div class="col-md-4 d-flex mb-4">
+          <div class="services-1 w-100 text-center">
+            <span class="icon"><i class="ion-ios-car"></i></span>
+            <h3 class="mb-2">차체</h3>
+            <p>RAIL ASSY, PNL ASSY 등 핵심 차체 구조물 생산</p>
+          </div>
+        </div>
+        <!-- 전장 (반도체 아이콘) -->
+        <div class="col-md-4 d-flex mb-4">
+          <div class="services-1 w-100 text-center">
+            <span class="icon"><i class="fas fa-microchip" aria-hidden="true"></i></span>
+            <h3 class="mb-2">전장</h3>
+            <p>전장 모듈 및 부품 정밀 제조 · 품질 관리</p>
+          </div>
+        </div>
+        <!-- 글로벌 -->
+        <div class="col-md-4 d-flex mb-4">
+          <div class="services-1 w-100 text-center">
+            <span class="icon"><i class="ion-ios-globe"></i></span>
+            <h3 class="mb-2">글로벌 네트워크</h3>
+            <p>미국 · 중국 · 한국 생산 거점 기반의 안정 공급</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="ftco-section" id="skills-section">
+    <div class="container">
+      <div class="heading-section">
+        <div class="big">기술력</div>
+        <h2>보유 기술 및 설비</h2>
+        <p>최첨단 설비와 표준화된 품질 관리로 글로벌 기준을 충족합니다.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="progress-wrap mb-4"><h3>정밀 가공</h3><div class="progress"><div class="progress-bar" style="width:95%"></div></div></div>
+          <div class="progress-wrap mb-4"><h3>금형 제작</h3><div class="progress"><div class="progress-bar" style="width:90%"></div></div></div>
+          <div class="progress-wrap mb-4"><h3>품질 시스템</h3><div class="progress"><div class="progress-bar" style="width:92%"></div></div></div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="progress-wrap mb-4"><h3>정밀 측정</h3><div class="progress"><div class="progress-bar" style="width:98%"></div></div></div>
+          <div class="progress-wrap mb-4"><h3>자동화 시스템</h3><div class="progress"><div class="progress-bar" style="width:87%"></div></div></div>
+          <div class="progress-wrap mb-4"><h3>신소재 가공</h3><div class="progress"><div class="progress-bar" style="width:88%"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS GRID -->
+  <section class="ftco-section" id="projects-section">
+    <div class="container">
+      <div class="heading-section">
+        <div class="big">PROJECTS</div>
+        <h2>아진산업의 주요 프로젝트</h2>
+        <p>다양한 산업 분야에서 축적한 풍부한 경험과 실적을 보여주고 있습니다.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 mb-4"><div class="card-dark"><img class="img-fluid" src="images/work-1.jpg" alt=""></div></div>
+        <div class="col-md-4 mb-4"><div class="card-dark"><img class="img-fluid" src="images/work-2.jpg" alt=""></div></div>
+        <div class="col-md-4 mb-4"><div class="card-dark"><img class="img-fluid" src="images/work-3.jpg" alt=""></div></div>
+
+        <div class="col-md-4 mb-4"><div class="card-dark"><img class="img-fluid" src="images/work-4.jpg" alt=""></div></div>
+        <div class="col-md-4 mb-4"><div class="card-dark"><img class="img-fluid" src="images/work-5.jpg" alt=""></div></div>
+        <div class="col-md-4 mb-4"><div class="card-dark"><img class="img-fluid" src="images/work-6.jpg" alt=""></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS / 공지 -->
+  <section class="ftco-section" id="news-section">
+    <div class="container">
+      <div class="heading-section">
+        <div class="big">NEWS</div>
+        <h2>회사 소식 및 공지사항</h2>
+        <p>아진산업의 최신 소식과 중요한 공지사항을 확인하실 수 있습니다.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 d-flex mb-4">
+          <div class="card-dark w-100">
+            <img src="images/image_1.jpg" class="img-fluid mb-3" alt="">
+            <h3 class="mb-2">아진산업㈜ 준조치어 착공식</h3>
+            <p style="color:var(--text-dim);">아진산업㈜ 준조치어 착공식에서 새로운 성장의 인사말을 올리고 있다…</p>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex mb-4">
+          <div class="card-dark w-100">
+            <img src="images/image_2.jpg" class="img-fluid mb-3" alt="">
+            <h3 class="mb-2">사람에 대한 투자가 곧 회사 경쟁력</h3>
+            <p style="color:var(--text-dim);">역동적이고 끊임없이 발전하는 아진산업의 경영철학을 대표가 말했다…</p>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex mb-4">
+          <div class="card-dark w-100">
+            <img src="images/image_3.jpg" class="img-fluid mb-3" alt="">
+            <h3 class="mb-2">경북대·아진산업 AI·빅데이터 인재양성</h3>
+            <p style="color:var(--text-dim);">산학 협력으로 인공지능·빅데이터 인력 양성에 나선다…</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="ftco-section section-muted" id="contact-section">
+    <div class="container">
+      <div class="heading-section">
+        <div class="big">CONTACT</div>
+        <h2>아진산업에 문의하세요</h2>
+        <p>협업/기술/제안에 대한 문의사항이 있으시면 언제든지 연락주시기 바랍니다.</p>
+      </div>
+
+      <div class="row text-center mb-4">
+        <div class="col-md-3 mb-3">
+          <div class="contact-icon mb-2"><span class="oi oi-map-marker"></span></div>
+          <div>경북 경산시 진량읍 신제리 531<br/>본사(신제 8로 26길 40)</div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <div class="contact-icon mb-2"><span class="oi oi-phone"></span></div>
+          <div>053-856-9100</div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <div class="contact-icon mb-2"><span class="oi oi-envelope-closed"></span></div>
+          <div>info@ajin.co.kr</div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <div class="contact-icon mb-2"><span class="oi oi-globe"></span></div>
+          <div>www.ajind.co.kr</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card-dark p-2">
+            <img src="images/map_thumb.jpg" alt="지도" class="img-fluid" style="border-radius:10px;">
+            <div class="text-center mt-2">
+              <a class="btn btn-primary px-4 py-2" href="https://map.kakao.com/" target="_blank" rel="noopener">지도 크게 보기</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card-dark">
+            <form>
+              <div class="form-group"><input type="text" class="form-control" placeholder="성함"></div>
+              <div class="form-group"><input type="email" class="form-control" placeholder="이메일"></div>
+              <div class="form-group"><input type="text" class="form-control" placeholder="제목"></div>
+              <div class="form-group"><textarea class="form-control" rows="6" placeholder="문의내용"></textarea></div>
+              <button type="submit" class="btn btn-primary px-4 py-2">문의하기</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="simple-footer">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+      <div class="brand"><img src="images/AJIN_logo_white_background.png" alt="로고"></div>
+      <div class="sns">
+        <a href="#" aria-label="LinkedIn"><span class="icon ion-logo-linkedin"></span></a>
+        <a href="#" aria-label="YouTube"><span class="icon ion-logo-youtube"></span></a>
+        <a href="#" aria-label="Facebook"><span class="icon ion-logo-facebook"></span></a>
+      </div>
+      <div class="small">© 2025 AJIN INDUSTRY. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

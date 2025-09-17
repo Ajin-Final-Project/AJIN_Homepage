@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>아진산업 – 다크 테마 (로컬 동작)</title>
+<style>
+  :root{
+    --bg:#000;
+    --panel:#0f0f0f;
+    --panel2:#121212;
+    --text:#e9edf1;
+    --text-dim:#b9c0c7;
+    --gold:#F6A623;
+    --line:rgba(255,255,255,.07);
+    --shadow:0 14px 38px rgba(0,0,0,.65);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;background:var(--bg);color:var(--text);
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans KR",sans-serif;
+    line-height:1.65;scroll-padding-top:84px;
+  }
+  h1,h2,h3{margin:0 0 .4rem;color:#fff;font-weight:900;letter-spacing:.01em}
+  a{color:inherit;text-decoration:none}
+
+  /* NAV - sticky */
+  .nav{position:sticky;top:0;z-index:1000;background:#000;border-bottom:1px solid var(--line);
+       box-shadow:0 6px 24px rgba(0,0,0,.45)}
+  .nav__inner{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:20px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:900}
+  .brand svg{height:28px}
+  .menu{margin-left:auto;display:flex;gap:16px}
+  .menu a{font-weight:800;opacity:.9}
+  .menu a:hover{color:var(--gold)}
+
+  .section{padding:72px 20px}
+  .section--muted{background:var(--panel2)}
+  .container{max-width:1120px;margin:0 auto}
+
+  .heading{text-align:center;margin-bottom:28px}
+  .eyebrow{font-weight:900;letter-spacing:.06em;opacity:.14;font-size:34px}
+  .title-xl{font-size:42px}
+  .desc{color:var(--text-dim)}
+
+  /* HERO */
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+  @media (max-width:960px){.hero-grid{grid-template-columns:1fr}}
+  .hero-img{
+    border-radius:16px;width:100%;height:360px;object-fit:cover;box-shadow:var(--shadow);
+    background:linear-gradient(135deg,#1f1f1f 0%,#0f0f0f 45%,#070707 100%);
+  }
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;border-radius:999px;
+       font-weight:800;cursor:pointer;transition:.2s}
+  .btn--gold{background:var(--gold);color:#000;border:none}
+  .btn--gold:hover{filter:brightness(.95)}
+  .btn--ghost{border:2px solid #fff;color:#fff;background:transparent}
+  .btn--ghost:hover{background:#fff;color:#000}
+
+  /* GRID */
+  .grid{display:grid;gap:22px}
+  .grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  @media (max-width:960px){.grid--3{grid-template-columns:1fr}}
+
+  /* CARDS */
+  .card{background:linear-gradient(180deg,#141414 0%,#0d0d0d 100%);border:1px solid var(--line);
+        border-radius:16px;padding:26px 22px;box-shadow:var(--shadow);
+        transition:transform .22s, box-shadow .22s, border-color .22s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 22px 52px rgba(0,0,0,.8),inset 0 0 0 1px rgba(246,166,35,.15)}
+  .svc{ text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px }
+  .svc__title{font-size:20px;font-weight:900}
+  .svc__desc{color:var(--text-dim)}
+  .thumb{border-radius:12px;width:100%;height:220px;object-fit:cover;background:#111}
+  .meta{opacity:.75;font-size:.9rem}
+  .ttl{font-weight:900;font-size:20px}
+
+  /* ICONS (inline SVG sizes) */
+  .ico{width:46px;height:46px;filter:drop-shadow(0 1px 0 rgba(0,0,0,.3))}
+  .ico--chip{width:40px;height:40px} /* 전장 더 작게 */
+
+  /* Reveal (AOS 없이) */
+  .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.on{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="brand" href="#home" aria-label="AJIN">
+      <!-- 심플 로고 -->
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#F6A623" stroke-width="2"/><path d="M12 6v12M6 12h12" stroke="#F6A623" stroke-width="2"/></svg>
+      <span>AJIN</span>
+    </a>
+    <nav class="menu">
+      <a href="#home">홈</a>
+      <a href="#about">기업정보</a>
+      <a href="#services">사업분야</a>
+      <a href="#projects">프로젝트</a>
+      <a href="#news">뉴스</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="section">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">회사소개</div>
+      <h1 class="title-xl" style="margin:.2rem 0 .6rem">아진산업</h1>
+      <p class="desc">101년을 준비하는 글로벌 파트너. 품질과 신뢰, 그리고 혁신으로 고객의 성공을 이끕니다.</p>
+      <div style="margin-top:14px;display:flex;gap:12px">
+        <a class="btn btn--gold" href="#about">회사소개</a>
+        <a class="btn btn--ghost" href="#contact">문의하기</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <!-- 로컬에 이미지가 없을 때도 보여지는 백업 배경 -->
+      <img class="hero-img" src="images/자동차배경4.jpg" onerror="this.removeAttribute('src')" alt="hero">
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section section--muted">
+  <div class="container">
+    <div class="heading reveal">
+      <div class="eyebrow">기업정보</div>
+      <h2 class="title-xl">근면성실 · 창의개발 · 기술배양</h2>
+      <p class="desc">글로벌 신뢰를 바탕으로 차체·전장 분야의 정밀 제조 역량을 강화하고 있습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="container">
+    <div class="heading reveal">
+      <div class="eyebrow">사업분야</div>
+      <h2 class="title-xl">주요 제품 및 계열사</h2>
+      <p class="desc">차체·전장 부품을 중심으로 국내외 생산 거점을 통해 글로벌 공급망을 운영합니다.</p>
+    </div>
+
+    <div class="grid grid--3">
+      <!-- 차체 아이콘 -->
+      <article class="card svc reveal">
+        <svg class="ico" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M10 36h44l-4-8c-2-4-6-6-10-6H24c-4 0-8 2-10 6l-4 8z" stroke="#F6A623" stroke-width="3"/>
+          <circle cx="20" cy="40" r="4" fill="#F6A623"/><circle cx="44" cy="40" r="4" fill="#F6A623"/>
+        </svg>
+        <div class="svc__title">차체</div>
+        <div class="svc__desc">RAIL ASSY, PNL ASSY 등 핵심 차체 구조물 생산</div>
+      </article>
+
+      <!-- 전장 아이콘 (칩+번개 40px) -->
+      <article class="card svc reveal">
+        <svg class="ico ico--chip" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect x="12" y="16" width="40" height="32" rx="6" fill="#F6A623"/>
+          <g fill="#F6A623">
+            <rect x="20" y="8" width="2" height="8" rx="1"/><rect x="28" y="8" width="2" height="8" rx="1"/>
+            <rect x="36" y="8" width="2" height="8" rx="1"/><rect x="44" y="8" width="2" height="8" rx="1"/>
+            <rect x="20" y="48" width="2" height="8" rx="1"/><rect x="28" y="48" width="2" height="8" rx="1"/>
+            <rect x="36" y="48" width="2" height="8" rx="1"/><rect x="44" y="48" width="2" height="8" rx="1"/>
+            <rect x="8" y="24" width="8" height="2" rx="1"/><rect x="8" y="32" width="8" height="2" rx="1"/><rect x="8" y="40" width="8" height="2" rx="1"/>
+            <rect x="48" y="24" width="8" height="2" rx="1"/><rect x="48" y="32" width="8" height="2" rx="1"/><rect x="48" y="40" width="8" height="2" rx="1"/>
+          </g>
+          <path d="M34 22l-8 11h6l-2 9 8-12h-6l2-8z" fill="#1a1a1a"/>
+        </svg>
+        <div class="svc__title">전장</div>
+        <div class="svc__desc">전장 모듈 및 부품 정밀 제조 · 품질 관리</div>
+      </article>
+
+      <!-- 글로벌 -->
+      <article class="card svc reveal">
+        <svg class="ico" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <circle cx="32" cy="32" r="14" stroke="#F6A623" stroke-width="3"/>
+          <path d="M18 32h28M32 18v28M24 24c3 3 5 5 8 5s5-2 8-5M24 40c3-3 5-5 8-5s5 2 8 5" stroke="#F6A623" stroke-width="2"/>
+        </svg>
+        <div class="svc__title">글로벌 네트워크</div>
+        <div class="svc__desc">미국·중국·한국 생산 거점 기반의 안정 공급</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section section--muted">
+  <div class="container">
+    <div class="heading reveal">
+      <div class="eyebrow">PROJECTS</div>
+      <h2 class="title-xl">아진산업의 주요 프로젝트</h2>
+      <p class="desc">다양한 산업 분야에서 축적한 실적을 보여줍니다.</p>
+    </div>
+    <div class="grid grid--3" id="projects-grid"></div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news" class="section">
+  <div class="container">
+    <div class="heading reveal">
+      <div class="eyebrow">NEWS</div>
+      <h2 class="title-xl">회사 소식 및 공지사항</h2>
+      <p class="desc">최신 소식과 중요한 공지사항을 확인하세요.</p>
+    </div>
+    <div class="grid grid--3" id="news-grid"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section section--muted">
+  <div class="container">
+    <div class="heading reveal">
+      <div class="eyebrow">CONTACT</div>
+      <h2 class="title-xl">아진산업에 문의하세요</h2>
+      <p class="desc">협업/기술/제안 문의는 아래 연락처로 남겨주세요.</p>
+    </div>
+    <div class="grid" style="grid-template-columns:1fr 1fr">
+      <article class="card reveal">
+        <div class="thumb" style="height:320px;background:linear-gradient(135deg,#1e1e1e,#0d0d0d)"></div>
+        <div style="margin-top:12px">
+          <div class="meta">경북 경산시 진량읍 신제리 531 (신제 8로 26길 40)</div>
+          <button class="btn btn--gold" style="margin-top:10px" onclick="alert('지도 링크 연결 예정')">지도 크게 보기</button>
+        </div>
+      </article>
+      <article class="card reveal">
+        <form onsubmit="event.preventDefault();alert('문의가 전송되었습니다(데모).')">
+          <div style="display:grid;gap:10px">
+            <input class="card" style="padding:12px 14px" placeholder="성함">
+            <input class="card" style="padding:12px 14px" placeholder="이메일" type="email">
+            <input class="card" style="padding:12px 14px" placeholder="제목">
+            <textarea class="card" style="padding:12px 14px;height:150px" placeholder="문의내용"></textarea>
+            <button class="btn btn--gold" type="submit">문의하기</button>
+          </div>
+        </form>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer style="border-top:1px solid var(--line);padding:36px 20px;color:#bdbdbd">
+  <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <div>© 2025 AJIN INDUSTRY. All rights reserved.</div>
+    <div>LinkedIn · YouTube · Facebook</div>
+  </div>
+</footer>
+
+<script>
+  /* Reveal: AOS 대체 (CDN 불필요) */
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+    });
+  }, {rootMargin:"0px 0px -10% 0px", threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* 데이터 바인딩 (프로젝트/뉴스) */
+  const projects = [
+    { img:'images/work-1.jpg', title:'EV Body Line',  desc:'전기차 차체 자동화 라인 구축', tag:'EV/Body' },
+    { img:'images/work-2.jpg', title:'Press & Die',   desc:'대형 프레스·금형 일체 솔루션', tag:'Press' },
+    { img:'images/work-3.jpg', title:'Battery Housing', desc:'배터리 하우징 경량 설계/양산', tag:'Battery' },
+    { img:'images/work-4.jpg', title:'e-Motor Bracket', desc:'e-모터 브래킷 정밀 가공/조립', tag:'Motor' },
+    { img:'images/work-5.jpg', title:'Chassis Module',  desc:'샤시 모듈 조립 및 품질 보증', tag:'Chassis' },
+    { img:'images/work-6.jpg', title:'Global JIT',       desc:'미·중·한 JIT 공급 네트워크', tag:'Global' }
+  ];
+  const news = [
+    { img:'images/image_1.jpg', title:'아진산업㈜ 준조치어 착공식',  desc:'새로운 성장 도약을 위한 착공식 개최.', date:'2025-03-21' },
+    { img:'images/image_2.jpg', title:'사람에 대한 투자가 곧 경쟁력', desc:'인재경영 철학과 실행 전략 발표.',     date:'2025-02-28' },
+    { img:'images/image_3.jpg', title:'경북대–아진 AI/빅데이터',     desc:'산학 협력으로 미래형 인재 양성.',      date:'2025-01-17' }
+  ];
+
+  const $ = s => document.querySelector(s);
+  function renderProjects(){
+    const wrap = $('#projects-grid');
+    wrap.innerHTML = projects.map((p,i)=>`
+      <article class="card reveal">
+        <img class="thumb" src="${p.img}" alt="${p.title}" onerror="this.style.display='none'">
+        <div class="meta" style="margin:10px 2px 6px">${p.tag}</div>
+        <div class="ttl">${p.title}</div>
+        <p class="desc" style="margin:.35rem 2px 0">${p.desc}</p>
+      </article>
+    `).join('');
+    wrap.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  }
+  function renderNews(){
+    const wrap = $('#news-grid');
+    wrap.innerHTML = news.map((n,i)=>`
+      <article class="card reveal">
+        <img class="thumb" src="${n.img}" alt="${n.title}" onerror="this.style.display='none'">
+        <div class="meta" style="margin:10px 2px 6px">${new Date(n.date).toLocaleDateString('ko-KR')}</div>
+        <div class="ttl">${n.title}</div>
+        <p class="desc" style="margin:.35rem 2px 0">${n.desc}</p>
+      </article>
+    `).join('');
+    wrap.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  }
+  renderProjects();
+  renderNews();
+</script>
+</body>
+</html>
