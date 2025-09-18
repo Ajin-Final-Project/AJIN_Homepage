@@ -10070,8 +10070,8 @@ textarea.form-control {
   inset: 0;
   background: linear-gradient(
   to right,
-  rgba(0,0,0,0.70) 0%,   /* 시작 → 진하게 */
-  rgba(0,0,0,0.35) 40%,  /* 중간 → 아직 어두움 */
+  rgba(0,0,0,0.62) 0%,   /* 시작 → 진하게 */
+  rgba(0,0,0,0.43) 50%,  /* 중간 → 아직 어두움 */
   rgba(0,0,0,0) 80%,   /* 끝쪽 → 거의 사라짐 */
   rgba(0,0,0,0) 100%     /* 끝 → 완전 투명 */
 );
@@ -10110,7 +10110,8 @@ textarea.form-control {
 .hero .text {
   position: relative;
   z-index: 2;                 /* ✅ 항상 그라데이션 위 */
-  max-width: 800px;           /* 조금 넓힘 */
+  max-width: none;            /* 폭 제한 없애기 */ /* 조금 넓힘 800px */
+  /* white-space: normal; 기본 줄바꿈 허용 */
   margin-left: none;            /* index10_기존 위치처럼 좌측 5 */  /* 왼쪽으로 더 이동 3*/
   margin-bottom: 8%;          /* index10_기존처럼 아래쪽 정렬 */
    /* margin-top: -2%; */
@@ -10131,5 +10132,6 @@ textarea.form-control {
   font-size: clamp(2rem, 3vw, 2.4rem);
   font-weight: 500;
   opacity: .95;
+  white-space: nowrap;  /* ✅ 줄바꿈 금지 */
 }
 
