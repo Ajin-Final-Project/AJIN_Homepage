@@ -1,0 +1,2261 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="site.title">아진산업</title>
+
+    <!-- Icons -->
+    <link
+      rel="icon"
+      href="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-150x150.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-300x300.png"
+      sizes="192x192"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-300x300.png"
+    />
+    <meta
+      name="msapplication-TileImage"
+      content="https://ajinusa.com/wp-content/uploads/2023/10/AJIN_favicon-300x300.png"
+    />
+
+    <!-- Ionicons 최신 버전 -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <!-- Font Awesome 6 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="css/aos.css" />
+    <link rel="stylesheet" href="css/ionicons.min.css" />
+    <link rel="stylesheet" href="css/flaticon.css" />
+    <link rel="stylesheet" href="css/icomoon.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      /* 네비가 항상 위로 */
+      #ftco-navbar {
+        position: relative;
+        z-index: 2000;
+      }
+      .navbar .dropdown-menu {
+        z-index: 2100;
+        background: #0f172a;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+      }
+      @media (min-width: 992px) {
+        .navbar .dropdown-menu {
+          display: block;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(6px);
+          transition: opacity 0.15s ease, transform 0.15s ease,
+            visibility 0s linear 0.15s;
+          pointer-events: none;
+          margin-top: 0 !important;
+        }
+        .navbar .dropdown.show > .dropdown-menu,
+        .navbar .dropdown.keep-open > .dropdown-menu {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+          transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s;
+          pointer-events: auto;
+        }
+        .navbar .dropdown-menu::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: -8px;
+          height: 8px;
+        }
+      }
+      .navbar .dropdown-item {
+        color: #dbe4ff;
+        font-weight: 600;
+        letter-spacing: 0.1px;
+        transition: background-color 0.15s ease, color 0.15s ease,
+          padding-left 0.15s ease;
+      }
+      .navbar .dropdown-item:hover,
+      .navbar .dropdown-item:focus,
+      .navbar .dropdown-item:focus-visible {
+        background: #f96d00;
+        color: #fff;
+        padding-left: 1.25rem;
+        outline: none;
+      }
+      .navbar .dropdown-menu .dropdown-item:active {
+        background: #e85f00;
+        color: #fff;
+      }
+      .navbar .nav-link.dropdown-toggle.show,
+      .navbar .nav-link.dropdown-toggle:focus {
+        color: #f96d00 !important;
+      }
+
+      /* 언어 토글 버튼 */
+      .lang-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid #324253;
+        border-radius: 999px;
+        padding: 0.4rem 0.8rem;
+        background: #0b1220;
+        color: #e6edf3;
+        cursor: pointer;
+        font-weight: 700;
+      }
+      .lang-toggle .sep {
+        opacity: 0.35;
+      }
+      .lang-toggle .on {
+        color: #f96d00;
+      }
+
+      /* Footer (간단 버전) */
+      footer.simple-footer {
+        background: #000;
+        color: #e6edf3;
+        border-top: 1px solid #233041;
+        padding: 40px 0;
+      }
+      footer.simple-footer .container {
+        max-width: 1200px;
+      }
+      footer.simple-footer .cols {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+      }
+      footer.simple-footer .brand img {
+        height: 80px;
+        width: auto;
+        display: block;
+      }
+      footer.simple-footer .small {
+        color: #b6c2cf;
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: center;
+      }
+      footer.simple-footer .familysite {
+        justify-self: end;
+        max-width: 280px;
+        width: 100%;
+      }
+      footer.simple-footer .familysite select {
+        width: 100%;
+        height: 40px;
+        background: #0e1620;
+        border: 1px solid #1f2a37;
+        border-radius: 10px;
+        color: #e6edf3;
+        padding: 0 12px;
+      }
+
+      /* Hero */
+      .hero .hero-img-wrap {
+        position: relative;
+        width: 100%;
+        height: clamp(420px, 78vh, 900px);
+        overflow: hidden;
+      }
+      .hero .hero-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+      .hero .hero-img-wrap > .overlay {
+        position: absolute;
+        inset: 0;
+      }
+
+      /* 뉴스 카드 버튼위치 */
+      .blog-entry.position-relative .outside-top-right-btn {
+        position: absolute;
+        top: -15px;
+        right: 10px;
+        z-index: 10;
+        padding: 12px 24px;
+        font-size: 1.1rem;
+      }
+
+      /* ‘아진산업’ 강제 줄바꿈 예시 */
+      .big {
+        word-break: keep-all;
+      }
+      .big .break {
+        display: block;
+      }
+
+      /* CEO 사인 */
+      .ceo-title {
+        display: block;
+        font-size: clamp(28px, 3.5vw, 44px);
+        line-height: 1.15;
+        text-align: left;
+        margin-top: 50px;
+        font-weight: 800;
+      }
+      .ceo-sign-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 102px;
+        margin-top: 52px;
+        flex-wrap: nowrap;
+      }
+      .ceo-sign-row.leftish {
+        transform: translateX(-38px);
+      }
+      .ceo-title {
+        font-weight: 100;
+        font-size: clamp(28px, 3vw, 44px);
+        letter-spacing: 0.06em;
+        line-height: 1.1;
+        white-space: nowrap;
+        color: #fff;
+      }
+      .ceo-sign-img {
+        height: clamp(10px, 2.6vw, 150px);
+        width: auto;
+        transform: translateY(20px);
+        user-select: none;
+        pointer-events: none;
+      }
+      .sig-white {
+        filter: invert(1) brightness(1.6);
+      }
+
+      /* 지도 카드 */
+      .map-card {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+      }
+      .map-card .map-img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .map-card .map-open {
+        position: absolute;
+        inset: 0;
+        text-indent: -9999px;
+      }
+      @media (max-width: 768px) {
+        footer.simple-footer .cols {
+          grid-template-columns: 1fr;
+          justify-items: center;
+          text-align: center;
+        }
+        footer.simple-footer .familysite {
+          justify-self: center;
+          max-width: 320px;
+        }
+      }
+
+      /* Hero 섹션 텍스트 4배 크게 (버튼 제외) */
+      .hero .text {
+        font-size: 4rem; /* 기본 텍스트 크게 */
+        line-height: 1.2; /* 너무 벌어지지 않게 줄 간격 조정 */
+        text-align: left;
+        margin-left: -80px; /* 왼쪽 이동 */
+        margin-top: -60px; /* 위로 올림 */
+        max-width: 900px; /* 너무 넓게 퍼지지 않게 */
+      }
+
+      /* 큰 제목 */
+      .hero .text h1 {
+        font-size: clamp(8rem, 12vw, 12rem); /* 엄청 크게 */
+        font-weight: 800;
+        line-height: 1.1;
+      }
+
+      /* 부제목 */
+      .hero .text h2 {
+        font-size: clamp(6rem, 9vw, 9rem);
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
+      /* 작은 서브헤딩 */
+      .hero .text .subheading {
+        font-size: 4rem;
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
+      /* 버튼 글자 (그대로 둠) */
+      .hero .text a.btn {
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      /* Hero 섹션 텍스트 왼쪽 정렬 + 위치 조정 */
+      .hero .text {
+        text-align: left; /* 왼쪽 정렬 */
+        margin-left: -80px; /* 왼쪽 이동 */
+        margin-top: -60px; /* 위로 올림 (값을 조절해보세요) */
+        max-width: 700px; /* 폭 제한 */
+      }
+
+      /* h1 문구 줄바꿈 방지 */
+      .hero .text h1 {
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+            
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container-fluid px-4">
+	      <img src="images/AJIN_logo_white_background.png" alt="아진산업 로고" class="img-fluid" style="max-width: 200px; height:auto;" />
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> 메뉴
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+				<li class="nav-item"><a href="#home-section" class="nav-link"><span>홈</span></a></li>
+
+				<!-- 기업정보 -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#about-section" id="aboutMenu" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					기업정보
+					</a>
+					<div class="dropdown-menu" aria-labelledby="aboutMenu">
+						<a class="dropdown-item" href="#about-section">회사 개요</a>
+						<a class="dropdown-item" href="#about-section">CEO 메세지</a>
+						<a class="dropdown-item" href="#about-section">연혁</a>
+						<a class="dropdown-item" href="#about-section">비전/가치</a>
+						<a class="dropdown-item" href="#contact-section">조직구성</a>
+						<a class="dropdown-item" href="#contact-section">오시는 길</a>
+					</div>
+				</li>
+
+				<!-- 사업분야 -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#services-section" id="servicesMenu" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					사업분야
+					</a>
+					<div class="dropdown-menu" aria-labelledby="servicesMenu">
+					<a class="dropdown-item" href="#services-section">차체</a>
+					<a class="dropdown-item" href="#services-section">전장</a>
+					</div>
+				</li>
+
+				<!-- 기술력(연구개발) -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#skills-section" id="skillsMenu" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					기술력
+					</a>
+					<div class="dropdown-menu" aria-labelledby="skillsMenu">
+						<a class="dropdown-item" href="#skills-section">연구소 현황</a>
+						<a class="dropdown-item" href="#skills-section">연구개발 분야</a>
+						<a class="dropdown-item" href="#skills-section">연구설비</a>
+						<a class="dropdown-item" href="#skills-section">연구실적</a>
+					</div>
+				</li>
+
+				<!-- 인재채용 -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#projects-section" id="projectsMenu" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					주요실적
+					</a>
+					<div class="dropdown-menu" aria-labelledby="projectsMenu">
+						<a class="dropdown-item" href="#projects-section">인재상</a>
+						<a class="dropdown-item" href="#projects-section">인사제도</a>
+						<a class="dropdown-item" href="#projects-section">채용정보</a>
+					</div>
+				</li>
+
+				<!-- ESG경영 -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#blog-section" id="newsMenu" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					ESG경영
+					</a>
+					<div class="dropdown-menu" aria-labelledby="newsMenu">
+						<a class="dropdown-item" href="#blog-section">윤리헌장</a>
+						<a class="dropdown-item" href="#blog-section">인권헌장</a>
+						<a class="dropdown-item" href="#blog-section">환경경영정책</a>
+						<a class="dropdown-item" href="#blog-section">보고서</a>
+					</div>
+				</li>
+
+				<!-- 홍보센터 -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#blog-section" id="newsMenu" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					홍보센터
+					</a>
+					<div class="dropdown-menu" aria-labelledby="newsMenu">
+						<a class="dropdown-item" href="#blog-section">뉴스</a>
+						<a class="dropdown-item" href="#blog-section">인증서 및 수상현황</a>
+						<a class="dropdown-item" href="#blog-section">기업문화</a>
+						<a class="dropdown-item" href="#blog-section">C.I</a>
+						<a class="dropdown-item" href="#blog-section">홍보영상</a>
+					</div>
+				</li>
+
+				<!-- 생산관리시스템 -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#contact-section" id="pmsMenu" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					생산관리시스템
+					</a>
+					<div class="dropdown-menu" aria-labelledby="pmsMenu">
+					<a class="dropdown-item" href="#contact-section">대시보드</a>
+					</div>
+				</li>
+
+            <!-- 언어 토글 버튼 -->
+            <li class="nav-item ml-lg-3 mt-2 mt-lg-0">
+              <button id="langBtn" class="lang-toggle" aria-label="언어 전환">
+                <span class="opt opt-ko on">KO</span><span class="sep">/</span
+                ><span class="opt opt-en">EN</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home-section" class="hero">
+      <div class="home-slider owl-carousel">
+        <!-- 1) 자동차배경 -->
+        <div class="slider-item">
+          <!-- <div class="overlay"></div> -->
+          <div class="container-fluid px-0">
+            <div
+              class="row d-md-flex no-gutters slider-text align-items-end justify-content-end"
+              data-scrollax-parent="true"
+            >
+              <div class="img hero-img-wrap">
+                <img
+                  src="images/자동차배경4.jpg"
+                  alt="아진산업 배경"
+                  class="hero-img"
+                />
+                <!-- <div class="overlay"></div> -->
+              </div>
+              <div
+                class="one-forth d-flex align-items-center ftco-animate"
+                data-scrollax=" properties: { translateY: '70%' }"
+              >
+                <div class="text">
+                <!-- <div class="text" style="margin-left: 100px"> -->
+                  <span
+                    class="subheading"
+                    style="color: black; font-size: 1.5rem"
+                    data-i18n="hero1.sub"
+                    >자동차 부품 전문 기업</span
+                  >
+                  <h1 class="mb-4 mt-3" style="color: black; font-size: 3.5rem">
+                    <span data-i18n="brand.name">아진산업</span
+                    ><span data-i18n="brand.suffix">입니다</span>
+                  </h1>
+                  <h2 class="mb-4" style="color: black; font-size: 1.7rem">
+                    <span style="color: red" data-i18n="hero1.101">101년</span>
+                    <span data-i18n="hero1.line"
+                      >을 생각하는 자동차 부품 전문기업</span
+                    >
+                  </h2>
+                  <p>
+                    <a
+                      href="#contact-section"
+                      class="btn btn-primary py-3 px-4"
+                      data-i18n="cta.contact"
+                      >문의하기</a
+                    >
+                    <a
+                      href="#about-section"
+                      class="btn btn-white btn-outline-white py-3 px-4"
+                      data-i18n="cta.about"
+                      >회사소개</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2) 아진산업공장 -->
+        <div class="slider-item">
+          <div class="overlay"></div>
+          <div class="container-fluid px-0">
+            <div
+              class="row d-flex no-gutters slider-text align-items-end justify-content-end"
+              data-scrollax-parent="true"
+            >
+              <div class="img hero-img-wrap">
+                <img
+                  src="images/factory9.png"
+                  alt="아진산업 배경"
+                  class="hero-img"
+                />
+                <div class="overlay"></div>
+              </div>
+              <div
+                class="one-forth d-flex align-items-center ftco-animate"
+                data-scrollax=" properties: { translateY: '70%' }"
+              >
+                <div class="text">
+                  <span class="subheading" style="font-size: 1.5rem" data-i18n="hero2.sub"
+                    >신뢰와 품질의 파트너</span
+                  >
+                  <h1 class="mb-4 mt-3" style="font-size: 3.5rem">
+                    <span data-i18n="brand.name">아진산업</span
+                    ><span data-i18n="hero2.with">과 함께하세요 </span>
+                  </h1>
+                  <h2 class="mb-4" style="font-size: 1.7rem" data-i18n="hero2.support">
+                    최첨단 기술력으로 고객의 성공을 지원합니다
+                  </h2>
+                  <p>
+                    <a
+                      href="#services-section"
+                      class="btn btn-primary py-3 px-4"
+                      data-i18n="cta.services"
+                      >사업영역</a
+                    >
+                    <a
+                      href="#projects-section"
+                      class="btn btn-white btn-outline-white py-3 px-4"
+                      data-i18n="cta.projects"
+                      >주요실적</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3) 아진산업 뉴스 -->
+        <div class="slider-item">
+          <div class="overlay"></div>
+          <div class="container-fluid px-0">
+            <div
+              class="row d-md-flex no-gutters slider-text align-items-end justify-content-end"
+              data-scrollax-parent="true"
+            >
+              <div class="img hero-img-wrap">
+                <img
+                  src="images/아진본사4.png"
+                  alt="아진산업 뉴스 이미지"
+                  class="hero-img"
+                />
+                <div class="overlay"></div>
+              </div>
+              <div
+                class="one-forth d-flex align-items-center ftco-animate"
+                data-scrollax=" properties: { translateY: '70%' }"
+              >
+                <div class="text">
+                  <span style="font-size: 1.5rem" class="subheading" data-i18n="hero3.sub"
+                    >최신 소식</span
+                  >
+                  <h1 class="mb-4 mt-3">
+                    <span style="font-size: 3.5rem" data-i18n="brand.name">아진산업</span>
+                    <span style="font-size: 3.5rem" data-i18n="hero3.news">뉴스</span>
+                  </h1>
+                  <h2 class="mb-4" style="font-size: 1.7rem" data-i18n="hero3.desc">
+                    최신 뉴스를 확인해보세요
+                  </h2>
+                  <p>
+                    <a
+                      href="news.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn btn-primary py-3 px-4"
+                      data-i18n="cta.news"
+                      >뉴스 보기</a
+                    >
+                    <a
+                      href="#about-section"
+                      class="btn btn-white btn-outline-white py-3 px-4"
+                      data-i18n="cta.about"
+                      >회사소개</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- .home-slider -->
+    </section>
+
+    <!-- 회사소개 1 -->
+    <section class="ftco-section" id="about-section">
+      <div class="container">
+        <div class="row align-items-start g-5">
+          <div class="col-md-6 text-left">
+            <div class="heading-section ftco-animate">
+              <h1 class="big"><span data-i18n="brand.name">아진산업</span></h1>
+              <h2 class="mb-4" data-i18n="about1.title">CEO 메세지</h2>
+              <p class="lead text-muted" data-i18n="about1.lead">
+                To be the best in the world!<br />
+                안녕하십니까? 아진산업(주)를 방문해 주셔서 감사합니다.<br />
+                젊은 기업! 아진산업(주) 대표이사 서중호입니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <img
+              src="images/CEO3.jpg"
+              alt="아진산업 본사"
+              class="img-fluid shadow-sm"
+              style="border-radius: 0"
+            />
+          </div>
+        </div>
+
+        <div class="row about-detail g-5 mt-4">
+          <div class="col-md-6 text-muted text-left">
+            <p class="mb-3" data-i18n="about1.p1">
+              아진산업㈜는 창립이후 현재까지 우수 인력과 세계 제일 수준의 기술력
+              확보에 매진하고 있으며 이를 바탕으로 고품질 자동차 부품을 생산하며
+              전 세계적으로 신뢰받는 기업이 되기 위하여 끊임없이 노력하고
+              있습니다.
+            </p>
+            <p class="mb-3" data-i18n="about1.p2">
+              고객의 가치를 창조하고 기업의 성장과 혁신을 통하여 세계 자동차
+              산업을 선도해 나가는 기업으로 성장해 나갈 것입니다.
+            </p>
+            <p class="mb-3" data-i18n="about1.p3">
+              기업의 성장과 동시에 개개인의 가치창조에도 최선을 다 하고
+              있습니다. 우리의 자랑인 新 노사문화를 정착시켜 신바람나는 일터를
+              만들고 있으며, 우리라는 공동체 의식 배양으로 WIN-WIN할 수 있는
+              기업문화를 만들어 가고 있습니다.
+            </p>
+          </div>
+
+          <div class="col-md-6 text-muted text-left">
+            <p class="mb-3" data-i18n="about1.p4">
+              인간과 환경을 중시하고 초일류 글로벌 기업으로 성장하기 위하여
+              오늘도 불이 꺼지지 않는 모습으로 끊임없이 노력하겠습니다.
+            </p>
+            <p class="mb-3" data-i18n="about1.p5">
+              더불어 기업의 사회적 책임을 성실히 이행하는 책임경영의 실천으로
+              앞장서는 글로벌 기업으로 거듭나겠습니다.
+            </p>
+            <p class="mb-0" data-i18n="about1.p6">
+              전 세계의 중심으로 성장하는 아진산업㈜가 되는 모습을 함께해
+              주시기를 바라며 다시 한번 저희에게 관심을 가져 주신 여러분께
+              감사의 말씀을 드립니다.
+            </p>
+            <p class="ceo-sign-row leftish" aria-label="대표이사 서명">
+              <strong class="ceo-title" data-i18n="about1.ceo">대표이사</strong>
+              <img
+                src="images/ceo_sign.gif"
+                alt="서중호 서명"
+                class="ceo-sign-img sig-white"
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 회사소개 2 -->
+    <section class="ftco-section" id="about-section-2">
+      <div class="container">
+        <div class="row align-items-start g-5 equal-columns">
+          <div class="col-md-6 text-left">
+            <div class="heading-section ftco-animate">
+              <h1 class="big" data-i18n="about2.big">회사소개</h1>
+              <h2 class="mb-4" data-i18n="about2.title">아진산업</h2>
+              <p class="lead text-muted" data-i18n="about2.lead">
+                근면성실, 창의개발, 기술배양<br />
+                창조적인 인재, 창조적인 기술배양, 디지털구조의 업무환경으로<br />
+                ‘글로벌 리더그룹’으로 거듭나겠습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4 img-col">
+            <img
+              src="images/아진본사2.jpg"
+              alt="아진산업 본사"
+              class="img-fluid shadow-sm"
+              style="border-radius: 0"
+            />
+          </div>
+        </div>
+
+        <div class="row about-detail g-5 mt-4">
+          <div class="col-md-6 text-muted text-left">
+            <p class="mb-3" data-i18n="about2.p1">
+              1976년 4월에 ‘근면성실’, ‘창의개발’, ‘기술배양’의 사훈 아래
+              창업하여 어려운 난관 속에서도 지속적인 창조적 마인드로 끊임없는
+              개선과 연구를 통해 기술력을 축적하여 30여년간 지속적으로 성장하는
+              기업으로 도약하였습니다.
+            </p>
+            <p class="mb-3" data-i18n="about2.p2">
+              자동차 차체를 시작으로 지능형 자동차 전장 제품 생산에 이르기까지
+              다양한 제품군으로 기술 경쟁력 확보에 매진하고 있습니다. 또한, 우리
+              기술의 세계화를 목표로 해외 계열사의 현지화를 통한 첨단 기술개발과
+              글로벌 경영 체제를 구축하였습니다.
+            </p>
+            <p class="mb-3" data-i18n="about2.p3">
+              이에 멈추지 않고 선진 자동차 부품 업체와 제휴를 통한 기술경영을
+              도입하여 품질경영으로 고객이 감동하는 제품을 공급하는 회사로
+              다양한 품질인증을 획득하였습니다.
+            </p>
+          </div>
+
+          <div class="col-md-6 text-muted text-left">
+            <p class="mb-3" data-i18n="about2.p4">
+              오늘날 Global기업으로써 미국, 중국, 한국에 첨단 기술의 생산 라인을
+              구축하여 이를 디지털 구조의 업무환경으로 일원화하여 소량 다품종의
+              부품들을 신속하고 경쟁력있는 가격으로 제공하는 라인을 갖추고
+              있습니다.
+            </p>
+            <p class="mb-3" data-i18n="about2.p5">
+              이런 경쟁력 있는 환경 구축의 중심에 인재를 최우선으로 생각하는
+              우리 기업 문화가 있습니다. 창조적인 시각, 생각, 실천을 바탕으로
+              도전과 변화를 즐기는 인재들이 이끌어 가는
+              <strong>Global Creative Mind Group!</strong>
+            </p>
+            <p class="mb-0" data-i18n="about2.p6">
+              꿈꾸는 내일이 현실이 되는 오늘을 만들어 가겠습니다.<br />
+              <strong>Catch Tomorrow!</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 사업영역 -->
+    <section class="ftco-section" id="services-section">
+      <div class="container">
+        <div class="row justify-content-center py-5 mt-5">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h1 class="big big-2" data-i18n="services.big">사업영역</h1>
+            <h2 class="mb-4" data-i18n="services.title">주요 제품 및 계열사</h2>
+            <p data-i18n="services.desc">
+              아진산업은 자동차 차체와 전장 부품을 비롯하여 <br />국내·글로벌
+              계열사를 통해 세계 시장으로 성장하고 있습니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-4 text-center d-flex ftco-animate mb-4">
+            <div class="services-1 w-100">
+              <span class="icon"
+                ><i class="fas fa-car-side" style="font-size: 55px"></i
+              ></span>
+              <div class="desc">
+                <h3 class="mb-3" data-i18n="services.body.title">차체</h3>
+                <p data-i18n="services.body.desc">
+                  RAIL ASSY, PNL ASSY 등 자동차 핵심 차체 구조물을 생산하여
+                  글로벌 완성차에 공급합니다
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 text-center d-flex ftco-animate mb-4">
+            <div class="services-1 w-100">
+              <span class="icon"
+                ><i class="fas fa-microchip" style="font-size: 55px"></i
+              ></span>
+              <div class="desc">
+                <h3 class="mb-3" data-i18n="services.elec.title">전장</h3>
+                <p data-i18n="services.elec.desc">
+                  전기차·수소차 부품, 자동변속기, 공조장치, 전압제어기 등 미래차
+                  전장 제품을 개발·양산합니다
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 text-center d-flex ftco-animate mb-4">
+            <div class="services-1 w-100">
+              <span class="icon"
+                ><img
+                  src="images/korea.png"
+                  alt="국내"
+                  style="width: 60px; height: auto"
+              /></span>
+              <div class="desc">
+                <h3 class="mb-3" data-i18n="services.domestic.title">국내</h3>
+                <p data-i18n="services.domestic.desc">
+                  본사와 대우ECC, AJIN CAR IN TECH 등 국내 계열사를 통해
+                  안정적으로 공급합니다
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 text-center d-flex ftco-animate mb-4">
+            <div class="services-1 w-100">
+              <span class="icon"
+                ><img
+                  src="images/usa.png"
+                  alt="미국"
+                  style="width: 60px; height: auto"
+              /></span>
+              <div class="desc">
+                <h3 class="mb-3" data-i18n="services.usa.title">미국</h3>
+                <p data-i18n="services.usa.desc">
+                  현지 법인을 통해 완성차 고객에 신속히 공급하며 북미 시장
+                  대응력을 강화합니다
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 text-center d-flex ftco-animate mb-4">
+            <div class="services-1 w-100">
+              <span class="icon"
+                ><img
+                  src="images/vietnam.png"
+                  alt="베트남"
+                  style="width: 60px; height: auto"
+              /></span>
+              <div class="desc">
+                <h3 class="mb-3" data-i18n="services.vn.title">베트남</h3>
+                <p data-i18n="services.vn.desc">
+                  동남아 생산 거점을 기반으로 글로벌 공급망을 다변화하고 원가
+                  경쟁력을 확보합니다
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 기술력 -->
+    <section class="ftco-section" id="skills-section">
+      <div class="container">
+        <div class="row justify-content-center pb-5">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h1 class="big big-2" data-i18n="tech.big">기술력</h1>
+            <h2 class="mb-4" data-i18n="tech.title">보유 기술 및 장비</h2>
+            <p data-i18n="tech.desc">
+              아진산업은 최첨단 장비와 풍부한 기술력을 바탕으로 고품질 제품을
+              생산합니다
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 animate-box">
+            <div class="progress-wrap ftco-animate">
+              <h3 data-i18n="tech.s1">설비 관리 시스템</h3>
+              <div class="progress">
+                <div
+                  class="progress-bar color-1"
+                  role="progressbar"
+                  aria-valuenow="95"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style="width: 97%"
+                >
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 animate-box">
+            <div class="progress-wrap ftco-animate">
+              <h3 data-i18n="tech.s2">품질 관리 시스템</h3>
+              <div class="progress">
+                <div
+                  class="progress-bar color-2"
+                  role="progressbar"
+                  aria-valuenow="90"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style="width: 97%"
+                >
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 animate-box">
+            <div class="progress-wrap ftco-animate">
+              <h3 data-i18n="tech.s3">안전 관리 시스템</h3>
+              <div class="progress">
+                <div
+                  class="progress-bar color-3"
+                  role="progressbar"
+                  aria-valuenow="98"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style="width: 97%"
+                >
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 animate-box">
+            <div class="progress-wrap ftco-animate">
+              <h3 data-i18n="tech.s4">물류 관리 시스템</h3>
+              <div class="progress">
+                <div
+                  class="progress-bar color-4"
+                  role="progressbar"
+                  aria-valuenow="92"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style="width: 97%"
+                >
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-md-6 animate-box">
+            <div class="progress-wrap ftco-animate">
+              <h3 data-i18n="tech.s5">글로벌 네트워크 관리 시스템</h3>
+              <div class="progress">
+                <div
+                  class="progress-bar color-4"
+                  role="progressbar"
+                  aria-valuenow="97"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style="width: 97%"
+                >
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 animate-box">
+            <div class="progress-wrap ftco-animate">
+              <h3 data-i18n="tech.s6">생산 관리 시스템</h3>
+              <div class="progress">
+                <div
+                  class="progress-bar color-4"
+                  role="progressbar"
+                  aria-valuenow="97"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style="width: 97%"
+                >
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 주요실적 -->
+    <section class="ftco-section ftco-project" id="projects-section">
+      <div class="container">
+        <div class="row justify-content-center pb-5">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h1 class="big big-2" data-i18n="projects.big">주요실적</h1>
+            <h2 class="mb-4" data-i18n="projects.title">
+              아진산업의 주요 프로젝트
+            </h2>
+            <p data-i18n="projects.desc">
+              다양한 산업 분야에서 축적된 풍부한 경험과 실적을 보유하고 있습니다
+            </p>
+          </div>
+        </div>
+        <!-- (썸네일 텍스트는 고정/선택적으로 data-i18n 추가 가능) -->
+        <div class="row">
+          <div class="col-md-4">
+            <div
+              class="project img ftco-animate d-flex justify-content-center align-items-center"
+              style="background-image: url(images/factory1.png)"
+            >
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3>
+                  <a href="#" data-i18n="proj.card1.title">자동차 부품 제조</a>
+                </h3>
+                <span data-i18n="proj.card1.sub">부품 운반</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div
+              class="project img ftco-animate d-flex justify-content-center align-items-center"
+              style="background-image: url(images/press1.png)"
+            >
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3>
+                  <a href="#" data-i18n="proj.card2.title">프레스 가동</a>
+                </h3>
+                <span data-i18n="proj.card2.sub">금형 설계 및 제작</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div
+              class="project img ftco-animate d-flex justify-content-center align-items-center"
+              style="background-image: url(images/factory2.png)"
+            >
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3><a href="#" data-i18n="proj.card3.title">공장 착공</a></h3>
+                <span data-i18n="proj.card3.sub">경상북도 경산시 하양</span>
+              </div>
+            </div>
+
+            <div
+              class="project img ftco-animate d-flex justify-content-center align-items-center"
+              style="background-image: url(images/factory3.png)"
+            >
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3>
+                  <a href="#" data-i18n="proj.card4.title">공장 기계화</a>
+                </h3>
+                <span data-i18n="proj.card4.sub">정밀 용접</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-12">
+                <div
+                  class="project img ftco-animate d-flex justify-content-center align-items-center"
+                  style="background-image: url(images/factory4.png)"
+                >
+                  <div class="overlay"></div>
+                  <div class="text text-center p-4">
+                    <h3>
+                      <a href="#" data-i18n="proj.card5.title">3D 구현</a>
+                    </h3>
+                    <span data-i18n="proj.card5.sub">대형 부품 설계</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div
+                  class="project img ftco-animate d-flex justify-content-center align-items-center"
+                  style="background-image: url(images/factory5.png)"
+                >
+                  <div class="overlay"></div>
+                  <div class="text text-center p-4">
+                    <h3>
+                      <a href="#" data-i18n="proj.card6.title">안전관리</a>
+                    </h3>
+                    <span data-i18n="proj.card6.sub">객체 탐지</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 뉴스 -->
+    <section class="ftco-section" id="blog-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2" data-i18n="news.big">뉴스</h1>
+            <h2 class="mb-4" data-i18n="news.title">회사 소식 및 공지사항</h2>
+            <div class="d-flex justify-content-center align-items-center">
+              <p class="mb-0 mr-3" data-i18n="news.desc">
+                아진산업의 최신 소식과 중요한 공지사항을 확인하실 수 있습니다
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row d-flex">
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry justify-content-end">
+              <a
+                href="#"
+                class="block-20"
+                style="background-image: url('images/CEO4.png')"
+              ></a>
+              <div class="text mt-3 float-right d-block">
+                <div class="d-flex align-items-center mb-3 meta">
+                  <p class="mb-0">
+                    <span class="mr-2" data-i18n="news.item1.date"
+                      >2024년 7월 18일</span
+                    >
+                    <a href="#" class="mr-2" data-i18n="news.item1.brand"
+                      >아진산업</a
+                    >
+                    <a href="#" class="meta-chat"
+                      ><span class="icon-chat"></span> 500</a
+                    >
+                  </p>
+                </div>
+                <h3 class="heading">
+                  <a href="#" data-i18n="news.item1.title"
+                    >아진산업(주) 준조지아 착공식</a
+                  >
+                </h3>
+                <p data-i18n="news.item1.snip">
+                  아진산업(주) 준조지아 착공식에서 서중호회장님이 인사말씀을
+                  올리고 있다...
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry justify-content-end">
+              <a
+                href="#"
+                class="block-20"
+                style="background-image: url('images/news5.webp')"
+              ></a>
+              <div class="text mt-3 float-right d-block">
+                <div class="d-flex align-items-center mb-3 meta">
+                  <p class="mb-0">
+                    <span class="mr-2" data-i18n="news.item2.date"
+                      >2025년 1월 15일</span
+                    >
+                    <a href="#" class="mr-2" data-i18n="news.item2.brand"
+                      >아진산업</a
+                    >
+                    <a href="#" class="meta-chat"
+                      ><span class="icon-chat"></span> 800</a
+                    >
+                  </p>
+                </div>
+                <h3 class="heading">
+                  <a href="#" data-i18n="news.item2.title"
+                    >"사람에 대한 투자가 곧 회사 경쟁력"</a
+                  >
+                </h3>
+                <p data-i18n="news.item2.snip">
+                  역동적이고 끊임없이 발전하는 아진산업의 중심에는 서중호 대표가
+                  있다...
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry position-relative">
+              <a
+                href="#"
+                class="block-20"
+                style="background-image: url('images/news4.jpg')"
+              ></a>
+              <a
+                href="news.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary py-3 px-4 position-absolute"
+                style="top: -100px; right: 20px; z-index: 10"
+                data-i18n="news.more"
+                >뉴스 더보기</a
+              >
+              <div class="text mt-3 float-right d-block">
+                <div class="d-flex align-items-center mb-3 meta">
+                  <p class="mb-0">
+                    <span class="mr-2" data-i18n="news.item3.date"
+                      >2025년 3월 6일</span
+                    >
+                    <a href="#" class="mr-2" data-i18n="news.item3.brand"
+                      >아진산업</a
+                    >
+                    <a href="#" class="meta-chat"
+                      ><span class="icon-chat"></span> 320</a
+                    >
+                  </p>
+                </div>
+                <h3 class="heading">
+                  <a href="#" data-i18n="news.item3.title"
+                    >경북대, 아진산업과 AI·빅데이터 인재양성</a
+                  >
+                </h3>
+                <p data-i18n="news.item3.snip">
+                  경북대학교(총장 허영우)가 아진산업(대표 서중호)과 손잡고
+                  인공지능(AI)·빅데이터분야 인재양성에 나선다...
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 카운터/CTA/연락처/지도/폼 -->
+    <section
+      class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img"
+      id="section-counter"
+    >
+      <div class="container">
+        <div class="row d-md-flex align-items-center">
+          <div
+            class="col-md d-flex justify-content-center counter-wrap ftco-animate"
+          >
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="50">0</strong
+                ><span data-i18n="counter.years">년</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-md d-flex justify-content-center counter-wrap ftco-animate"
+          >
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="500">0</strong
+                ><span data-i18n="counter.projects">완료 프로젝트</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-md d-flex justify-content-center counter-wrap ftco-animate"
+          >
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="200">0</strong
+                ><span data-i18n="counter.parts">차량부품</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-md d-flex justify-content-center counter-wrap ftco-animate"
+          >
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="99">0</strong
+                ><span data-i18n="counter.quality">품질 만족도(%)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="ftco-section ftco-hireme img margin-top"
+      style="background-image: url(images/배경.jpg)"
+    >
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-7 ftco-animate text-center">
+            <h2>
+              <span data-i18n="cta.join.prefix">아진산업과</span>
+              <span data-i18n="cta.join.highlight">함께하세요</span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="ftco-section contact-section ftco-no-pb"
+      id="contact-section"
+    >
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2" data-i18n="contact.big">연락처</h1>
+            <h2 class="mb-4" data-i18n="contact.title">
+              아진산업에 문의하세요
+            </h2>
+            <p data-i18n="contact.desc">
+              정밀기계부품 제조에 대한 문의사항이 있으시면 언제든지 연락주시기
+              바랍니다
+            </p>
+          </div>
+        </div>
+
+        <div class="row d-flex contact-info mb-5">
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+            <div class="align-self-stretch box p-4 text-center">
+              <div
+                class="icon d-flex align-items-center justify-content-center"
+              >
+                <span class="icon-map-signs"></span>
+              </div>
+              <h3 class="mb-4" data-i18n="contact.addr.title">주소</h3>
+              <p data-i18n="contact.addr.value">
+                경북경산시 진량읍 신제리 531번지(공단 8로 26길 40)
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+            <div class="align-self-stretch box p-4 text-center">
+              <div
+                class="icon d-flex align-items-center justify-content-center"
+              >
+                <span class="icon-phone2"></span>
+              </div>
+              <h3 class="mb-4" data-i18n="contact.tel.title">전화번호</h3>
+              <p>
+                <a href="tel://053-856-9100" data-i18n="contact.tel.value"
+                  >053-856-9100</a
+                >
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+            <div class="align-self-stretch box p-4 text-center">
+              <div
+                class="icon d-flex align-items-center justify-content-center"
+              >
+                <span class="icon-paper-plane"></span>
+              </div>
+              <h3 class="mb-4" data-i18n="contact.email.title">이메일</h3>
+              <p>
+                <a
+                  href="mailto:info@ajinind.co.kr"
+                  data-i18n="contact.email.value"
+                  >info@ajinind.co.kr</a
+                >
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+            <div class="align-self-stretch box p-4 text-center">
+              <div
+                class="icon d-flex align-items-center justify-content-center"
+              >
+                <span class="icon-globe"></span>
+              </div>
+              <h3 class="mb-4" data-i18n="contact.site.title">홈페이지</h3>
+              <p>
+                <a href="#" data-i18n="contact.site.value">www.ajinind.co.kr</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row block-9 align-items-stretch">
+          <div class="col-md-6">
+            <div class="map-card w-100">
+              <img
+                src="images/아진본사지도.png"
+                alt="아진산업 위치 지도"
+                class="map-img"
+              />
+              <a
+                class="map-open"
+                href="https://map.naver.com/p/entry/place/12785646?c=13.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202509081414&locale=ko&svcName=map_pcv5"
+                target="_blank"
+                rel="noopener"
+                aria-label="네이버 지도로 크게 보기"
+                >네이버 지도로 크게 보기</a
+              >
+            </div>
+            <p class="text-center mt-3">
+              <a
+                href="https://map.naver.com/p/entry/place/12785646?c=13.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202509081414&locale=ko&svcName=map_pcv5"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-primary py-3 px-4"
+                aria-label="네이버 지도로 크게 보기 버튼"
+                data-i18n="contact.map.btn"
+                >지도 크게 보기</a
+              >
+            </p>
+          </div>
+
+          <div class="col-md-6 d-flex">
+            <form action="#" class="bg-light p-4 p-md-5 contact-form w-100">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="성함"
+                  data-i18n-ph="form.name"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="이메일"
+                  data-i18n-ph="form.email"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="제목"
+                  data-i18n-ph="form.subject"
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  cols="30"
+                  rows="7"
+                  class="form-control"
+                  placeholder="문의내용"
+                  data-i18n-ph="form.message"
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <input
+                  type="submit"
+                  value="문의하기"
+                  class="btn btn-primary py-3 px-5"
+                  data-i18n-value="form.submit"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 하단 -->
+    <footer class="ftco-footer ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2" data-i18n="footer.brand">아진산업</h2>
+              <p data-i18n="footer.about">
+                1976년 설립된 이래 정밀기계부품 제조 분야에서 고객의 신뢰를 받는
+                전문 제조업체입니다. 최첨단 기술력과 품질관리 시스템으로 고품질
+                제품을 공급하고 있습니다.
+              </p>
+              <ul
+                class="ftco-footer-social list-unstyled float-md-left float-lft mt-5"
+              >
+                <li class="ftco-animate">
+                  <a href="#"><span class="icon-twitter"></span></a>
+                </li>
+                <li class="ftco-animate">
+                  <a href="#"><span class="icon-facebook"></span></a>
+                </li>
+                <li class="ftco-animate">
+                  <a href="#"><span class="icon-instagram"></span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-4">
+              <h2 class="ftco-heading-2" data-i18n="footer.sitemap">
+                사이트맵
+              </h2>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#home-section"
+                    ><span class="icon-long-arrow-right mr-2"></span
+                    ><span data-i18n="nav.home">홈</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#about-section"
+                    ><span class="icon-long-arrow-right mr-2"></span
+                    ><span data-i18n="nav.company.overview">회사 개요</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#services-section"
+                    ><span class="icon-long-arrow-right mr-2"></span
+                    ><span data-i18n="nav.business">사업분야</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#projects-section"
+                    ><span class="icon-long-arrow-right mr-2"></span
+                    ><span data-i18n="nav.results">주요실적</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#contact-section"
+                    ><span class="icon-long-arrow-right mr-2"></span
+                    ><span data-i18n="nav.contact">연락처</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2" data-i18n="footer.biz">주요사업</h2>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#"
+                    ><span class="icon-long-arrow-right mr-2"></span
+                    ><span data-i18n="footer.biz1">자동차 부품</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><span class="icon-long-arrow-right mr-2"></span
+                    ><span data-i18n="footer.biz2">기계 부품</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><span class="icon-long-arrow-right mr-2"></span
+                    ><span data-i18n="footer.biz3">품질 관리</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2" data-i18n="footer.qna">
+                문의사항이 있으신가요?
+              </h2>
+              <div class="block-23 mb-3">
+                <ul>
+                  <li>
+                    <span class="icon icon-map-marker"></span
+                    ><span class="text" data-i18n="contact.addr.value"
+                      >경북경산시 진량읍 신제리 531번지(공단 8로 26길 40)</span
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="icon icon-phone"></span
+                      ><span class="text" data-i18n="contact.tel.value"
+                        >053-856-9100</span
+                      ></a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="icon icon-envelope"></span
+                      ><span class="text" data-i18n="contact.email.value"
+                        >info@ajinind.co.kr</span
+                      ></a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 새 하단 -->
+        <footer class="simple-footer">
+          <div class="container">
+            <div class="cols">
+              <a class="brand" href="index3.html" aria-label="홈으로 이동"
+                ><img src="images/AJIN_logo_black_background.png" alt="AJIN"
+              /></a>
+              <div class="footer-center">
+                <div class="small" data-i18n="footer.copy">
+                  경북경산시 진량읍 신제리 531번지(공단 8로 26길 40)
+                  TEL.053-856-9100 · Fax 053-856-9111
+                  <br />Copyright © AJIN INDUSTRIAL CO.LTD ALL Rights Reserved.
+                </div>
+              </div>
+              <div class="familysite">
+                <select
+                  id="familySite"
+                  name="sitelist"
+                  aria-label="Family Site"
+                >
+                  <option
+                    value=""
+                    disabled
+                    selected
+                    hidden
+                    data-i18n="footer.family"
+                  >
+                    Family Site
+                  </option>
+                  <option value="#" disabled>------------</option>
+                  <option value="https://www.wamc.co.kr">
+                    Ajin Industrial
+                  </option>
+                  <option value="https://www.wamc.co.kr/wooshin/index.asp">
+                    Wooshin Industrial
+                  </option>
+                  <option value="http://www.dwecc.com">DAEWOO</option>
+                  <option value="https://wooshinusa.com">Wooshin USA</option>
+                  <option value="https://ajingeorgia.com">AJIN GEORGIA</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </footer>
+
+    <div id="ftco-loader" class="show fullscreen">
+      <svg class="circular" width="48px" height="48px">
+        <circle
+          class="path-bg"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke-width="4"
+          stroke="#eeeeee"
+        />
+        <circle
+          class="path"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke-width="4"
+          stroke-miterlimit="10"
+          stroke="#F96D00"
+        />
+      </svg>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- 드롭다운 안정화 (기존 로직 유지) -->
+    <script>
+      (function () {
+        if (window.jQuery) {
+          $(".dropdown-menu").on("click", function (e) {
+            e.stopPropagation();
+          });
+        }
+        var toggles = document.querySelectorAll(
+          ".nav-item.dropdown > .nav-link.dropdown-toggle"
+        );
+        toggles.forEach(function (t) {
+          t.addEventListener("click", function (e) {
+            if (window.innerWidth >= 992) {
+              e.preventDefault();
+            }
+          });
+        });
+
+        var DROPDOWN_SELECTOR = ".navbar .dropdown";
+        var ACTIVE_CLASS = "show";
+        var HOVER_CLOSE_DELAY = 300;
+
+        function bindDesktopHover() {
+          document.querySelectorAll(DROPDOWN_SELECTOR).forEach(function (dd) {
+            var timer;
+            var toggle = dd.querySelector(".dropdown-toggle");
+            var menu = dd.querySelector(".dropdown-menu");
+
+            function open() {
+              clearTimeout(timer);
+              dd.classList.add(ACTIVE_CLASS);
+              if (menu) menu.classList.add(ACTIVE_CLASS);
+              if (toggle) toggle.setAttribute("aria-expanded", "true");
+            }
+            function close() {
+              dd.classList.remove(ACTIVE_CLASS, "keep-open");
+              if (menu) menu.classList.remove(ACTIVE_CLASS);
+              if (toggle) toggle.setAttribute("aria-expanded", "false");
+            }
+            function scheduleClose() {
+              clearTimeout(timer);
+              if (!dd.classList.contains("keep-open")) {
+                timer = setTimeout(close, HOVER_CLOSE_DELAY);
+              }
+            }
+            close();
+            dd.addEventListener("mouseenter", open);
+            dd.addEventListener("mouseleave", scheduleClose);
+            if (menu) {
+              menu.addEventListener("mouseenter", open);
+              menu.addEventListener("mouseleave", scheduleClose);
+            }
+            if (toggle) {
+              toggle.addEventListener("click", function (e) {
+                if (window.innerWidth >= 992) {
+                  e.preventDefault();
+                  if (dd.classList.contains("keep-open")) {
+                    dd.classList.remove("keep-open");
+                    scheduleClose();
+                  } else {
+                    open();
+                    dd.classList.add("keep-open");
+                  }
+                }
+              });
+            }
+          });
+        }
+        function unbindDesktopHover() {
+          document.querySelectorAll(DROPDOWN_SELECTOR).forEach(function (dd) {
+            var toggle = dd.querySelector(".dropdown-toggle");
+            var menu = dd.querySelector(".dropdown-menu");
+            dd.classList.remove("show", "keep-open");
+            if (menu) menu.classList.remove("show");
+            if (toggle) toggle.setAttribute("aria-expanded", "false");
+          });
+        }
+        function applyMode() {
+          if (window.innerWidth >= 992) {
+            bindDesktopHover();
+          } else {
+            unbindDesktopHover();
+          }
+        }
+        applyMode();
+        window.addEventListener("resize", function () {
+          unbindDesktopHover();
+          applyMode();
+        });
+      })();
+    </script>
+
+    <!-- 다국어(i18n) 스크립트 -->
+    <script>
+      (function () {
+        const i18n = {
+          ko: {
+            "site.title": "아진산업",
+            "nav.menu": "메뉴",
+            "nav.home": "홈",
+            "nav.company": "기업정보",
+            "nav.company.overview": "회사 개요",
+            "nav.company.ceo": "CEO 메세지",
+            "nav.company.history": "연혁",
+            "nav.company.vision": "비전/가치",
+            "nav.company.org": "조직구성",
+            "nav.company.location": "오시는 길",
+            "nav.business": "사업분야",
+            "nav.business.body": "차체",
+            "nav.business.electronics": "전장",
+            "nav.tech": "기술력",
+            "nav.tech.lab": "연구소 현황",
+            "nav.tech.rnd": "연구개발 분야",
+            "nav.tech.facilities": "연구설비",
+            "nav.tech.records": "연구실적",
+            "nav.results": "주요실적",
+            "nav.results.talent": "인재상",
+            "nav.results.hr": "인사제도",
+            "nav.results.career": "채용정보",
+            "nav.esg": "ESG경영",
+            "nav.esg.ethics": "윤리헌장",
+            "nav.esg.human": "인권헌장",
+            "nav.esg.env": "환경경영정책",
+            "nav.esg.report": "보고서",
+            "nav.pr": "홍보센터",
+            "nav.pr.news": "뉴스",
+            "nav.pr.cert": "인증서 및 수상현황",
+            "nav.pr.culture": "기업문화",
+            "nav.pr.ci": "C.I",
+            "nav.pr.video": "홍보영상",
+            "nav.pms": "생산관리시스템",
+            "nav.pms.dashboard": "대시보드",
+            "nav.contact": "연락처",
+
+            /* HERO */
+            "brand.name": "아진산업",
+            "brand.suffix": "입니다",
+            "hero1.sub": "자동차 부품 전문 제조업체",
+            "hero1.101": "101년",
+            "hero1.line": "을 생각하는 자동차 부품 전문기업",
+            "cta.contact": "문의하기",
+            "cta.about": "회사소개",
+            "hero2.sub": "신뢰와 품질의 파트너",
+            "hero2.with": "과 함께하세요 ",
+            "hero2.support": "최첨단 기술력으로 고객의 성공을 지원합니다",
+            "cta.services": "사업영역",
+            "cta.projects": "주요실적",
+            "hero3.sub": "최신 소식",
+            "hero3.news": "뉴스",
+            "hero3.desc": "최신 뉴스를 확인해보세요",
+            "cta.news": "뉴스 보기",
+
+            /* ABOUT 1 (CEO) */
+            "about1.title": "CEO 메세지",
+            "about1.lead":
+              "To be the best in the world!<br>안녕하십니까? 아진산업(주)를 방문해 주셔서 감사합니다.<br>젊은 기업! 아진산업(주) 대표이사 서중호입니다.",
+            "about1.p1":
+              "아진산업㈜는 창립이후 현재까지 우수 인력과 세계 제일 수준의 기술력 확보에 매진하고 있으며 이를 바탕으로 고품질 자동차 부품을 생산하며 전 세계적으로 신뢰받는 기업이 되기 위하여 끊임없이 노력하고 있습니다.",
+            "about1.p2":
+              "고객의 가치를 창조하고 기업의 성장과 혁신을 통하여 세계 자동차 산업을 선도해 나가는 기업으로 성장해 나갈 것입니다.",
+            "about1.p3":
+              "기업의 성장과 동시에 개개인의 가치창조에도 최선을 다 하고 있습니다. 우리의 자랑인 新 노사문화를 정착시켜 신바람나는 일터를 만들고 있으며, 우리라는 공동체 의식 배양으로 WIN-WIN할 수 있는 기업문화를 만들어 가고 있습니다.",
+            "about1.p4":
+              "인간과 환경을 중시하고 초일류 글로벌 기업으로 성장하기 위하여 오늘도 불이 꺼지지 않는 모습으로 끊임없이 노력하겠습니다.",
+            "about1.p5":
+              "더불어 기업의 사회적 책임을 성실히 이행하는 책임경영의 실천으로 앞장서는 글로벌 기업으로 거듭나겠습니다.",
+            "about1.p6":
+              "전 세계의 중심으로 성장하는 아진산업㈜가 되는 모습을 함께해 주시기를 바라며 다시 한번 저희에게 관심을 가져 주신 여러분께 감사의 말씀을 드립니다.",
+            "about1.ceo": "대표이사",
+
+            /* ABOUT 2 */
+            "about2.big": "회사소개",
+            "about2.title": "아진산업",
+            "about2.lead":
+              "근면성실, 창의개발, 기술배양<br>창조적인 인재, 창조적인 기술배양, 디지털구조의 업무환경으로<br>‘글로벌 리더그룹’으로 거듭나겠습니다.",
+            "about2.p1":
+              "1976년 4월에 ‘근면성실’, ‘창의개발’, ‘기술배양’의 사훈 아래 창업하여 어려운 난관 속에서도 지속적인 창조적 마인드로 끊임없는 개선과 연구를 통해 기술력을 축적하여 30여년간 지속적으로 성장하는 기업으로 도약하였습니다.",
+            "about2.p2":
+              "자동차 차체를 시작으로 지능형 자동차 전장 제품 생산에 이르기까지 다양한 제품군으로 기술 경쟁력 확보에 매진하고 있습니다. 또한, 우리 기술의 세계화를 목표로 해외 계열사의 현지화를 통한 첨단 기술개발과 글로벌 경영 체제를 구축하였습니다.",
+            "about2.p3":
+              "이에 멈추지 않고 선진 자동차 부품 업체와 제휴를 통한 기술경영을 도입하여 품질경영으로 고객이 감동하는 제품을 공급하는 회사로 다양한 품질인증을 획득하였습니다.",
+            "about2.p4":
+              "오늘날 Global기업으로써 미국, 중국, 한국에 첨단 기술의 생산 라인을 구축하여 이를 디지털 구조의 업무환경으로 일원화하여 소량 다품종의 부품들을 신속하고 경쟁력있는 가격으로 제공하는 라인을 갖추고 있습니다.",
+            "about2.p5":
+              "이런 경쟁력 있는 환경 구축의 중심에 인재를 최우선으로 생각하는 우리 기업 문화가 있습니다. 창조적인 시각, 생각, 실천을 바탕으로 도전과 변화를 즐기는 인재들이 이끌어 가는 <strong>Global Creative Mind Group!</strong>",
+            "about2.p6":
+              "꿈꾸는 내일이 현실이 되는 오늘을 만들어 가겠습니다.<br><strong>Catch Tomorrow!</strong>",
+
+            /* SERVICES */
+            "services.big": "사업영역",
+            "services.title": "주요 제품 및 계열사",
+            "services.desc":
+              "아진산업은 자동차 차체와 전장 부품을 비롯하여 <br>국내·글로벌 계열사를 통해 세계 시장으로 성장하고 있습니다.",
+            "services.body.title": "차체",
+            "services.body.desc":
+              "RAIL ASSY, PNL ASSY 등 자동차 핵심 차체 구조물을 생산하여 글로벌 완성차에 공급합니다",
+            "services.elec.title": "전장",
+            "services.elec.desc":
+              "전기차·수소차 부품, 자동변속기, 공조장치, 전압제어기 등 미래차 전장 제품을 개발·양산합니다",
+            "services.domestic.title": "국내",
+            "services.domestic.desc":
+              "본사와 대우ECC, AJIN CAR IN TECH 등 국내 계열사를 통해 안정적으로 공급합니다",
+            "services.usa.title": "미국",
+            "services.usa.desc":
+              "현지 법인을 통해 완성차 고객에 신속히 공급하며 북미 시장 대응력을 강화합니다",
+            "services.vn.title": "베트남",
+            "services.vn.desc":
+              "동남아 생산 거점을 기반으로 글로벌 공급망을 다변화하고 원가 경쟁력을 확보합니다",
+
+            /* TECH */
+            "tech.big": "기술력",
+            "tech.title": "보유 기술 및 장비",
+            "tech.desc":
+              "아진산업은 최첨단 장비와 풍부한 기술력을 바탕으로 고품질 제품을 생산합니다",
+            "tech.s1": "설비 관리 시스템",
+            "tech.s2": "생산 관리 시스템",
+            "tech.s3": "안전 관리 시스템",
+            "tech.s4": "품질 관리 시스템",
+
+            /* PROJECTS */
+            "projects.big": "주요실적",
+            "projects.title": "아진산업의 주요 프로젝트",
+            "projects.desc":
+              "다양한 산업 분야에서 축적된 풍부한 경험과 실적을 보유하고 있습니다",
+            "proj.card1.title": "자동차 부품 제조",
+            "proj.card1.sub": "부품 운반",
+            "proj.card2.title": "프레스 가동",
+            "proj.card2.sub": "금형 설계 및 제작",
+            "proj.card3.title": "공장 착공",
+            "proj.card3.sub": "경상북도 경산시 하양",
+            "proj.card4.title": "공장 기계화",
+            "proj.card4.sub": "정밀 용접",
+            "proj.card5.title": "3D 구현",
+            "proj.card5.sub": "대형 부품 설계",
+            "proj.card6.title": "안전관리",
+            "proj.card6.sub": "객체 탐지",
+
+            /* NEWS */
+            "news.big": "뉴스",
+            "news.title": "회사 소식 및 공지사항",
+            "news.desc":
+              "아진산업의 최신 소식과 중요한 공지사항을 확인하실 수 있습니다",
+            "news.item1.date": "2024년 7월 18일",
+            "news.item1.brand": "아진산업",
+            "news.item1.title": "아진산업(주) 준조지아 착공식",
+            "news.item1.snip":
+              "아진산업(주) 준조지아 착공식에서 서중호회장님이 인사말씀을 올리고 있다...",
+            "news.item2.date": "2025년 1월 15일",
+            "news.item2.brand": "아진산업",
+            "news.item2.title": '"사람에 대한 투자가 곧 회사 경쟁력"',
+            "news.item2.snip":
+              "역동적이고 끊임없이 발전하는 아진산업의 중심에는 서중호 대표가 있다...",
+            "news.item3.date": "2025년 3월 6일",
+            "news.item3.brand": "아진산업",
+            "news.item3.title": "경북대, 아진산업과 AI·빅데이터 인재양성",
+            "news.item3.snip":
+              "경북대학교(총장 허영우)가 아진산업(대표 서중호)과 손잡고 인공지능(AI)·빅데이터분야 인재양성에 나선다...",
+            "news.more": "뉴스 더보기",
+
+            /* COUNTER & CTA */
+            "counter.years": "년",
+            "counter.projects": "완료 프로젝트",
+            "counter.parts": "차량부품",
+            "counter.quality": "품질 만족도(%)",
+            "cta.join.prefix": "아진산업과",
+            "cta.join.highlight": "함께하세요",
+
+            /* CONTACT */
+            "contact.big": "연락처",
+            "contact.title": "아진산업에 문의하세요",
+            "contact.desc":
+              "정밀기계부품 제조에 대한 문의사항이 있으시면 언제든지 연락주시기 바랍니다",
+            "contact.addr.title": "주소",
+            "contact.addr.value":
+              "경북경산시 진량읍 신제리 531번지(공단 8로 26길 40)",
+            "contact.tel.title": "전화번호",
+            "contact.tel.value": "053-856-9100",
+            "contact.email.title": "이메일",
+            "contact.email.value": "info@ajinind.co.kr",
+            "contact.site.title": "홈페이지",
+            "contact.site.value": "www.ajinind.co.kr",
+            "contact.map.btn": "지도 크게 보기",
+
+            /* FORM (placeholders & values) */
+            "form.name": "성함",
+            "form.email": "이메일",
+            "form.subject": "제목",
+            "form.message": "문의내용",
+            "form.submit": "문의하기",
+
+            /* FOOTER */
+            "footer.brand": "아진산업",
+            "footer.about":
+              "1978년 설립된 이래 정밀기계부품 제조 분야에서 고객의 신뢰를 받는 전문 제조업체입니다. 최첨단 기술력과 품질관리 시스템으로 고품질 제품을 공급하고 있습니다.",
+            "footer.sitemap": "사이트맵",
+            "footer.biz": "주요사업",
+            "footer.biz1": "자동차 부품",
+            "footer.biz2": "기계 부품",
+            "footer.biz3": "품질 관리",
+            "footer.qna": "문의사항이 있으신가요?",
+            "footer.copy":
+              "경북경산시 진량읍 신제리 531번지(공단 8로 26길 40) TEL.053-856-9100 · Fax 053-856-9111<br>Copyright © AJIN INDUSTRIAL CO.LTD ALL Rights Reserved.",
+            "footer.family": "Family Site",
+          },
+
+          /* ================= ENGLISH ================= */
+          en: {
+            "site.title": "AJIN INDUSTRY",
+            "nav.menu": "Menu",
+            "nav.home": "Home",
+            "nav.company": "Company",
+            "nav.company.overview": "Overview",
+            "nav.company.ceo": "CEO Message",
+            "nav.company.history": "History",
+            "nav.company.vision": "Vision & Values",
+            "nav.company.org": "Organization",
+            "nav.company.location": "Location",
+            "nav.business": "Business",
+            "nav.business.body": "Body",
+            "nav.business.electronics": "Electronics",
+            "nav.tech": "Technology",
+            "nav.tech.lab": "R&D Status",
+            "nav.tech.rnd": "R&D Fields",
+            "nav.tech.facilities": "Facilities",
+            "nav.tech.records": "R&D Records",
+            "nav.results": "People & Careers",
+            "nav.results.talent": "Talent",
+            "nav.results.hr": "HR System",
+            "nav.results.career": "Careers",
+            "nav.esg": "ESG",
+            "nav.esg.ethics": "Code of Ethics",
+            "nav.esg.human": "Human Rights",
+            "nav.esg.env": "Environmental Policy",
+            "nav.esg.report": "Reports",
+            "nav.pr": "PR Center",
+            "nav.pr.news": "News",
+            "nav.pr.cert": "Certifications & Awards",
+            "nav.pr.culture": "Culture",
+            "nav.pr.ci": "C.I",
+            "nav.pr.video": "Videos",
+            "nav.pms": "Production System",
+            "nav.pms.dashboard": "Dashboard",
+            "nav.contact": "Contact",
+
+            "brand.name": "AJIN INDUSTRY",
+            "brand.suffix": "",
+            "hero1.sub": "Specialized Automotive Parts Manufacturer",
+            "hero1.101": "101 Years",
+            "hero1.line": "of commitment to quality",
+            "cta.contact": "Contact",
+            "cta.about": "About Us",
+            "hero2.sub": "Your trusted partner",
+            "hero2.with": "with AJIN ",
+            "hero2.support":
+              "We empower your success with cutting-edge technology",
+            "cta.services": "Business",
+            "cta.projects": "Highlights",
+            "hero3.sub": "Latest",
+            "hero3.news": "News",
+            "hero3.desc": "Check out our latest updates",
+            "cta.news": "View News",
+
+            "about1.title": "CEO Message",
+            "about1.lead":
+              "To be the best in the world!<br>Welcome to AJIN INDUSTRIAL Co., Ltd.<br>We are a young and dynamic company led by CEO Seo Joong-ho.",
+            "about1.p1":
+              "Since our foundation, we have focused on cultivating top talent and world-class technology to produce high-quality automotive parts and become a trusted company worldwide.",
+            "about1.p2":
+              "We will continue to lead the global automotive industry through innovation and customer value creation.",
+            "about1.p3":
+              "Alongside corporate growth, we strive for individual value creation. With our new labor-management culture, we foster a vibrant workplace and a WIN-WIN corporate culture.",
+            "about1.p4":
+              "We value people and the environment, making tireless efforts to grow into a top-tier global company.",
+            "about1.p5":
+              "We will fulfill our corporate social responsibility and become a leading global enterprise through responsible management.",
+            "about1.p6":
+              "We ask for your continued interest and support as AJIN INDUSTRIAL grows to stand at the center of the world.",
+            "about1.ceo": "CEO",
+
+            "about2.big": "About",
+            "about2.title": "AJIN INDUSTRY",
+            "about2.lead":
+              "Diligence, Creativity, and Technology<br>With creative talent and a digital work environment,<br>we strive to be a ‘Global Leader Group’.",
+            "about2.p1":
+              "Founded in April 1976 under the mottos of diligence, creativity, and technological cultivation, we have grown through continuous improvement and research despite many challenges.",
+            "about2.p2":
+              "From vehicle body parts to intelligent automotive electronics, we are strengthening our technological competitiveness across diverse product lines and global operations.",
+            "about2.p3":
+              "By adopting technology management through partnerships with leading automotive suppliers, we deliver products that impress customers and have acquired various quality certifications.",
+            "about2.p4":
+              "With advanced production lines in the U.S., China, and Korea, we provide flexible, competitive manufacturing for small-lot, multi-variety parts.",
+            "about2.p5":
+              "At the center of our competitiveness is a people-first culture. With creative perspectives and action, our talents lead the <strong>Global Creative Mind Group!</strong>",
+            "about2.p6":
+              "We turn tomorrow’s dreams into today’s reality.<br><strong>Catch Tomorrow!</strong>",
+
+            "services.big": "Business",
+            "services.title": "Key Products & Affiliates",
+            "services.desc":
+              "We grow globally through vehicle body and electronics parts and our domestic & global affiliates.",
+            "services.body.title": "Body",
+            "services.body.desc":
+              "We supply core body structures such as RAIL ASSY and PNL ASSY to global OEMs.",
+            "services.elec.title": "Electronics",
+            "services.elec.desc":
+              "We develop and mass-produce EV/FCEV components, automatic transmissions, HVAC, and voltage controllers.",
+            "services.domestic.title": "Korea",
+            "services.domestic.desc":
+              "Stable supply through HQ and domestic affiliates such as DAEWOO ECC, AJIN CAR IN TECH.",
+            "services.usa.title": "USA",
+            "services.usa.desc":
+              "Local subsidiaries provide rapid supply and strengthen North American response.",
+            "services.vn.title": "Vietnam",
+            "services.vn.desc":
+              "Diversifying the global supply chain and securing cost competitiveness with SEA production bases.",
+
+            "tech.big": "Technology",
+            "tech.title": "Capabilities & Equipment",
+            "tech.desc":
+              "We produce high-quality products based on advanced equipment and rich expertise.",
+            "tech.s1": "Equipment Management System",
+            "tech.s2": "Production Management System",
+            "tech.s3": "Safety Management System",
+            "tech.s4": "Quality Management System",
+
+            "projects.big": "Highlights",
+            "projects.title": "Major Projects of AJIN",
+            "projects.desc":
+              "We have extensive experience and achievements across various industries.",
+            "proj.card1.title": "Automotive Parts Manufacturing",
+            "proj.card1.sub": "Parts Handling",
+            "proj.card2.title": "Press Operation",
+            "proj.card2.sub": "Die Design & Build",
+            "proj.card3.title": "Plant Groundbreaking",
+            "proj.card3.sub": "Hayang, Gyeongsan, Gyeongbuk",
+            "proj.card4.title": "Plant Automation",
+            "proj.card4.sub": "Precision Welding",
+            "proj.card5.title": "3D Realization",
+            "proj.card5.sub": "Large Parts Design",
+            "proj.card6.title": "Safety Management",
+            "proj.card6.sub": "Object Detection",
+
+            "news.big": "News",
+            "news.title": "Company News & Notices",
+            "news.desc":
+              "Check AJIN’s latest news and important announcements.",
+            "news.item1.date": "Jul 18, 2024",
+            "news.item1.brand": "AJIN",
+            "news.item1.title": "AJIN Georgia Groundbreaking Ceremony",
+            "news.item1.snip":
+              "Chairman Seo Joong-ho delivers remarks at the groundbreaking ceremony...",
+            "news.item2.date": "Jan 15, 2025",
+            "news.item2.brand": "AJIN",
+            "news.item2.title": "“Investment in People is Our Competitiveness”",
+            "news.item2.snip":
+              "At the center of AJIN’s dynamic growth is CEO Seo Joong-ho...",
+            "news.item3.date": "Mar 6, 2025",
+            "news.item3.brand": "AJIN",
+            "news.item3.title":
+              "Kyungpook National Univ. & AJIN to Foster AI/Big Data Talent",
+            "news.item3.snip":
+              "KNU partners with AJIN to nurture AI and Big Data professionals...",
+            "news.more": "More News",
+
+            "counter.years": "Years",
+            "counter.projects": "Completed Projects",
+            "counter.parts": "Parts",
+            "counter.quality": "Quality Satisfaction (%)",
+            "cta.join.prefix": "Join",
+            "cta.join.highlight": "AJIN INDUSTRY",
+
+            "contact.big": "Contact",
+            "contact.title": "Get in Touch",
+            "contact.desc":
+              "For any inquiries about precision machinery parts, feel free to contact us.",
+            "contact.addr.title": "Address",
+            "contact.addr.value":
+              "531, Sinje-ri, Jinryang-eup, Gyeongsan-si, Gyeongbuk (40, Gongdan 8-ro 26-gil)",
+            "contact.tel.title": "Tel",
+            "contact.tel.value": "053-856-9100",
+            "contact.email.title": "Email",
+            "contact.email.value": "info@ajinind.co.kr",
+            "contact.site.title": "Website",
+            "contact.site.value": "www.ajinind.co.kr",
+            "contact.map.btn": "Open Map",
+
+            "form.name": "Name",
+            "form.email": "Email",
+            "form.subject": "Subject",
+            "form.message": "Message",
+            "form.submit": "Send",
+
+            "footer.brand": "AJIN INDUSTRY",
+            "footer.about":
+              "Since 1978, AJIN has earned customers’ trust in precision machinery parts manufacturing with advanced technology and quality systems.",
+            "footer.sitemap": "Sitemap",
+            "footer.biz": "Key Business",
+            "footer.biz1": "Automotive Parts",
+            "footer.biz2": "Machinery Parts",
+            "footer.biz3": "Quality Control",
+            "footer.qna": "Have a question?",
+            "footer.copy":
+              "531, Sinje-ri, Jinryang-eup, Gyeongsan-si, Gyeongbuk TEL.053-856-9100 · Fax 053-856-9111<br>Copyright © AJIN INDUSTRIAL CO.LTD ALL Rights Reserved.",
+            "footer.family": "Family Site",
+          },
+        };
+
+        /* ===== I18N helpers ===== */
+        function getText(lang, key) {
+          const langTable = i18n[lang] || i18n.ko;
+          return langTable[key] ?? key;
+        }
+
+        function applyI18n(lang) {
+          // data-i18n: innerText/HTML
+          document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            const val = getText(lang, key);
+            // 일부 요소는 HTML 허용(lead 등)<br> 포함
+            el.innerHTML = val;
+          });
+
+          // placeholders
+          document.querySelectorAll("[data-i18n-ph]").forEach((el) => {
+            const key = el.getAttribute("data-i18n-ph");
+            const val = getText(lang, key);
+            el.setAttribute("placeholder", val);
+          });
+
+          // value attribute (e.g., submit button)
+          document.querySelectorAll("[data-i18n-value]").forEach((el) => {
+            const key = el.getAttribute("data-i18n-value");
+            const val = getText(lang, key);
+            el.setAttribute("value", val);
+          });
+
+          // <title data-i18n="site.title">
+          const titleEl = document.querySelector("title[data-i18n]");
+          if (titleEl) {
+            const key = titleEl.getAttribute("data-i18n");
+            titleEl.textContent = getText(lang, key);
+          }
+
+          // 버튼 토글 상태 표시
+          const koOpt = document.querySelector(".opt-ko");
+          const enOpt = document.querySelector(".opt-en");
+          if (koOpt && enOpt) {
+            if (lang === "ko") {
+              koOpt.classList.add("on");
+              enOpt.classList.remove("on");
+            } else {
+              enOpt.classList.add("on");
+              koOpt.classList.remove("on");
+            }
+          }
+        }
+
+        function setLang(lang) {
+          const safe = lang === "en" ? "en" : "ko";
+          localStorage.setItem("lang", safe);
+          applyI18n(safe);
+          document.documentElement.lang = safe === "en" ? "en-US" : "ko-KR";
+        }
+
+        // 초기 언어: 저장값 또는 브라우저 언어
+        setLang("ko");
+
+        // 버튼 이벤트
+        const btn = document.getElementById("langBtn");
+        if (btn) {
+          btn.addEventListener("click", () => {
+            const cur = localStorage.getItem("lang") || initial;
+            setLang(cur === "en" ? "ko" : "en");
+          });
+        }
+
+        // Family Site 이동
+        const fs = document.getElementById("familySite");
+        if (fs) {
+          fs.addEventListener("change", (e) => {
+            const url = e.target.value;
+            if (url && url !== "#" && url !== "------------") {
+              window.open(url, "_blank", "noopener,noreferrer");
+              fs.selectedIndex = 0;
+            }
+          });
+        }
+      })();
+    </script>
+    <!-- // 다국어(i18n) 스크립트 끝 -->
+  </body>
+</html>

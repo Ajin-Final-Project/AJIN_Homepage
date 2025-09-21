@@ -9667,6 +9667,7 @@ textarea.form-control {
   max-width: 60% !important;
 }
 
+
 /* #home-section .slider-item .img {
   background-size: cover !important;   /* 꽉 차게 */
   background-position: center right !important; 
@@ -9724,190 +9725,177 @@ textarea.form-control {
     stroke-dashoffset: -136px; } }
 
 
-/* Hero
-.hero .hero-img-wrap {
-  position: relative;
-  width: 100%;
-  height: clamp(420px, 78vh, 900px);
-  overflow: hidden;
+
+/* 작은 보조 타이틀
+.eyebrow{
+  letter-spacing:.08em;
+  font-weight:700;
+  color:#8a8a8a;
+  text-transform:uppercase;
 }
-.hero .hero-img {
-  position: absolute;
-  inset: 0;
+
+/* 오른쪽 사진 (원본 그대로 사각형) */
+/* .about-photo{
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-.hero .hero-img-wrap > .overlay {
-  position: absolute;
-  inset: 0;
+  max-width: 520px;   /* 필요시 크기 조정 */
+  height: auto;       /* 비율 유지 */
+  object-fit: cover;  /* 비율 유지하며 잘리지 않게 */
+  border-radius: 0;   /* 원형 제거 → 사각형 */
+  background: none;
+  padding: 0;
 } */
 
-/* 슬라이더 이미지 꽉 채우기 */
-.hero-img-wrap {
-  flex: 1 1 auto;       /* 남는 공간 다 채움 */
-  width: 100% !important;
-  margin: 0 !important; /* 좌우 여백 제거 */
-  padding: 0 !important;
+/* 배경이 검정이면 글씨 밝게 */
+/* #about-section{
+  color: #e9ecef;
 }
-
-/* 내부 img 태그도 꽉 채우기 */
-.hero-img-wrap img.hero-img {
-  display: block;
-  width: 100% !important;
-  height: 100vh !important; /* 화면 높이 꽉 채우기 */
-  object-fit: cover;        /* 비율 유지하면서 꽉 채움 */
-  object-position: center 25% ; /* ✅ 아래쪽 기준으로 정렬 */
-  margin: 0 auto;           /* 자동 가운데 정렬 */
-}
-
+#about-section .lead{ color:#f8f9fa; }
+#about-section .text-primary-emphasis{ color:#ffd166 !important; } */ */
     
-/* 언어 토글 버튼 */
-.lang-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  border: 1px solid #fff;
-  border-radius: 999px;
-  padding: 0.4rem 0.8rem;
-  background: transparent; /* ✅ 배경 투명 */
-  color: #e6edf3;
-  cursor: pointer;
 
-  /* ✅ 메뉴바와 동일한 글자 크기/굵기 */
-  font-size: 14px;     /* 메뉴바 nav-link 기준 */
-  font-weight: 500;    /* 메뉴바 글자 두께 */
 
-  /* ✅ 클릭 시 흰색 테두리 제거 */
-  outline: none;
-}
-.lang-toggle:focus,
-.lang-toggle:active {
-  outline: none !important;
-  box-shadow: none !important;  /* 브라우저 기본 포커스 그림자 제거 */
+/* 상단 블록을 살짝 위로 올려서 강조
+.about-hero { margin-top: -10px; }
+@media (max-width: 991.98px){ .about-hero{ margin-top: 0; } } */
+
+/* 작은 보조 타이틀 */
+.eyebrow{
+  letter-spacing:.08em;
+  font-weight:700;
+  color:#888;
+  text-transform:uppercase;
 }
 
-.lang-toggle .sep {
-  opacity: 0.35;
+/* 강조 문단 색상 */
+.text-muted-emph{ color:#9aa0a6; }
+
+/* 회사 정보 리스트 */
+.about-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:.4rem;
 }
-.lang-toggle .on {
-  color: #FFBD39;
+.about-list li{
+  display:flex;
+  gap:12px;
+}
+.about-list li span{
+  min-width:120px;
+  color:#9aa0a6;
+  font-weight:600;
+  display:inline-block;
 }
 
-/* Footer (간단 버전) */
-footer.simple-footer {
-  background: #000;
-  color: #e6edf3;
-  border-top: 1px solid #233041;
-  padding: 40px 0;
+/* 사진 원본 사각형 */
+.about-photo{
+  width:100%;
+  max-width:520px; /* 필요시 조정 */
+  height:auto;
+  display:block;
 }
-footer.simple-footer .container {
-  max-width: 1200px;
+
+/* 하단 두 단 영역 */
+.about-detail h5{ color:#ffcd56; } /* 포인트 색상, 원하면 변경 가능 */
+
+
+
+
+/* <style> */
+/* --- About (회사소개) --- */
+/* .about-hero{
+  position: relative;
+  margin-top: 48px;
 }
-footer.simple-footer .cols {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
+.about-hero .heading-wrap{
+  position: relative;
+  z-index: 2;
 }
-footer.simple-footer .brand img {
-  height: 80px;
-  width: auto;
-  display: block;
+.about-hero .watermark{
+  position:absolute; left:-10px; top:-10px;
+  font-weight:800; font-size:11rem; line-height:1; 
+  color:#fff; opacity:.06; user-select:none; pointer-events:none;
 }
-footer.simple-footer .small {
-  color: #b6c2cf;
-  font-size: 14px;
-  line-height: 1.6;
-  text-align: center;
+@media (max-width: 992px){
+  .about-hero .watermark{ font-size:6rem; left:0; top:-6px; }
 }
-footer.simple-footer .familysite {
-  justify-self: end;
-  max-width: 280px;
+.about-title{
+  font-weight:800; font-size:3rem; color:#fff; margin-bottom:14px;
+}
+.about-lead{
+  font-size:1.05rem; color:#cfcfcf; margin-bottom:28px;
+}
+.about-photo{ max-width:100%; height:auto; border-radius:10px; }
+.about-detail p{ color:#bdbdbd; line-height:1.85; }
+.about-detail{ margin-top:26px; } */
+/* </style> */
+
+
+/* <!-- style.css 아래쪽에 추가 --> */
+<style>
+  /* ===== About(회사소개) Hero 타이포 ===== */
+  #about-section .heading-section .big{
+    /* 워터마크 글자 더 작고 연하게 */
+    font-size: 9rem;          /* 필요하면 8~10rem 사이로 조절 */
+    opacity: .05;             /* 훨씬 연하게 */
+    line-height: 1;
+  }
+  #about-section .heading-section h2.mb-4{
+    /* 메인 제목: 크기↓ 굵기↓ 색상 연하게 */
+    font-size: 2.25rem;       /* ≈ 36px */
+    font-weight: 700;         /* 기존 800~900 느낌에서 한 단계 가볍게 */
+    color: rgba(255,255,255,.92);
+    margin-bottom: .75rem;
+  }
+  #about-section .lead{
+    /* 상단 개요문 더 연하게 */
+    color: rgba(255,255,255,.72);
+    font-weight: 500;
+    line-height: 1.9;
+    margin-bottom: 1.25rem;
+  }
+  #about-section .about-detail p{
+    /* 하단 두단 본문도 살짝 연하게 */
+    color: rgba(255,255,255,.78);
+    line-height: 1.9;
+  }
+
+  /* ===== 사진: 정사각 테두리/그림자 X ===== */
+  #about-section .about-photo{
+    border-radius: 0 !important;   /* 모서리 둥글기 제거 */
+    box-shadow: none !important;   /* 그림자 제거(bootstrap shadow-sm 무시) */
+    width: 100%;
+    height: auto;                  /* 원본 비율 유지 */
+    object-fit: cover;             /* 컨테이너 넘칠 때 자르기(필요 시) */
+  }
+
+  /* 간격 미세 조정(선택) */
+  #about-section .about-hero{
+    row-gap: 1.5rem;
+    margin-top: 1rem;
+  }
+</style>
+
+/* === [이미지 높이/연출 2가지 모드] =================================== */
+/* A) 글자 단과 '딱' 같은 높이로 맞추기 */
+.row.equal-columns { align-items: stretch; }           /* ← row에 이 클래스를 달면 컬럼 높이 같아짐 */
+.equal-columns .img-col { display: flex; }             /* ← 이미지가 컬럼 높이를 채우도록 */
+.equal-columns .img-col img {                          /* ← 글 단 높이에 맞춰 세로로 꽉 채움 */
   width: 100%;
+  height: 100%;
+  object-fit: cover;                                   /* 비율 유지 + 넘치는 부분은 잘림 */
 }
-footer.simple-footer .familysite select {
+
+/* B) 시원하게 '꽉 차게' 보이기 (텍스트 높이와 무관, 고정 높이 연출) */
+.tall-img {                                            /* ← img에 이 클래스를 달면 됨 */
   width: 100%;
-  height: 40px;
-  background: #fff;
-  border: 1px solid #1f2a37;
-  border-radius: 10px;
-  color: #000;
-  padding: 0 12px;
+  height: 420px;                                       /* 필요 시 숫자 조절 */
+  object-fit: cover;                                   /* 비율 유지 + 잘림 허용 */
 }
-
-
-/* CEO 사인 */
-      .ceo-title {
-        display: block;
-        font-size: clamp(28px, 3.5vw, 44px);
-        line-height: 1.15;
-        text-align: left;
-        margin-top: 50px;
-        font-weight: 800;
-      }
-      .ceo-sign-row {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 102px;
-        margin-top: 52px;
-        flex-wrap: nowrap;
-      }
-      .ceo-sign-row.leftish {
-        transform: translateX(-38px);
-      }
-      .ceo-title {
-        font-weight: 100;
-        font-size: clamp(28px, 3vw, 44px);
-        letter-spacing: 0.06em;
-        line-height: 1.1;
-        white-space: nowrap;
-        color: #fff;
-      }
-      .ceo-sign-img {
-        height: clamp(10px, 2.6vw, 150px);
-        width: auto;
-        transform: translateY(20px);
-        user-select: none;
-        pointer-events: none;
-      }
-      .sig-white {
-        filter: invert(1) brightness(1.6);
-      }
-
-
-      /* 지도 카드 */
-      .map-card {
-        position: relative;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
-      }
-      .map-card .map-img {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-      .map-card .map-open {
-        position: absolute;
-        inset: 0;
-        text-indent: -9999px;
-      }
-      @media (max-width: 768px) {
-        footer.simple-footer .cols {
-          grid-template-columns: 1fr;
-          justify-items: center;
-          text-align: center;
-        }
-        footer.simple-footer .familysite {
-          justify-self: center;
-          max-width: 320px;
-        }
-      }
-
+@media (min-width: 992px) {
+  .tall-img { height: 520px; }                         /* 데스크톱에서 더 크게 */
+}
 
 /* =========================
    Contact: 지도 카드 스타일 추가
@@ -9989,7 +9977,7 @@ footer.simple-footer .familysite select {
 /* 폼 높이를 지도와 비슷하게 조정 */
 .contact-section .contact-form {
   height: auto;         /* 기본은 내용물 기준 */
-  min-height: 597px;    /* 지도 높이에 맞추고 싶으면 값 조정 582 597*/
+  min-height: 582px;    /* 지도 높이에 맞추고 싶으면 값 조정 582 597*/
   max-height: 420px;    /* 너무 길어지지 않도록 제한 */
   overflow-y: auto;     /* 내용이 넘치면 스크롤 */
 }
@@ -10044,18 +10032,20 @@ footer.simple-footer .familysite select {
 }
 
 
-/* 서비스 아이콘 크기 조정 */
-.services-1 .icon i {
-  font-size: 80px; /* Ionicons/Font Awesome 아이콘 크기 65 */
+
+
+/* ================================================
+   AJIN 커스터마이징 (index10용)
+   ================================================ */
+
+/* 1) NAVBAR: 스크롤 시 상단 고정 */
+#ftco-navbar {
+  background: #000;           /*배경 유지*/
+  z-index: 3000;
+  position: sticky;           /* 스크롤 고정 */
+  top: 0;
+  box-shadow: 0 2px 14px rgba(0,0,0,.35);
 }
-
-.services-1 .icon img {
-  width: 55px;   /* 이미지 아이콘 크기 */
-  height: auto;
-}
-
-
-
 
 /* 2) HERO 이미지: 왼쪽→오른쪽 그라데이션 */
 .hero .hero-img-wrap {
@@ -10080,8 +10070,8 @@ footer.simple-footer .familysite select {
   inset: 0;
   background: linear-gradient(
   to right,
-  rgba(0,0,0,0.70) 0%,   /* 시작 → 진하게 */
-  rgba(0,0,0,0.70) 35%,  /* 중간 → 아직 어두움 */
+  rgba(0,0,0,0.62) 0%,   /* 시작 → 진하게 */
+  rgba(0,0,0,0.43) 50%,  /* 중간 → 아직 어두움 */
   rgba(0,0,0,0) 80%,   /* 끝쪽 → 거의 사라짐 */
   rgba(0,0,0,0) 100%     /* 끝 → 완전 투명 */
 );
@@ -10145,18 +10135,3 @@ footer.simple-footer .familysite select {
   white-space: nowrap;  /* ✅ 줄바꿈 금지 */
 }
 
-
-/* Hero 영역에서 실제 적용 */
-#home-section { --hero-scale: 1.2; }  /* ← 여기 숫자만 바꾸면 전체가 같이 커짐 */
-
-/* 현재 기준값(개발자도구에서 확인한 px) × 배율 */
-#home-section .slider-item .text .subheading { font-size: calc(14px * var(--hero-scale)) !important; }
-#home-section .slider-item .text h1          { font-size: calc(42px * var(--hero-scale)) !important; }
-#home-section .slider-item .text h2          { font-size: calc(18px * var(--hero-scale)) !important; }
-#home-section .slider-item .text .btn        { font-size: calc(12px * var(--hero-scale)) !important; }
-
-
-.brand-normal {
-  color: #ffffff !important; /* 흰색 강제 적용 *//* 흰색 */
-  font-weight: 700;
-}
