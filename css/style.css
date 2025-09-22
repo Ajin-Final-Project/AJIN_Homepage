@@ -10080,8 +10080,8 @@ footer.simple-footer .familysite select {
   inset: 0;
   background: linear-gradient(
   to right,
-  rgba(0,0,0,0.70) 0%,   /* 시작 → 진하게 */
-  rgba(0,0,0,0.70) 35%,  /* 중간 → 아직 어두움 */
+  rgba(0,0,0,0.55) 0%,   /* 시작 → 진하게 */
+  rgba(0,0,0,0.55) 30%,  /* 중간 → 아직 어두움 */
   rgba(0,0,0,0) 80%,   /* 끝쪽 → 거의 사라짐 */
   rgba(0,0,0,0) 100%     /* 끝 → 완전 투명 */
 );
@@ -10147,10 +10147,10 @@ footer.simple-footer .familysite select {
 
 
 /* Hero 영역에서 실제 적용 */
-#home-section { --hero-scale: 1.2; }  /* ← 여기 숫자만 바꾸면 전체가 같이 커짐 */
+#home-section { --hero-scale: 1.1; }  /* ← 여기 숫자만 바꾸면 전체가 같이 커짐 */
 
 /* 현재 기준값(개발자도구에서 확인한 px) × 배율 */
-#home-section .slider-item .text .subheading { font-size: calc(14px * var(--hero-scale)) !important; }
+#home-section .slider-item .text .subheading { font-size: calc(16px * var(--hero-scale)) !important; }
 #home-section .slider-item .text h1          { font-size: calc(42px * var(--hero-scale)) !important; }
 #home-section .slider-item .text h2          { font-size: calc(18px * var(--hero-scale)) !important; }
 #home-section .slider-item .text .btn        { font-size: calc(12px * var(--hero-scale)) !important; }
